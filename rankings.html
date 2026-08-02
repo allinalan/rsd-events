@@ -1,0 +1,2264 @@
+<title>Shift Picking Order — Fall 2026 picking — LIVE data preview</title>
+<style>
+:root{
+  --ground:#FBFAF7; --raised:#FFFFFF; --sunk:#F2EFE9;
+  --ink:#1A1B20; --ink-2:#4A4842; --ink-3:#7C786F;
+  --line:#E2DED4; --line-2:#CFC9BC;
+  --amber:#C4741B; --amber-soft:#F6E7D2;
+  --good:#2F6B4C; --good-soft:#E2EFE7;
+  --bad:#A93E27; --bad-soft:#F7E3DD;
+  --display:ui-serif,Georgia,"Iowan Old Style","Times New Roman",serif;
+  --body:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --data:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ground:#131418; --raised:#1B1D23; --sunk:#0E0F13;
+    --ink:#F0EDE6; --ink-2:#B5B0A6; --ink-3:#807B72;
+    --line:#2A2C34; --line-2:#3A3D47;
+    --amber:#E5A24E; --amber-soft:#33261492;
+    --good:#6FBF91; --good-soft:#16281E;
+    --bad:#E58B70; --bad-soft:#2B1712;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#131418; --raised:#1B1D23; --sunk:#0E0F13;
+  --ink:#F0EDE6; --ink-2:#B5B0A6; --ink-3:#807B72;
+  --line:#2A2C34; --line-2:#3A3D47;
+  --amber:#E5A24E; --amber-soft:#33261492;
+  --good:#6FBF91; --good-soft:#16281E;
+  --bad:#E58B70; --bad-soft:#2B1712;
+}
+:root[data-theme="light"]{
+  --ground:#FBFAF7; --raised:#FFFFFF; --sunk:#F2EFE9;
+  --ink:#1A1B20; --ink-2:#4A4842; --ink-3:#7C786F;
+  --line:#E2DED4; --line-2:#CFC9BC;
+  --amber:#C4741B; --amber-soft:#F6E7D2;
+  --good:#2F6B4C; --good-soft:#E2EFE7;
+  --bad:#A93E27; --bad-soft:#F7E3DD;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(1.5rem,4vw,3.5rem) clamp(1rem,4vw,2rem) 5rem;display:flex;flex-direction:column;gap:2.75rem}
+
+/* ---- masthead ---- */
+.mast{display:flex;flex-direction:column;gap:.75rem;padding-bottom:1.75rem;border-bottom:2px solid var(--ink)}
+.mast__eyebrow{font-family:var(--data);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.mast h1{font-family:var(--display);font-size:clamp(2rem,5.5vw,3.25rem);line-height:1.05;margin:0;font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.mast__sub{font-size:1rem;color:var(--ink-2);max-width:60ch;margin:0}
+.mast__meta{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;font-family:var(--data);font-size:.72rem;color:var(--ink-3);margin-top:.35rem}
+.mast__meta span{white-space:nowrap}
+.rule{font-family:var(--data);font-size:.78rem;color:var(--ink-2);background:var(--sunk);border-left:3px solid var(--amber);padding:.7rem .9rem;border-radius:0 4px 4px 0}
+
+/* ---- picking-order strip ---- */
+.strip{display:flex;flex-direction:column;gap:1rem}
+.strip__title,.tier__head h2,.panel h2{font-family:var(--display);font-weight:600;letter-spacing:-.01em;margin:0}
+.strip__title{font-size:1.5rem}
+.strip__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.5rem}
+.strip__item{display:flex;align-items:center;gap:.7rem;background:var(--raised);border:1px solid var(--line);border-left-width:3px;border-radius:3px;padding:.55rem .75rem}
+.strip__item--coordinator{border-left-color:var(--ink)}
+.strip__item--elite{border-left-color:var(--amber)}
+.strip__item--varsity{border-left-color:var(--line-2)}
+.strip__item--jv{border-left-color:var(--line)}
+.strip__no{font-family:var(--data);font-size:.78rem;color:var(--ink-3);min-width:1.6ch;text-align:right;font-variant-numeric:tabular-nums}
+.strip__name{flex:1;font-size:.9rem;font-weight:500}
+.strip__pts{font-family:var(--data);font-size:.76rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* ---- tiers ---- */
+.tier{display:flex;flex-direction:column;gap:1.1rem}
+.tier__head{display:flex;flex-direction:column;gap:.25rem;border-bottom:1px solid var(--line);padding-bottom:.6rem}
+.tier__head h2{font-size:1.85rem}
+.tier__head p{margin:0;font-family:var(--data);font-size:.72rem;color:var(--ink-3);letter-spacing:.02em}
+.tier__reps{display:flex;flex-direction:column;gap:.7rem}
+
+.rep{background:var(--raised);border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.rep--debt{border-color:color-mix(in srgb,var(--bad) 40%,var(--line))}
+.rep__head{display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+.rep__pick{flex:0 0 auto}
+.rep__pickno{display:grid;place-items:center;width:2.1rem;height:2.1rem;border-radius:50%;background:var(--sunk);border:1px solid var(--line-2);font-family:var(--data);font-size:.9rem;font-weight:600;font-variant-numeric:tabular-nums}
+.rep__id{flex:1;min-width:0;display:flex;flex-direction:column;gap:.3rem}
+.rep__id h3{margin:0;font-size:1.08rem;font-weight:600;letter-spacing:-.01em}
+.rep__chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.chip{font-family:var(--data);font-size:.66rem;letter-spacing:.03em;padding:.15rem .45rem;border-radius:3px;white-space:nowrap}
+.chip--debt{background:var(--bad-soft);color:var(--bad)}
+.chip--clear{background:var(--good-soft);color:var(--good)}
+.chip--tie{background:var(--amber-soft);color:var(--amber)}
+.rep__score{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;line-height:1}
+.rep__pts{font-family:var(--data);font-size:1.6rem;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.rep__ptslabel{font-family:var(--data);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:.25rem}
+
+.rep__cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.cat{padding:.8rem 1rem .9rem;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:.3rem}
+.cat:last-child{border-right:none}
+.cat--nodata{background:var(--bad-soft)}
+.cat__label{font-family:var(--data);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.cat__value{font-family:var(--data);font-size:1.02rem;font-variant-numeric:tabular-nums;color:var(--ink)}
+.cat--nodata .cat__value{color:var(--bad)}
+.cat__math{font-family:var(--data);font-size:.72rem;color:var(--ink-3);display:flex;align-items:baseline;gap:.28rem;font-variant-numeric:tabular-nums}
+.cat__rank{color:var(--ink-2);font-weight:600}
+.cat__points{color:var(--amber);font-weight:600}
+.cat__bar{height:3px;background:var(--sunk);border-radius:2px;overflow:hidden;margin-top:.15rem}
+.cat__bar span{display:block;height:100%;background:var(--amber);opacity:.75}
+
+/* ---- panels ---- */
+.panel{background:var(--raised);border:1px solid var(--line);border-radius:5px;padding:1.25rem 1.35rem 1.4rem;display:flex;flex-direction:column;gap:.9rem}
+.panel h2{font-size:1.5rem}
+.panel__note{margin:0;font-size:.9rem;color:var(--ink-2);max-width:65ch}
+.panel--clear{border-color:color-mix(in srgb,var(--good) 35%,var(--line))}
+.panel--clear p{margin:0;color:var(--ink-2);font-size:.9rem}
+.panel--warn{border-color:color-mix(in srgb,var(--amber) 35%,var(--line))}
+
+.debt__rows{display:flex;flex-direction:column;gap:.4rem}
+.debt{border:1px solid var(--line);border-radius:4px;background:var(--sunk)}
+.debt summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.75rem;padding:.6rem .8rem;font-size:.9rem}
+.debt summary::-webkit-details-marker{display:none}
+.debt summary::before{content:"▸";font-family:var(--data);color:var(--ink-3);font-size:.7rem;transition:transform .15s ease}
+.debt[open] summary::before{transform:rotate(90deg)}
+.debt summary:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.debt__name{flex:1;font-weight:500}
+.debt__count{font-family:var(--data);font-size:.72rem;color:var(--bad);background:var(--bad-soft);padding:.15rem .45rem;border-radius:3px;white-space:nowrap}
+.debt__impact{font-family:var(--data);font-size:.72rem;display:flex;align-items:baseline;gap:.35rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.debt__now{color:var(--bad);font-weight:600}
+.debt__arrow{color:var(--ink-3);font-size:.65rem}
+.debt__would{color:var(--ink-3);text-decoration:line-through}
+.debt__list{list-style:none;margin:0;padding:0 .8rem .7rem 2rem;display:flex;flex-direction:column;gap:.25rem}
+.debt__list li{display:flex;gap:.75rem;align-items:baseline;font-size:.82rem;padding:.25rem 0;border-top:1px solid var(--line)}
+.debt__date{font-family:var(--data);font-size:.74rem;color:var(--ink-3);flex:0 0 auto;font-variant-numeric:tabular-nums}
+.debt__event{flex:1;color:var(--ink-2)}
+.debt__zero{font-family:var(--data);font-size:.74rem;color:var(--bad);font-weight:600}
+
+.type{font-family:var(--data);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;padding:.12rem .4rem;border-radius:3px;white-space:nowrap;flex:0 0 auto}
+.type--key{background:var(--amber-soft);color:var(--amber)}
+.type--traditional{background:var(--sunk);color:var(--ink-2);border:1px solid var(--line-2)}
+.type--unknown{background:var(--bad-soft);color:var(--bad)}
+.split{display:flex;flex-wrap:wrap;gap:.4rem .9rem;padding:.55rem .8rem .7rem 2rem;border-top:1px solid var(--line)}
+.split__cell{font-family:var(--data);font-size:.72rem;color:var(--ink-2);display:inline-flex;align-items:baseline;gap:.4rem;font-variant-numeric:tabular-nums}
+.split__cell--warn{color:var(--bad)}
+
+.warn__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem}
+.warn__list li{font-size:.85rem;color:var(--ink-2);display:flex;gap:.6rem;align-items:baseline;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+.warn__list li:last-child{border-bottom:none;padding-bottom:0}
+.warn__tag{font-family:var(--data);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);background:var(--amber-soft);padding:.15rem .4rem;border-radius:3px;flex:0 0 auto;white-space:nowrap}
+
+.notice{background:var(--bad-soft);border:1px solid color-mix(in srgb,var(--bad) 35%,var(--line));border-radius:5px;padding:.9rem 1.1rem;display:flex;flex-direction:column;gap:.4rem}
+.notice__tag{font-family:var(--data);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bad);font-weight:600}
+.notice p{margin:0;font-size:.88rem;color:var(--ink-2);max-width:70ch}
+.notice strong{color:var(--ink)}
+
+.foot{font-family:var(--data);font-size:.72rem;color:var(--ink-3);border-top:1px solid var(--line);padding-top:1.1rem;display:flex;flex-direction:column;gap:.3rem}
+
+@media (max-width:640px){
+  .rep__head{flex-wrap:wrap}
+  .cat{border-right:none;border-bottom:1px solid var(--line)}
+  .cat:last-child{border-bottom:none}
+  .debt summary{flex-wrap:wrap}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="mast__eyebrow">Rising Sun Division · Events Team</div>
+    <h1>Shift Picking Order</h1>
+    <p class="mast__sub">Fall 2026 picking — LIVE data preview. Elite picks first, then Varsity, then JV — each tier in ranked order.</p>
+    <div class="mast__meta">
+      <span>Window 2025-08-05 → 2026-08-05</span>
+      <span>Generated 2026-08-02</span>
+      <span>1689 events / 2345 scheduled shifts</span><span>4759 stat submissions</span><span>live feed (3 schedule books) pulled 2026-08-02T02:22:16.095Z</span>
+    </div>
+  </header>
+
+  <div class="rule">Golf scoring — each category ranks you 1st to last, that rank is multiplied by the category weight, and the three are added. <strong>Lowest total picks first.</strong></div>
+  <div class="notice"><span class="notice__tag">Read this first</span><p>Key vs Traditional is read <strong>directly from the schedule's font colors</strong>: teal and purple are Key, black is Traditional, red means the shift wasn't worked. <strong>Blue means the event wasn't booked yet</strong> — those count only if the rep submitted stats (type taken from their own submission); otherwise they're excluded, not charged. Events marked <strong>prospective</strong> are excluded too. A miss tagged <strong>unverified</strong> means nobody submitted for that event at all. Campaign sales and 12-month figures still show spring values pending the picking window and the Wes Frank report.</p></div>
+
+  
+    <section class="strip">
+      <h2 class="strip__title">Picking order</h2>
+      <ol class="strip__list">
+        
+          <li class="strip__item strip__item--elite">
+            <span class="strip__no">1</span>
+            <span class="strip__name">Jason Jeffrey</span>
+            <span class="strip__pts">1.20</span>
+          </li>
+          <li class="strip__item strip__item--elite">
+            <span class="strip__no">2</span>
+            <span class="strip__name">Alec Luyendyk</span>
+            <span class="strip__pts">2.80</span>
+          </li>
+          <li class="strip__item strip__item--elite">
+            <span class="strip__no">3</span>
+            <span class="strip__name">Jeremy Katen</span>
+            <span class="strip__pts">3.00</span>
+          </li>
+          <li class="strip__item strip__item--elite">
+            <span class="strip__no">4</span>
+            <span class="strip__name">Adam Conroy</span>
+            <span class="strip__pts">3.40</span>
+          </li>
+          <li class="strip__item strip__item--elite">
+            <span class="strip__no">5</span>
+            <span class="strip__name">Eli Camacho</span>
+            <span class="strip__pts">4.60</span>
+          </li>
+          <li class="strip__item strip__item--varsity">
+            <span class="strip__no">6</span>
+            <span class="strip__name">Johnathan Parker</span>
+            <span class="strip__pts">1.00</span>
+          </li>
+          <li class="strip__item strip__item--varsity">
+            <span class="strip__no">7</span>
+            <span class="strip__name">Roman Earhart</span>
+            <span class="strip__pts">3.20</span>
+          </li>
+          <li class="strip__item strip__item--varsity">
+            <span class="strip__no">8</span>
+            <span class="strip__name">Jerry Ramirez</span>
+            <span class="strip__pts">3.40</span>
+          </li>
+          <li class="strip__item strip__item--varsity">
+            <span class="strip__no">9</span>
+            <span class="strip__name">Zach Duran</span>
+            <span class="strip__pts">4.00</span>
+          </li>
+          <li class="strip__item strip__item--varsity">
+            <span class="strip__no">10</span>
+            <span class="strip__name">Cameron Couts</span>
+            <span class="strip__pts">4.20</span>
+          </li>
+          <li class="strip__item strip__item--varsity">
+            <span class="strip__no">11</span>
+            <span class="strip__name">Charity Campbell</span>
+            <span class="strip__pts">5.20</span>
+          </li>
+          <li class="strip__item strip__item--jv">
+            <span class="strip__no">12</span>
+            <span class="strip__name">Sean Potter</span>
+            <span class="strip__pts">2.20</span>
+          </li>
+          <li class="strip__item strip__item--jv">
+            <span class="strip__no">13</span>
+            <span class="strip__name">Adam Jeffrey</span>
+            <span class="strip__pts">2.20</span>
+          </li>
+          <li class="strip__item strip__item--jv">
+            <span class="strip__no">14</span>
+            <span class="strip__name">Matthew Aragon</span>
+            <span class="strip__pts">2.40</span>
+          </li>
+          <li class="strip__item strip__item--jv">
+            <span class="strip__no">15</span>
+            <span class="strip__name">Kendall Gooch</span>
+            <span class="strip__pts">3.80</span>
+          </li>
+          <li class="strip__item strip__item--jv">
+            <span class="strip__no">16</span>
+            <span class="strip__name">Craig Coker</span>
+            <span class="strip__pts">4.40</span>
+          </li>
+          <li class="strip__item strip__item--jv">
+            <span class="strip__no">17</span>
+            <span class="strip__name">Rob Lord</span>
+            <span class="strip__pts">6.00</span>
+          </li>
+          <li class="strip__item strip__item--jv">
+            <span class="strip__no">18</span>
+            <span class="strip__name">Sarah Krick</span>
+            <span class="strip__pts">6.00</span>
+          </li>
+      </ol>
+    </section>
+
+  
+    <section class="tier" id="tier-elite">
+      <div class="tier__head">
+        <h2>Elite</h2>
+        <p>12-month sales 20% · shift average 40% · campaign sales 40%</p>
+      </div>
+      <div class="tier__reps">
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">1</span></div>
+        <div class="rep__id">
+          <h3>Jason Jeffrey</h3>
+          <div class="rep__chips"><span class="chip chip--debt">4 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">1.20</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$417,068</div>
+      <div class="cat__math">
+        <span class="cat__rank">#2</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:16.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$4,909</div>
+      <div class="cat__math">
+        <span class="cat__rank">#1</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:16.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$135,057</div>
+      <div class="cat__math">
+        <span class="cat__rank">#1</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:16.7%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">2</span></div>
+        <div class="rep__id">
+          <h3>Alec Luyendyk</h3>
+          <div class="rep__chips"><span class="chip chip--debt">7 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">2.80</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$316,753</div>
+      <div class="cat__math">
+        <span class="cat__rank">#4</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.80</span>
+      </div>
+      <div class="cat__bar"><span style="width:33.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$3,441</div>
+      <div class="cat__math">
+        <span class="cat__rank">#3</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:50.0%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$88,565</div>
+      <div class="cat__math">
+        <span class="cat__rank">#2</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.80</span>
+      </div>
+      <div class="cat__bar"><span style="width:33.3%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">3</span></div>
+        <div class="rep__id">
+          <h3>Jeremy Katen</h3>
+          <div class="rep__chips"><span class="chip chip--debt">5 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">3.00</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$389,415</div>
+      <div class="cat__math">
+        <span class="cat__rank">#3</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.60</span>
+      </div>
+      <div class="cat__bar"><span style="width:25.0%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$3,726</div>
+      <div class="cat__math">
+        <span class="cat__rank">#2</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.80</span>
+      </div>
+      <div class="cat__bar"><span style="width:33.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$26,846</div>
+      <div class="cat__math">
+        <span class="cat__rank">#4</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.60</span>
+      </div>
+      <div class="cat__bar"><span style="width:66.7%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">4</span></div>
+        <div class="rep__id">
+          <h3>Adam Conroy</h3>
+          <div class="rep__chips"><span class="chip chip--debt">7 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">3.40</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$525,168</div>
+      <div class="cat__math">
+        <span class="cat__rank">#1</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:8.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$1,908</div>
+      <div class="cat__math">
+        <span class="cat__rank">#5</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.00</span>
+      </div>
+      <div class="cat__bar"><span style="width:83.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$31,965</div>
+      <div class="cat__math">
+        <span class="cat__rank">#3</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:50.0%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">5</span></div>
+        <div class="rep__id">
+          <h3>Eli Camacho</h3>
+          <div class="rep__chips"><span class="chip chip--debt">9 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">4.60</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$209,931</div>
+      <div class="cat__math">
+        <span class="cat__rank">#5</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.00</span>
+      </div>
+      <div class="cat__bar"><span style="width:41.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$2,807</div>
+      <div class="cat__math">
+        <span class="cat__rank">#4</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.60</span>
+      </div>
+      <div class="cat__bar"><span style="width:66.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$20,456</div>
+      <div class="cat__math">
+        <span class="cat__rank">#5</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.00</span>
+      </div>
+      <div class="cat__bar"><span style="width:83.3%"></span></div>
+    </div></div>
+    </article></div>
+    </section>
+    <section class="tier" id="tier-varsity">
+      <div class="tier__head">
+        <h2>Varsity</h2>
+        <p>12-month sales 20% · shift average 40% · campaign sales 40%</p>
+      </div>
+      <div class="tier__reps">
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">1</span></div>
+        <div class="rep__id">
+          <h3>Johnathan Parker</h3>
+          <div class="rep__chips"><span class="chip chip--debt">21 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">1.00</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$302,896</div>
+      <div class="cat__math">
+        <span class="cat__rank">#1</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:8.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$2,897</div>
+      <div class="cat__math">
+        <span class="cat__rank">#1</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:16.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$64,069</div>
+      <div class="cat__math">
+        <span class="cat__rank">#1</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:16.7%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">2</span></div>
+        <div class="rep__id">
+          <h3>Roman Earhart</h3>
+          <div class="rep__chips"><span class="chip chip--clear">stats current</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">3.20</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$242,740</div>
+      <div class="cat__math">
+        <span class="cat__rank">#2</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:16.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$2,784</div>
+      <div class="cat__math">
+        <span class="cat__rank">#2</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.80</span>
+      </div>
+      <div class="cat__bar"><span style="width:33.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$821</div>
+      <div class="cat__math">
+        <span class="cat__rank">#5</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.00</span>
+      </div>
+      <div class="cat__bar"><span style="width:83.3%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">3</span></div>
+        <div class="rep__id">
+          <h3>Jerry Ramirez</h3>
+          <div class="rep__chips"><span class="chip chip--debt">5 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">3.40</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$131,838</div>
+      <div class="cat__math">
+        <span class="cat__rank">#5</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.00</span>
+      </div>
+      <div class="cat__bar"><span style="width:41.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$2,735</div>
+      <div class="cat__math">
+        <span class="cat__rank">#3</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:50.0%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$21,892</div>
+      <div class="cat__math">
+        <span class="cat__rank">#3</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:50.0%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">4</span></div>
+        <div class="rep__id">
+          <h3>Zach Duran</h3>
+          <div class="rep__chips"><span class="chip chip--debt">13 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">4.00</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$162,000</div>
+      <div class="cat__math">
+        <span class="cat__rank">#4</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.80</span>
+      </div>
+      <div class="cat__bar"><span style="width:33.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$1,451</div>
+      <div class="cat__math">
+        <span class="cat__rank">#6</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:100.0%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$22,021</div>
+      <div class="cat__math">
+        <span class="cat__rank">#2</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.80</span>
+      </div>
+      <div class="cat__bar"><span style="width:33.3%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">5</span></div>
+        <div class="rep__id">
+          <h3>Cameron Couts</h3>
+          <div class="rep__chips"><span class="chip chip--debt">15 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">4.20</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">$165,000</div>
+      <div class="cat__math">
+        <span class="cat__rank">#3</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.60</span>
+      </div>
+      <div class="cat__bar"><span style="width:25.0%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$1,879</div>
+      <div class="cat__math">
+        <span class="cat__rank">#5</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.00</span>
+      </div>
+      <div class="cat__bar"><span style="width:83.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$20,424</div>
+      <div class="cat__math">
+        <span class="cat__rank">#4</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.60</span>
+      </div>
+      <div class="cat__bar"><span style="width:66.7%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">6</span></div>
+        <div class="rep__id">
+          <h3>Charity Campbell</h3>
+          <div class="rep__chips"><span class="chip chip--debt">1 shift unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">5.20</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat cat--nodata">
+      <div class="cat__label">Last 12 Months Sales</div>
+      <div class="cat__value">no data</div>
+      <div class="cat__math">
+        <span class="cat__rank">#6</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:50.0%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Weighted Shift Average</div>
+      <div class="cat__value">$1,884</div>
+      <div class="cat__math">
+        <span class="cat__rank">#4</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.60</span>
+      </div>
+      <div class="cat__bar"><span style="width:66.7%"></span></div>
+    </div>
+    <div class="cat cat--nodata">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">no data</div>
+      <div class="cat__math">
+        <span class="cat__rank">#6</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:100.0%"></span></div>
+    </div></div>
+    </article></div>
+    </section>
+    <section class="tier" id="tier-jv">
+      <div class="tier__head">
+        <h2>JV</h2>
+        <p>Career sales 20% · YTD sales 40% · campaign sales 40%</p>
+      </div>
+      <div class="tier__reps">
+    <article class="rep">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">1</span></div>
+        <div class="rep__id">
+          <h3>Sean Potter</h3>
+          <div class="rep__chips"><span class="chip chip--clear">stats current</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">2.20</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Career Sales</div>
+      <div class="cat__value">$1,509,000</div>
+      <div class="cat__math">
+        <span class="cat__rank">#1</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:8.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">YTD Sales</div>
+      <div class="cat__value">$50,527</div>
+      <div class="cat__math">
+        <span class="cat__rank">#1</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:16.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$7,279</div>
+      <div class="cat__math">
+        <span class="cat__rank">#4</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.60</span>
+      </div>
+      <div class="cat__bar"><span style="width:66.7%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">2</span></div>
+        <div class="rep__id">
+          <h3>Adam Jeffrey</h3>
+          <div class="rep__chips"><span class="chip chip--debt">14 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">2.20</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Career Sales</div>
+      <div class="cat__value">$444,144</div>
+      <div class="cat__math">
+        <span class="cat__rank">#3</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.60</span>
+      </div>
+      <div class="cat__bar"><span style="width:25.0%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">YTD Sales</div>
+      <div class="cat__value">$32,623</div>
+      <div class="cat__math">
+        <span class="cat__rank">#2</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.80</span>
+      </div>
+      <div class="cat__bar"><span style="width:33.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$12,850</div>
+      <div class="cat__math">
+        <span class="cat__rank">#2</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.80</span>
+      </div>
+      <div class="cat__bar"><span style="width:33.3%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">3</span></div>
+        <div class="rep__id">
+          <h3>Matthew Aragon</h3>
+          <div class="rep__chips"><span class="chip chip--debt">10 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">2.40</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Career Sales</div>
+      <div class="cat__value">$129,000</div>
+      <div class="cat__math">
+        <span class="cat__rank">#4</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.80</span>
+      </div>
+      <div class="cat__bar"><span style="width:33.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">YTD Sales</div>
+      <div class="cat__value">$32,504</div>
+      <div class="cat__math">
+        <span class="cat__rank">#3</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:50.0%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$22,972</div>
+      <div class="cat__math">
+        <span class="cat__rank">#1</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:16.7%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">4</span></div>
+        <div class="rep__id">
+          <h3>Kendall Gooch</h3>
+          <div class="rep__chips"><span class="chip chip--debt">2 shifts unreported</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">3.80</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Career Sales</div>
+      <div class="cat__value">$97,683</div>
+      <div class="cat__math">
+        <span class="cat__rank">#5</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.00</span>
+      </div>
+      <div class="cat__bar"><span style="width:41.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">YTD Sales</div>
+      <div class="cat__value">$16,851</div>
+      <div class="cat__math">
+        <span class="cat__rank">#4</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.60</span>
+      </div>
+      <div class="cat__bar"><span style="width:66.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$7,613</div>
+      <div class="cat__math">
+        <span class="cat__rank">#3</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:50.0%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">5</span></div>
+        <div class="rep__id">
+          <h3>Craig Coker</h3>
+          <div class="rep__chips"><span class="chip chip--clear">stats current</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">4.40</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat">
+      <div class="cat__label">Career Sales</div>
+      <div class="cat__value">$974,785</div>
+      <div class="cat__math">
+        <span class="cat__rank">#2</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">0.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:16.7%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">YTD Sales</div>
+      <div class="cat__value">$2,583</div>
+      <div class="cat__math">
+        <span class="cat__rank">#5</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.00</span>
+      </div>
+      <div class="cat__bar"><span style="width:83.3%"></span></div>
+    </div>
+    <div class="cat">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">$2,492</div>
+      <div class="cat__math">
+        <span class="cat__rank">#5</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.00</span>
+      </div>
+      <div class="cat__bar"><span style="width:83.3%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">6</span></div>
+        <div class="rep__id">
+          <h3>Rob Lord</h3>
+          <div class="rep__chips"><span class="chip chip--clear">stats current</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">6.00</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat cat--nodata">
+      <div class="cat__label">Career Sales</div>
+      <div class="cat__value">no data</div>
+      <div class="cat__math">
+        <span class="cat__rank">#6</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:50.0%"></span></div>
+    </div>
+    <div class="cat cat--nodata">
+      <div class="cat__label">YTD Sales</div>
+      <div class="cat__value">no data</div>
+      <div class="cat__math">
+        <span class="cat__rank">#6</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:100.0%"></span></div>
+    </div>
+    <div class="cat cat--nodata">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">no data</div>
+      <div class="cat__math">
+        <span class="cat__rank">#6</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:100.0%"></span></div>
+    </div></div>
+    </article>
+    <article class="rep rep--debt">
+      <header class="rep__head">
+        <div class="rep__pick"><span class="rep__pickno">6</span></div>
+        <div class="rep__id">
+          <h3>Sarah Krick</h3>
+          <div class="rep__chips"><span class="chip chip--debt">5 shifts unreported</span><span class="chip chip--tie">tied · career sales broke it</span></div>
+        </div>
+        <div class="rep__score">
+          <span class="rep__pts">6.00</span>
+          <span class="rep__ptslabel">points</span>
+        </div>
+      </header>
+      <div class="rep__cats">
+    <div class="cat cat--nodata">
+      <div class="cat__label">Career Sales</div>
+      <div class="cat__value">no data</div>
+      <div class="cat__math">
+        <span class="cat__rank">#6</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.20</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">1.20</span>
+      </div>
+      <div class="cat__bar"><span style="width:50.0%"></span></div>
+    </div>
+    <div class="cat cat--nodata">
+      <div class="cat__label">YTD Sales</div>
+      <div class="cat__value">no data</div>
+      <div class="cat__math">
+        <span class="cat__rank">#6</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:100.0%"></span></div>
+    </div>
+    <div class="cat cat--nodata">
+      <div class="cat__label">Campaign Event Sales</div>
+      <div class="cat__value">no data</div>
+      <div class="cat__math">
+        <span class="cat__rank">#6</span>
+        <span class="cat__times">×</span>
+        <span class="cat__weight">0.40</span>
+        <span class="cat__eq">=</span>
+        <span class="cat__points">2.40</span>
+      </div>
+      <div class="cat__bar"><span style="width:100.0%"></span></div>
+    </div></div>
+    </article></div>
+    </section>
+
+  
+    <section class="panel">
+      <h2>Stat debt</h2>
+      <p class="panel__note">Every scheduled shift with no matching stat submission counts as a <strong>$0 shift of its event type</strong>. Formula: (Traditional CPO × 2.4 + Key CPO + 5 × team average) ÷ (shifts + 5) — the credibility blend means a handful of hot shifts can't top this category, and working more shifts is never the thing that sinks you. Open a name to see exactly which shifts are owed and whether each was Key or Traditional.</p>
+      <div class="debt__rows">
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Alan Hernandez</span>
+        <span class="debt__count">28 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$1,994</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$3,856</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-02-05</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lake Havasu City Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-06</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lake Havasu City Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-07</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lake Havasu City Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-08</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lake Havasu City Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-20</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Fountain Hills Festival of Fine Arts &amp; Crafts</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-21</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Fountain Hills Festival of Fine Arts &amp; Crafts</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-22</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Fountain Hills Festival of Fine Arts &amp; Crafts</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-27</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Fountain Hills Festival of Fine Arts &amp; Crafts <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-28</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Fountain Hills Festival of Fine Arts &amp; Crafts <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-01</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Fountain Hills Festival of Fine Arts &amp; Crafts <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-29</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Southern Arizona Home Show
+(Formerly SAHBA)</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-24</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">YCCA Home &amp; Garden Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-25</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">YCCA Home &amp; Garden Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-26</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">YCCA Home &amp; Garden Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-01</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Home &amp; Flower Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-02</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Home &amp; Flower Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-03</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Home &amp; Flower Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-09</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Mother's Day Fine Art Festival</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-10</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Mother's Day Fine Art Festival</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-27</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">NRCHA Kimes Ranch Derby - WK 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-01</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Kimes Ranch Western Derby Wk1 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-06</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Territorial Days</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-07</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Territorial Days</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-08</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Territorial Days <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-20</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Bluegrass Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-21</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Bluegrass Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-17</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Summer Home &amp; Landscape Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-18</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Summer Home &amp; Landscape Show</span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      29 shifts (15 missing) · avg $1,627</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      24 shifts (13 missing) · avg $943</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Johnathan Parker</span>
+        <span class="debt__count">21 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$2,897</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$3,487</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2025-08-21</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Apache County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2025-08-24</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Apache County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2025-09-11</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Mohave County Fair</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2025-09-15</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Mohave County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-02</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Rock &amp; Gem Show <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-04</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Rock &amp; Gem Show <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-17</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Mecum Auto Auction <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-21</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Mecum Auto Auction <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-08</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Mohave County Home &amp; Garden Expo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-09</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Mohave County Home &amp; Garden Expo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-10</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Mohave County Home &amp; Garden Expo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-28</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Kimes Ranch Western Derby Wk1 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-29</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Kimes Ranch Western Derby Wk1 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-30</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Kimes Ranch Western Derby Wk1 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-31</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Kimes Ranch Western Derby Wk1 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-02</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Frontier Days Rodeo (DTX) Week 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-03</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Frontier Days Rodeo (DTX) Week 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-04</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Frontier Days Rodeo (DTX) Week 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-05</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Frontier Days Rodeo (DTX) Week 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-23</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Arizona Cattle Grower's Summer Convention <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-24</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Arizona Cattle Grower's Summer Convention <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      15 shifts · avg $1,823</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      104 shifts (21 missing) · avg $1,273</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Cameron Couts</span>
+        <span class="debt__count">15 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$1,879</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$2,479</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-02-02</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Arts and Craft Fair WK1 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-13</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lake Havasu rockabilly union <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-15</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lake Havasu rockabilly union <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-18</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pinal County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-19</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pinal County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-14</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pima County Fair Wk 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-15</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pima County Fair Wk 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-16</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pima County Fair Wk 2</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-17</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pima County Fair Wk 2</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-19</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pima County Fair Wk 2</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-01</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">UTV Rally at Mormon Lake <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-02</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">UTV Rally at Mormon Lake <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-16</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Willcox Wine Country Spring Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-17</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Willcox Wine Country Spring Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-26</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">NRCHA Kimes Ranch Derby - WK 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      3 shifts · avg $1,688</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      54 shifts (15 missing) · avg $751</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Adam Jeffrey</span>
+        <span class="debt__count">14 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$2,993</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$4,263</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2025-08-28</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Quilt, Craft &amp; Sewing Festival Scottsdale</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2025-08-29</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Quilt, Craft &amp; Sewing Festival Scottsdale <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-14</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Windmill Winery Spring Market Vendor Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-21</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">NHRA Nationals</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-22</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">NHRA Nationals</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-28</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Spring Carefree Fine Art &amp; Wine Festival</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-08</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Oak Creek Arts &amp; Crafts Show - Sedona Vista <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-09</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Oak Creek Arts &amp; Crafts Show - Sedona Vista <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-14</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">AZRHA Mother's Day Slide <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-15</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">AZRHA Mother's Day Slide <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-16</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">AZRHA Mother's Day Slide <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-17</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">AZRHA Mother's Day Slide <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-03</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Taylor Rodeo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-04</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Taylor Rodeo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      8 shifts (5 missing) · avg $1,035</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      34 shifts (9 missing) · avg $1,449</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Zach Duran</span>
+        <span class="debt__count">13 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$1,451</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$1,852</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-02-01</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lake havasu Winter Fest (#5)</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-02</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lake havasu Winter Fest (#5) <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-11</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Scottsdale Arabian Horse Show W2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-14</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">24 Hours In Old Pueblo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-15</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">24 Hours In Old Pueblo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-27</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tucson Rodeo W 2</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-27</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Kimes Ranch Western Derby Wk1 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-18</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Iron Chef Culinary Experience <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-21</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Eddy County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-22</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Eddy County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-23</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Eddy County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-24</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Eddy County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-25</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Eddy County Fair <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      15 shifts · avg $858</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      40 shifts (13 missing) · avg $625</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Matthew Aragon</span>
+        <span class="debt__count">10 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$1,279</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$1,557</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2025-12-30</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Rock &amp; Gem Show WK 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2025-12-31</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Rock &amp; Gem Show WK 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-01</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Rock &amp; Gem Show WK 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-02</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Rock &amp; Gem Show WK 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-03</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Rock &amp; Gem Show WK 2</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-04</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Rock &amp; Gem Show WK 2 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-05</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tyson Wells Rock &amp; Gem Show <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-14</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Scottsdale Arabian Horse Show w1 <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-01</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">UTV Rally at Mormon Lake <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-02</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">UTV Rally at Mormon Lake <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      51 shifts (10 missing) · avg $470</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Eli Camacho</span>
+        <span class="debt__count">9 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$2,807</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$3,529</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-01-30</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tri-State Home, Garden &amp; Lifestyle Show <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-31</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lake havasu Winter Fest (#5)</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-01</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Tri-State Home, Garden &amp; Lifestyle Show <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-17</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pima County Fair Wk 2</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-18</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pima County Fair Wk 2</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-04-19</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Pima County Fair Wk 2</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-01</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Home &amp; Flower Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-02</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Home &amp; Flower Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-03</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Home &amp; Flower Show</span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      21 shifts (3 missing) · avg $2,641</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      18 shifts (6 missing) · avg $1,248</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Adam Conroy</span>
+        <span class="debt__count">7 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$1,908</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$2,544</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-01-31</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Lake havasu Winter Fest (#5)</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-01</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Lake havasu Winter Fest (#5)</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-14</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Las Cruces Home and Garden Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-15</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Las Cruces Home and Garden Show <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-01</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Home &amp; Flower Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-02</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Home &amp; Flower Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-05-03</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Home &amp; Flower Show</span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      18 shifts (5 missing) · avg $1,683</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      5 shifts (2 missing) · avg $749</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Alec Luyendyk</span>
+        <span class="debt__count">7 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$3,441</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$4,149</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-06-06</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Cruz'in The Rim Car Show <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-03</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Charlie Clark's 4th of July Fine Arts &amp; Crafts <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-04</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Charlie Clark's 4th of July Fine Arts &amp; Crafts</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-05</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Charlie Clark's 4th of July Fine Arts &amp; Crafts</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-17</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Summer Home &amp; Landscape Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-18</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Summer Home &amp; Landscape Show</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-19</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">Maricopa County Summer Home &amp; Landscape Show</span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      24 shifts (3 missing) · avg $2,716</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      12 shifts (4 missing) · avg $2,144</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Matt Foss</span>
+        <span class="debt__count">6 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$5,551</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$5,983</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-05-18</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Overland Expo West <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-08</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Territorial Days <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-03</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Flagstaff Art in the Park <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-07-24</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Snowflake Pioneer Days <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-08-01</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Summer Fine Art &amp; Wine Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-08-02</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Summer Fine Art &amp; Wine Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      46 shifts · avg $4,974</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      32 shifts (6 missing) · avg $2,835</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Jeremy Katen</span>
+        <span class="debt__count">5 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$3,726</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$4,502</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-03-21</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">NHRA Nationals</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-22</span>
+          <span class="type type--key">Key</span>
+          <span class="debt__event">NHRA Nationals</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-05</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Flagstaff Rodeo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-06</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Flagstaff Rodeo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-07</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Flagstaff Rodeo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      21 shifts (2 missing) · avg $4,472</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      3 shifts (3 missing) · avg $0</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Jerry Ramirez</span>
+        <span class="debt__count">5 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$2,735</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$3,068</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2025-09-12</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Navajo County Fair</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2025-09-13</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Navajo County Fair</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-19</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Cherry Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-20</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Cherry Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-21</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Cherry Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      5 shifts · avg $1,777</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      36 shifts (5 missing) · avg $1,189</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Sarah Krick</span>
+        <span class="debt__count">5 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$3,128</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$3,602</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2025-09-07</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Northern Gila County Fair</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-08</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Ultimate RV Show - Mesa <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-09</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Ultimate RV Show - Mesa</span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-10</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Ultimate RV Show - Mesa <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-01-11</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Ultimate RV Show - Mesa</span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      33 shifts (5 missing) · avg $1,322</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Jason Jeffrey</span>
+        <span class="debt__count">4 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$4,909</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$5,346</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-02-21</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lakeside Home &amp; Garden Expo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-22</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Lakeside Home &amp; Garden Expo <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-03-15</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Havasu Spring Craft &amp; Vendor Show <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-06-20</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Prescott Bluegrass Festival <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--key">Key</span>
+      35 shifts · avg $4,702</span><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      9 shifts (4 missing) · avg $2,862</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Kendall Gooch</span>
+        <span class="debt__count">2 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$2,569</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$3,083</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-01-10</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Queen Creek Family Market- January <span class="type type--unknown" title="Nobody on the team submitted stats for this event — confirm it actually ran before charging this miss.">unverified</span></span>
+          <span class="debt__zero">$0</span>
+        </li><li>
+          <span class="debt__date">2026-02-21</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Laveen BBQ Festival</span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      7 shifts (2 missing) · avg $993</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Kristin Airoldi</span>
+        <span class="debt__count">1 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$1,844</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$1,975</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-03-27</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Spring Carefree Fine Art &amp; Wine Festival</span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      10 shifts (1 missing) · avg $563</span></div>
+    </details>
+    <details class="debt">
+      <summary>
+        <span class="debt__name">Charity Campbell</span>
+        <span class="debt__count">1 missing</span>
+        <span class="debt__impact">
+          <span class="debt__now">$1,884</span>
+          <span class="debt__arrow">was</span>
+          <span class="debt__would">$1,945</span>
+        </span>
+      </summary>
+      <ul class="debt__list">
+        <li>
+          <span class="debt__date">2026-02-15</span>
+          <span class="type type--traditional">Traditional</span>
+          <span class="debt__event">Scottsdale Arabian Horse Show w1</span>
+          <span class="debt__zero">$0</span>
+        </li>
+      </ul>
+      <div class="split"><span class="split__cell"><span class="type type--traditional">Traditional</span>
+      27 shifts (1 missing) · avg $712</span></div>
+    </details></div>
+    </section>
+  
+    <section class="panel panel--warn">
+      <h2>Data checks</h2>
+      <ul class="warn__list">
+        <li><span class="warn__tag">unknown name</span>270 unrecognized name(s) (mostly from old schedule tabs) — e.g. Exhibit Side, Matt, JP, Harrison Merrit, Cory. Only names appearing in the ranking window matter; add aliases in lib/roster.js for those.</li><li><span class="warn__tag">unresolved date</span>8 event(s) with unusable Start Dates (mostly from old schedule tabs) — e.g. . Only names appearing in the ranking window matter; add aliases in lib/roster.js for those.</li><li><span class="warn__tag">tentative dropped</span>4 shift(s) written in blue (event not booked yet) had no stat submission, so they are excluded rather than charged as misses. Blue shifts that WERE worked count normally, taking Key/Traditional from the rep's own submission.</li><li><span class="warn__tag">unscheduled submissions</span>457 submitted shift(s) had no matching row on the Show Shift Schedule. They are counted, but check for event-name drift between the form and the schedule.</li>
+      </ul>
+    </section>
+
+  <footer class="foot">
+    <span>Generated by the Shift Picking System from the Show Shift Schedule, the Stat Tracker responses, and Vector Connect.</span>
+    <span>Re-run before each events meeting to refresh.</span>
+  </footer>
+</div>

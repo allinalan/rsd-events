@@ -1,0 +1,438 @@
+<meta charset="utf-8">
+<title>Events Meeting Board — RSD</title>
+<style>
+:root{
+  --ground:#FBFAF7;--raised:#FFF;--sunk:#F2EFE9;--ink:#1A1B20;--ink-2:#4A4842;--ink-3:#7C786F;
+  --line:#E2DED4;--line-2:#CFC9BC;--amber:#C4741B;--amber-soft:#F6E7D2;
+  --good:#2F6B4C;--good-soft:#E2EFE7;--bad:#A93E27;--bad-soft:#F7E3DD;
+  --display:ui-serif,Georgia,"Iowan Old Style",serif;
+  --body:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --data:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --ground:#131418;--raised:#1B1D23;--sunk:#0E0F13;--ink:#F0EDE6;--ink-2:#B5B0A6;--ink-3:#807B72;
+  --line:#2A2C34;--line-2:#3A3D47;--amber:#E5A24E;--amber-soft:#33261492;
+  --good:#6FBF91;--good-soft:#16281E;--bad:#E58B70;--bad-soft:#2B1712;}}
+:root[data-theme="dark"]{
+  --ground:#131418;--raised:#1B1D23;--sunk:#0E0F13;--ink:#F0EDE6;--ink-2:#B5B0A6;--ink-3:#807B72;
+  --line:#2A2C34;--line-2:#3A3D47;--amber:#E5A24E;--amber-soft:#33261492;
+  --good:#6FBF91;--good-soft:#16281E;--bad:#E58B70;--bad-soft:#2B1712;}
+:root[data-theme="light"]{
+  --ground:#FBFAF7;--raised:#FFF;--sunk:#F2EFE9;--ink:#1A1B20;--ink-2:#4A4842;--ink-3:#7C786F;
+  --line:#E2DED4;--line-2:#CFC9BC;--amber:#C4741B;--amber-soft:#F6E7D2;
+  --good:#2F6B4C;--good-soft:#E2EFE7;--bad:#A93E27;--bad-soft:#F7E3DD;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:clamp(1.5rem,4vw,3rem) clamp(1rem,4vw,2rem) 6rem;display:flex;flex-direction:column;gap:2.2rem}
+.mast{display:flex;flex-direction:column;gap:.6rem;padding-bottom:1.4rem;border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:var(--data);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+h1{font-family:var(--display);font-size:clamp(1.9rem,5vw,2.8rem);margin:0;font-weight:600;letter-spacing:-.02em}
+.meta{font-family:var(--data);font-size:.72rem;color:var(--ink-3);display:flex;gap:1.2rem;flex-wrap:wrap}
+h2{font-family:var(--display);font-size:1.55rem;font-weight:600;margin:0;letter-spacing:-.01em}
+.step{display:flex;flex-direction:column;gap:1rem}
+.step__head{display:flex;align-items:baseline;gap:.8rem;border-bottom:1px solid var(--line);padding-bottom:.5rem}
+.step__no{font-family:var(--data);font-size:.72rem;letter-spacing:.1em;color:var(--amber);text-transform:uppercase}
+.step__hint{font-size:.85rem;color:var(--ink-3);margin-left:auto}
+.progress{font-family:var(--data);font-size:.78rem;color:var(--ink-2);background:var(--sunk);border-radius:4px;padding:.5rem .8rem}
+.tiergrp{display:flex;flex-direction:column;gap:.6rem;margin-top:.4rem}
+.tiergrp>h3{font-family:var(--data);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0}
+.rep{background:var(--raised);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.rep--confirmed{border-color:color-mix(in srgb,var(--good) 45%,var(--line))}
+.rep__row{display:flex;align-items:center;gap:.8rem;padding:.7rem .95rem;cursor:pointer;flex-wrap:wrap}
+.rep__row:focus-visible{outline:2px solid var(--amber);outline-offset:-2px}
+.rep__name{font-weight:600;font-size:1.02rem;flex:0 1 auto}
+.rep__avgs{font-family:var(--data);font-size:.74rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.badge{font-family:var(--data);font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;padding:.16rem .5rem;border-radius:3px}
+.badge--elite{background:var(--amber-soft);color:var(--amber)}
+.badge--varsity{background:var(--sunk);border:1px solid var(--line-2);color:var(--ink-2)}
+.badge--jv{background:var(--sunk);color:var(--ink-3)}
+.badge--moved{background:var(--bad-soft);color:var(--bad)}
+.rep__spacer{flex:1}
+.confirm{display:inline-flex;align-items:center;gap:.45rem;font-size:.83rem;color:var(--ink-2);white-space:nowrap}
+.confirm input{width:1.15rem;height:1.15rem;accent-color:var(--good)}
+.rep__body{display:none;border-top:1px solid var(--line);padding:.9rem 1rem 1.1rem;background:var(--sunk)}
+.rep--open .rep__body{display:block}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.checks h4{margin:0 0 .4rem;font-family:var(--data);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.auto{list-style:none;margin:0;padding:0;font-size:.83rem;display:flex;flex-direction:column;gap:.3rem}
+.auto li{display:flex;gap:.5rem;align-items:baseline}
+.auto .ok{color:var(--good)}.auto .no{color:var(--bad)}.auto .pend{color:var(--amber)}
+.man{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.35rem}
+.man label{display:flex;gap:.55rem;align-items:flex-start;font-size:.83rem;color:var(--ink-2);cursor:pointer}
+.man input{margin-top:.2rem;accent-color:var(--good)}
+.tiersel{display:flex;gap:.4rem;align-items:center;margin-top:.9rem;flex-wrap:wrap}
+.tiersel span{font-family:var(--data);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.tiersel button{font-family:var(--data);font-size:.72rem;padding:.32rem .7rem;border-radius:4px;border:1px solid var(--line-2);background:var(--raised);color:var(--ink-2);cursor:pointer}
+.tiersel button.on{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.runbar{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.runbtn{font-family:var(--body);font-weight:600;font-size:.95rem;padding:.65rem 1.4rem;border-radius:6px;border:none;background:var(--amber);color:#fff;cursor:pointer}
+.runbtn:disabled{opacity:.45;cursor:not-allowed}
+.runnote{font-size:.83rem;color:var(--ink-3)}
+#order{display:flex;flex-direction:column;gap:1.3rem}
+.otier>h3{font-family:var(--display);font-size:1.25rem;margin:0 0 .5rem;font-weight:600}
+.otbl{width:100%;border-collapse:collapse;background:var(--raised);border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:.86rem}
+.otbl th{font-family:var(--data);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--line)}
+.otbl td{padding:.5rem .7rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.otbl tr:last-child td{border-bottom:none}
+.otbl .num{font-family:var(--data);font-size:.8rem}
+.otbl .pick{font-family:var(--data);font-weight:700;width:2.5rem}
+.pts{font-family:var(--data);font-weight:700;color:var(--amber)}
+.warn{font-size:.8rem;color:var(--bad)}
+.reset{margin-left:auto;font-family:var(--data);font-size:.7rem;background:none;border:1px solid var(--line-2);border-radius:4px;color:var(--ink-3);padding:.3rem .6rem;cursor:pointer}
+.wes{display:flex;flex-direction:column;gap:.7rem}
+.wes textarea{width:100%;background:var(--raised);border:1px solid var(--line-2);border-radius:6px;color:var(--ink);font-family:var(--data);font-size:.78rem;padding:.7rem .8rem;resize:vertical}
+.wes textarea:focus-visible{outline:2px solid var(--amber);outline-offset:1px}
+.wesbar{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.filebtn{font-family:var(--data);font-size:.74rem;border:1px solid var(--line-2);border-radius:5px;padding:.45rem .8rem;cursor:pointer;color:var(--ink-2);background:var(--raised)}
+.runbtn--sm{font-size:.82rem;padding:.45rem .95rem}
+.wtable{width:100%;border-collapse:collapse;background:var(--raised);border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:.82rem}
+.wtable th{font-family:var(--data);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--line)}
+.wtable td{padding:.4rem .6rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.wtable tr:last-child td{border-bottom:none}
+.wtable .num{font-family:var(--data);font-size:.76rem}
+.wtable .picked{background:var(--amber-soft)}
+.colsel{display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center;background:var(--sunk);border-radius:5px;padding:.6rem .8rem;font-size:.82rem}
+.colsel label{display:inline-flex;gap:.4rem;align-items:center;color:var(--ink-2)}
+.colsel select{font-family:var(--data);font-size:.76rem;background:var(--raised);color:var(--ink);border:1px solid var(--line-2);border-radius:4px;padding:.25rem .4rem}
+.badge--wes{background:var(--good-soft);color:var(--good)}
+.unmatched{font-size:.78rem;color:var(--ink-3)}
+.unmatched strong{color:var(--bad)}
+.foot{font-family:var(--data);font-size:.7rem;color:var(--ink-3);border-top:1px solid var(--line);padding-top:1rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="eyebrow">Rising Sun Division · Events Team</div>
+    <h1>Events Meeting Board</h1>
+    <div class="meta"><span>Window 2025-08-05 → 2026-08-05</span><span>Generated 2026-08-02</span><span>Golf tournaments excluded</span></div>
+  </header>
+
+  <section class="step">
+    <div class="step__head">
+      <span class="step__no">Step 1</span><h2>Confirm every rep's tier</h2>
+      <span class="step__hint">Open a card → check the manual items → tick Confirmed</span>
+      <button class="reset" id="export">export results</button>
+      <button class="reset" id="reset">reset all</button>
+    </div>
+    <div class="progress" id="progress"></div>
+    <div id="cards"></div>
+  </section>
+
+  <section class="step">
+    <div class="step__head">
+      <span class="step__no">Step 1.5</span><h2>Load the Wes Frank report</h2>
+      <span class="step__hint">Paste the report or upload the file — names auto-match</span>
+    </div>
+    <div class="wes">
+      <textarea id="wes-text" rows="6" placeholder="Paste the report here — one rep per line, any format with names and dollar figures, e.g.
+Jason Jeffrey    $402,293    $1,850,000
+Luyendyk, Alec   316753      902,000"></textarea>
+      <div class="wesbar">
+        <label class="filebtn">Upload .csv / .txt<input type="file" id="wes-file" accept=".csv,.tsv,.txt,text/plain,text/csv" hidden></label>
+        <button class="runbtn runbtn--sm" id="wes-parse" type="button">Match names</button>
+        <span class="runnote" id="wes-note">Nothing loaded yet — checks below show “needs data” until this is in.</span>
+      </div>
+      <div id="wes-preview"></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step__head"><span class="step__no">Step 2</span><h2>Run the picking order</h2></div>
+    <div class="runbar">
+      <button class="runbtn" id="run" disabled>Run picking order</button>
+      <span class="runnote" id="runnote"></span>
+    </div>
+    <div id="order"></div>
+  </section>
+
+  <footer class="foot">Tier status: Key or Traditional average, previous 12 months, min 10 shifts of the type, drops applied per type, misses count $0.
+  Picking order within each tier: 40% weighted shift average · 40% campaign event sales · 20% 12-month sales (JV: career 20 / YTD 40 / campaign 40) — lowest points pick first, career sales breaks ties.</footer>
+</div>
+
+<script>
+const DATA = {"reps":[{"id":"jason-jeffrey","name":"Jason Jeffrey","aliases":["Jason Jeffrey","Jason","Jason J"],"rosterTier":"ELITE","computedTier":"ELITE","keyAvg":4989.068965517241,"tradAvg":4631.777777777777,"keyShifts":32,"tradShifts":10,"missing":2,"dropsKey":3,"dropsTrad":1,"pickingAvg":5987.456949858852,"last12Sales":417068,"campaignSales":135057,"careerSales":null,"ytdSales":null},{"id":"alec-luyendyk","name":"Alec Luyendyk","aliases":["Alec Luyendyk","Alec"],"rosterTier":"ELITE","computedTier":"ELITE","keyAvg":2469.714285714286,"tradAvg":2357.5555555555557,"keyShifts":31,"tradShifts":9,"missing":11,"dropsKey":3,"dropsTrad":0,"pickingAvg":3162.0583058078723,"last12Sales":316753,"campaignSales":88565,"careerSales":null,"ytdSales":null},{"id":"adam-conroy","name":"Adam Conroy","aliases":["Adam Conroy","Adam C","Conroy"],"rosterTier":"ELITE","computedTier":"VARSITY","keyAvg":1215.5555555555557,"tradAvg":1519.96875,"keyShifts":19,"tradShifts":8,"missing":11,"dropsKey":1,"dropsTrad":0,"pickingAvg":2057.8918981913107,"last12Sales":525168,"campaignSales":31965,"careerSales":null,"ytdSales":null},{"id":"jeremy-katen","name":"Jeremy Katen","aliases":["Jeremy Katen","Jeremy"],"rosterTier":"ELITE","computedTier":"ELITE","keyAvg":4161.409090909091,"tradAvg":0,"keyShifts":24,"tradShifts":3,"missing":8,"dropsKey":2,"dropsTrad":0,"pickingAvg":3476.0749614643546,"last12Sales":389415,"campaignSales":26846,"careerSales":null,"ytdSales":null},{"id":"eli-camacho","name":"Eli Camacho","aliases":["Eli Camacho","Eli"],"rosterTier":"ELITE","computedTier":"ELITE","keyAvg":2437.0555555555557,"tradAvg":2542.3076923076924,"keyShifts":19,"tradShifts":14,"missing":3,"dropsKey":1,"dropsTrad":1,"pickingAvg":3775.5069123314065,"last12Sales":209931,"campaignSales":20456,"careerSales":null,"ytdSales":null},{"id":"johnathan-parker","name":"Johnathan Parker","aliases":["Johnathan Parker","J. Parker","J Parker","JParker","J.Parker","JP","Jonathan Parker","Johnathon Parker"],"rosterTier":"VARSITY","computedTier":"VARSITY","keyAvg":1827.9444444444443,"tradAvg":1308.59375,"keyShifts":20,"tradShifts":106,"missing":28,"dropsKey":2,"dropsTrad":10,"pickingAvg":2917.094528100258,"last12Sales":302896,"campaignSales":64069,"careerSales":null,"ytdSales":null},{"id":"jerry-ramirez","name":"Jerry Ramirez","aliases":["Jerry Ramirez","Jerry","Gerardo Ramirez","Gerardo"],"rosterTier":"VARSITY","computedTier":"JV","keyAvg":1379.6363636363637,"tradAvg":1094.030303030303,"keyShifts":12,"tradShifts":36,"missing":12,"dropsKey":1,"dropsTrad":3,"pickingAvg":2337.8458947740946,"last12Sales":131838,"campaignSales":21892,"careerSales":null,"ytdSales":null},{"id":"cameron-couts","name":"Cameron Couts","aliases":["Cameron Couts","Cameron","Cameron Cous","Cam"],"rosterTier":"VARSITY","computedTier":"JV","keyAvg":1688,"tradAvg":844.703125,"keyShifts":3,"tradShifts":53,"missing":14,"dropsKey":0,"dropsTrad":5,"pickingAvg":2055.447300784476,"last12Sales":165000,"campaignSales":20424,"careerSales":null,"ytdSales":null},{"id":"zach-duran","name":"Zach Duran","aliases":["Zach Duran","Zach","Zach D.","Zach D","Zachary Duran"],"rosterTier":"VARSITY","computedTier":"JV","keyAvg":601.9310344827586,"tradAvg":611.5227272727273,"keyShifts":32,"tradShifts":36,"missing":26,"dropsKey":3,"dropsTrad":3,"pickingAvg":1173.4305797601587,"last12Sales":162000,"campaignSales":22021,"careerSales":null,"ytdSales":null},{"id":"roman-earhart","name":"Roman Earhart","aliases":["Roman Earhart","Roman"],"rosterTier":"VARSITY","computedTier":"JV","keyAvg":null,"tradAvg":762.6666666666666,"keyShifts":0,"tradShifts":9,"missing":3,"dropsKey":0,"dropsTrad":0,"pickingAvg":2086.0606317093307,"last12Sales":242740,"campaignSales":821,"careerSales":null,"ytdSales":null},{"id":"charity-campbell","name":"Charity Campbell","aliases":["Charity Campbell","Charity"],"rosterTier":"VARSITY","computedTier":"JV","keyAvg":1179,"tradAvg":581.1851851851852,"keyShifts":3,"tradShifts":29,"missing":6,"dropsKey":0,"dropsTrad":2,"pickingAvg":1540.8299669694466,"last12Sales":null,"campaignSales":null,"careerSales":null,"ytdSales":null},{"id":"rob-lord","name":"Rob Lord","aliases":["Rob Lord","Rob"],"rosterTier":"JV","computedTier":"JV","keyAvg":null,"tradAvg":264.35,"keyShifts":0,"tradShifts":22,"missing":3,"dropsKey":0,"dropsTrad":2,"pickingAvg":1016.8019537572254,"last12Sales":null,"campaignSales":null,"careerSales":null,"ytdSales":null},{"id":"sean-potter","name":"Sean Potter","aliases":["Sean Potter","Sean"],"rosterTier":"JV","computedTier":"JV","keyAvg":null,"tradAvg":470,"keyShifts":0,"tradShifts":2,"missing":0,"dropsKey":0,"dropsTrad":0,"pickingAvg":2141.035549132948,"last12Sales":null,"campaignSales":7279,"careerSales":1509000,"ytdSales":50527},{"id":"matthew-aragon","name":"Matthew Aragon","aliases":["Matthew Aragon","Matt A","Matthew A","Matt Aragon"],"rosterTier":"JV","computedTier":"JV","keyAvg":null,"tradAvg":498.9166666666667,"keyShifts":0,"tradShifts":53,"missing":12,"dropsKey":0,"dropsTrad":5,"pickingAvg":1324.6499781873704,"last12Sales":null,"campaignSales":22972,"careerSales":129000,"ytdSales":32504},{"id":"adam-jeffrey","name":"Adam Jeffrey","aliases":["Adam Jeffrey","Adam J"],"rosterTier":"JV","computedTier":"JV","keyAvg":1796.3863636363637,"tradAvg":1074.3333333333333,"keyShifts":12,"tradShifts":36,"missing":20,"dropsKey":1,"dropsTrad":3,"pickingAvg":2399.5652825291963,"last12Sales":null,"campaignSales":12850,"careerSales":444144,"ytdSales":32623},{"id":"kendall-gooch","name":"Kendall Gooch","aliases":["Kendall Gooch","Kendall"],"rosterTier":"JV","computedTier":"JV","keyAvg":null,"tradAvg":681.5,"keyShifts":0,"tradShifts":11,"missing":6,"dropsKey":0,"dropsTrad":1,"pickingAvg":1939.1499229287087,"last12Sales":null,"campaignSales":7613,"careerSales":97683,"ytdSales":16851},{"id":"craig-coker","name":"Craig Coker","aliases":["Craig Coker","Craig"],"rosterTier":"JV","computedTier":"JV","keyAvg":null,"tradAvg":542.3478260869565,"keyShifts":0,"tradShifts":25,"missing":3,"dropsKey":0,"dropsTrad":2,"pickingAvg":1523.8874587118082,"last12Sales":null,"campaignSales":2492,"careerSales":974785,"ytdSales":2583},{"id":"sarah-krick","name":"Sarah Krick","aliases":["Sarah Krick","Sarah"],"rosterTier":"JV","computedTier":"JV","keyAvg":null,"tradAvg":1161.662162162162,"keyShifts":0,"tradShifts":41,"missing":13,"dropsKey":0,"dropsTrad":4,"pickingAvg":2759.210686760253,"last12Sales":null,"campaignSales":null,"careerSales":null,"ytdSales":null}],"manual":{"ELITE":["Own complete booth display (black CUTCO canopy, full event display kit, backdrop, biz samples)","Attended SC1 or SC2 the prior summer + PUSH countdown","Yearly Business Plan submitted to DM and Coordinator by the January meeting","7 service event days per year, or 1 Team Service Event Blitz Week (min 5 days)","Attended 3/3 meetings in person, no early departures","Marketing: monthly CRM email + market 2 of 4 ways before every Elite event (30-mile radius)"],"VARSITY":["Own booth (Ultimate, Signature, Homemaker, Santoku, accessory + flatware packages, tables, black cloths, risers, canopy)","Attended SC1 or SC2 + PUSH countdown","6 service event days per year, or 1 Team Service Event Blitz Week (min 4 days)","New customer, think-about-it, and past customer approaches 100% down (verified by an Elite member)","Attended 2/3 meetings in person, no early departures","Marketing: monthly CRM email + market to 3+ events per year (20-mile radius)"],"JV":["Has a CRM","Owns the Booth in the Box program (Classic Homemaker +8, flatware chest, 2 blue cloths, can opener, pizza cutter, ice cream scoop, banner)","Owns 2× 5ft tables with PVC + white canopy tent","New customer and think-about-it approaches 90% down (verified by an Elite member)","Attended monthly meetings + 1/3 core event meetings in person"]},"thresh":{"ELITE":{"key":3250,"traditional":2200},"VARSITY":{"key":2500,"traditional":1200}},"window":{"from":"2025-08-05","to":"2026-08-05"},"generated":"2026-08-02"};
+const LS = 'rsd-meeting-' + DATA.window.from;
+// localStorage can be unavailable (file:// preview, strict privacy modes) — the
+// board must stay fully usable either way; persistence just degrades gracefully.
+let stored = '{}';
+try { stored = localStorage.getItem(LS) || '{}'; } catch (e) {}
+const state = JSON.parse(stored);
+state.tiers ??= {}; state.confirmed ??= {}; state.manual ??= {}; state.sales ??= {};
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(state)); } catch (e) {} };
+const money = n => (n == null || !isFinite(n)) ? '—' : '$' + Math.round(n).toLocaleString();
+const tierOf = r => state.tiers[r.id] || r.computedTier;
+// Effective value: the Wes-report upload overrides the baked-in figure.
+const eff = (r, k) => (state.sales[r.id] && state.sales[r.id][k] != null) ? state.sales[r.id][k] : r[k];
+
+const cardsEl = document.getElementById('cards');
+function render() {
+  const groups = { ELITE: [], VARSITY: [], JV: [] };
+  for (const r of DATA.reps) groups[tierOf(r)].push(r);
+  cardsEl.innerHTML = ['ELITE','VARSITY','JV'].map(t => `
+    <div class="tiergrp"><h3>${t} — ${groups[t].length}</h3>
+      ${groups[t].map(r => card(r)).join('')}
+    </div>`).join('');
+  wire();
+  const done = DATA.reps.filter(r => state.confirmed[r.id]).length;
+  document.getElementById('progress').textContent =
+    done + ' of ' + DATA.reps.length + ' reps confirmed' + (done === DATA.reps.length ? ' — ready to run the picking order' : '');
+  const run = document.getElementById('run');
+  run.disabled = done !== DATA.reps.length;
+  document.getElementById('runnote').textContent = run.disabled ? 'Confirm every rep in Step 1 first.' : 'Tiers locked. Ranks by 40/40/20 within each tier.';
+}
+
+function card(r) {
+  const t = tierOf(r);
+  const th = DATA.thresh[t];
+  const avgLine = 'Key ' + money(r.keyAvg) + ' / Trad ' + money(r.tradAvg) +
+    ' · ' + r.keyShifts + 'K ' + r.tradShifts + 'T' + (r.missing ? ' · ' + r.missing + ' missing' : '');
+  const moved = t !== r.rosterTier ? '<span class="badge badge--moved">was ' + r.rosterTier + '</span>' : '';
+  const wes = state.sales[r.id] ? '<span class="badge badge--wes">wes ✓</span>' : '';
+  const autos = [
+    th ? chk((isFinite(r.keyAvg) && r.keyAvg >= th.key) || (isFinite(r.tradAvg) && r.tradAvg >= th.traditional),
+      'Shift average — Key ≥ ' + money(th.key) + ' or Trad ≥ ' + money(th.traditional)) : '',
+    t === 'ELITE'   ? pend(eff(r, 'last12Sales'), 200000, '12-month sales ≥ $200,000') : '',
+    t === 'VARSITY' ? pend(eff(r, 'last12Sales'), 120000, '12-month sales ≥ $120,000') : '',
+    t === 'ELITE'   ? pend(eff(r, 'careerSales'), 500000, 'Career ≥ $500k (or $300k prev yr)') : '',
+    t === 'VARSITY' ? pend(eff(r, 'careerSales'), 150000, 'Career sales ≥ $150,000') : '',
+    t === 'JV'      ? pend(eff(r, 'careerSales'), 50000, 'Career sales ≥ $50,000') : '',
+  ].filter(Boolean).join('');
+  const mans = (DATA.manual[t] || []).map((m, i) => {
+    const k = r.id + '|' + t + '|' + i;
+    return '<li><label><input type="checkbox" data-man="' + k + '"' + (state.manual[k] ? ' checked' : '') + '> ' + m + '</label></li>';
+  }).join('');
+  return `
+  <article class="rep${state.confirmed[r.id] ? ' rep--confirmed' : ''}${state.open === r.id ? ' rep--open' : ''}" data-id="${r.id}">
+    <div class="rep__row" tabindex="0" data-toggle="${r.id}">
+      <span class="rep__name">${r.name}</span>
+      <span class="badge badge--${t.toLowerCase()}">${t}</span>${moved}${wes}
+      <span class="rep__avgs">${avgLine}</span>
+      <span class="rep__spacer"></span>
+      <label class="confirm" data-stop><input type="checkbox" data-confirm="${r.id}"${state.confirmed[r.id] ? ' checked' : ''}> Confirmed</label>
+    </div>
+    <div class="rep__body">
+      <div class="checks">
+        <div><h4>Data checks (automatic)</h4><ul class="auto">${autos}</ul></div>
+        <div><h4>Manual requirements — your call</h4><ul class="man">${mans}</ul></div>
+      </div>
+      <div class="tiersel"><span>Place in:</span>
+        ${['ELITE','VARSITY','JV'].map(x => '<button data-tier="' + r.id + '|' + x + '" class="' + (x === t ? 'on' : '') + '">' + x + '</button>').join('')}
+      </div>
+    </div>
+  </article>`;
+}
+const chk = (ok, label) => '<li><span class="' + (ok ? 'ok">✓' : 'no">✗') + '</span> ' + label + '</li>';
+const pend = (v, floor, label) => v == null
+  ? '<li><span class="pend">?</span> ' + label + ' — needs data</li>'
+  : chk(v >= floor, label + ' (' + money(v) + ')');
+
+function wire() {
+  document.querySelectorAll('[data-toggle]').forEach(el => {
+    el.onclick = e => { if (e.target.closest('[data-stop]')) return;
+      state.open = state.open === el.dataset.toggle ? null : el.dataset.toggle; save(); render(); };
+    el.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.onclick(e); } };
+  });
+  document.querySelectorAll('[data-confirm]').forEach(el => el.onchange = () => {
+    state.confirmed[el.dataset.confirm] = el.checked; save(); render(); });
+  document.querySelectorAll('[data-man]').forEach(el => el.onchange = () => {
+    state.manual[el.dataset.man] = el.checked; save(); });
+  document.querySelectorAll('[data-tier]').forEach(el => el.onclick = () => {
+    const [id, t] = el.dataset.tier.split('|');
+    state.tiers[id] = t; state.confirmed[id] = false; save(); render(); });
+}
+
+// Everything Alan decided (tiers, confirmations, Wes figures) lives in THIS
+// browser's localStorage. Export bundles it into a file to hand back to Claude,
+// which bakes the public team-results page from it.
+document.getElementById('export').onclick = () => {
+  const payload = {
+    exported: new Date().toISOString(),
+    window: DATA.window,
+    reps: DATA.reps.map(r => ({
+      id: r.id, name: r.name,
+      finalTier: tierOf(r),
+      confirmed: !!state.confirmed[r.id],
+      last12Sales: eff(r, 'last12Sales'),
+      careerSales: eff(r, 'careerSales'),
+      ytdSales: eff(r, 'ytdSales'),
+      campaignSales: eff(r, 'campaignSales'),
+    })),
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'meeting-results-' + DATA.window.from + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+
+document.getElementById('reset').onclick = () => {
+  if (confirm('Clear all confirmations, checkboxes and tier overrides?')) {
+    try { localStorage.removeItem(LS); } catch (e) {}
+    location.reload();
+  }
+};
+
+// ---- Step 2: picking order --------------------------------------------------
+const CATS = {
+  ELITE:   [['last12Sales','Last 12 Mo',.2], ['pickingAvg','Wtd Shift Avg',.4], ['campaignSales','Campaign Sales',.4]],
+  VARSITY: [['last12Sales','Last 12 Mo',.2], ['pickingAvg','Wtd Shift Avg',.4], ['campaignSales','Campaign Sales',.4]],
+  JV:      [['careerSales','Career',.2],     ['ytdSales','YTD',.4],             ['campaignSales','Campaign Sales',.4]],
+};
+function rankTier(list, tier) {
+  const cats = CATS[tier];
+  // Resolve every category through eff() so Wes-report uploads flow into ranking.
+  const rows = list.map(r => ({ r, v: Object.fromEntries(cats.map(c => [c[0], eff(r, c[0])])), pts: 0, parts: [] }));
+  for (const [key, label, w] of cats) {
+    const have = rows.filter(x => x.v[key] != null && isFinite(x.v[key])).sort((a, b) => b.v[key] - a.v[key]);
+    const none = rows.filter(x => x.v[key] == null || !isFinite(x.v[key]));
+    let lastV = null, lastRank = 0;
+    have.forEach((x, i) => {
+      const rank = x.v[key] === lastV ? lastRank : i + 1;
+      x.parts.push({ label, v: x.v[key], rank, w, pts: rank * w });
+      x.pts += rank * w; lastV = x.v[key]; lastRank = rank;
+    });
+    const worst = have.length + (none.length ? 1 : 0);
+    none.forEach(x => { x.parts.push({ label, v: null, rank: worst, w, pts: worst * w }); x.pts += worst * w; });
+  }
+  rows.sort((a, b) => a.pts - b.pts || (eff(b.r, 'careerSales') || -1) - (eff(a.r, 'careerSales') || -1) || a.r.name.localeCompare(b.r.name));
+  return rows;
+}
+document.getElementById('run').onclick = () => {
+  const groups = { ELITE: [], VARSITY: [], JV: [] };
+  for (const r of DATA.reps) groups[tierOf(r)].push(r);
+  let pick = 1;
+  document.getElementById('order').innerHTML = ['ELITE','VARSITY','JV'].map(t => {
+    const ranked = rankTier(groups[t], t);
+    const cats = CATS[t];
+    return `<div class="otier"><h3>${t}</h3>
+      <div style="overflow-x:auto"><table class="otbl">
+        <tr><th>Pick</th><th>Rep</th>${cats.map(c => '<th>' + c[1] + '</th>').join('')}<th>Points</th></tr>
+        ${ranked.map(x => `<tr>
+          <td class="pick">${pick++}</td><td>${x.r.name}</td>
+          ${x.parts.map(p => '<td class="num">' + money(p.v) + ' <span style="color:var(--ink-3)">#' + p.rank + '·' + p.pts.toFixed(1) + '</span></td>').join('')}
+          <td class="pts">${x.pts.toFixed(2)}</td></tr>`).join('')}
+      </table></div>
+      ${ranked.some(x => x.parts.some(p => p.v == null)) ? '<p class="warn">— items show a dash where data is missing (ranked last in that category). 12-month &amp; career figures arrive with the Wes Frank report.</p>' : ''}
+    </div>`;
+  }).join('');
+};
+
+// ---- Step 1.5: Wes Frank report upload --------------------------------------
+// Accepts pasted text or a .csv/.txt file. Matches each line to a roster rep by
+// full name, "Last, First", or a multi-word alias; single short aliases are NOT
+// used for matching because the division report contains non-team reps.
+const norm = s => String(s || '').toLowerCase().replace(/[^a-z\s]/g, ' ').replace(/\s+/g, ' ').trim();
+function matchRep(line) {
+  const L = ' ' + norm(line) + ' ';
+  for (const r of DATA.reps) {
+    const [first, ...rest] = norm(r.name).split(' ');
+    const last = rest[rest.length - 1] || '';
+    if (last && L.includes(' ' + first + ' ') && L.includes(' ' + last + ' ')) return r;      // "Jason Jeffrey" / extra middle words
+    if (last && L.includes(' ' + last + ' ' + first + ' ')) return r;                          // "Jeffrey, Jason"
+    for (const a of r.aliases) {
+      const na = norm(a);
+      if (na.includes(' ') && L.includes(' ' + na + ' ')) return r;                            // multi-word alias only
+    }
+  }
+  return null;
+}
+function parseNumbers(line) {
+  const out = [];
+  const re = /\$?\s?(\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?/g;
+  let m;
+  while ((m = re.exec(line))) {
+    const n = Number(m[1].replace(/,/g, ''));
+    if (isFinite(n)) out.push(n);
+  }
+  return out;
+}
+
+let wesRows = [], wesUnmatched = [], wesCols = 0;
+const wesEl = { text: document.getElementById('wes-text'), file: document.getElementById('wes-file'),
+                note: document.getElementById('wes-note'), preview: document.getElementById('wes-preview') };
+
+wesEl.file.onchange = () => {
+  const f = wesEl.file.files[0];
+  if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => { wesEl.text.value = rd.result; parseWes(); };
+  rd.readAsText(f);
+};
+document.getElementById('wes-parse').onclick = parseWes;
+
+function parseWes() {
+  wesRows = []; wesUnmatched = [];
+  const seen = new Set();
+  for (const raw of wesEl.text.value.split(/\r?\n/)) {
+    const line = raw.trim();
+    if (!line) continue;
+    const nums = parseNumbers(line);
+    const rep = matchRep(line);
+    if (rep && nums.length) {
+      if (seen.has(rep.id)) continue;   // first line per rep wins
+      seen.add(rep.id);
+      wesRows.push({ rep, nums, line });
+    } else if (nums.length && /[a-z]/i.test(line)) {
+      wesUnmatched.push(line);
+    }
+  }
+  wesCols = Math.max(0, ...wesRows.map(r => r.nums.length));
+  renderWesPreview();
+}
+
+function colOptions(sel) {
+  let h = '<option value="-1">— skip —</option>';
+  for (let i = 0; i < wesCols; i++) h += '<option value="' + i + '"' + (i === sel ? ' selected' : '') + '>column ' + (i + 1) + '</option>';
+  return h;
+}
+
+function renderWesPreview() {
+  if (!wesRows.length) {
+    wesEl.preview.innerHTML = '';
+    wesEl.note.textContent = wesEl.text.value.trim()
+      ? 'No roster names matched. Check the paste — one rep per line with their numbers.'
+      : 'Nothing loaded yet — checks below show “needs data” until this is in.';
+    return;
+  }
+  wesEl.note.textContent = wesRows.length + ' rep(s) matched, ' + wesUnmatched.length + ' line(s) unmatched (non-team reps are expected).';
+  let head = '<tr><th>Matched rep</th>';
+  for (let i = 0; i < wesCols; i++) head += '<th>Col ' + (i + 1) + '</th>';
+  head += '</tr>';
+  const body = wesRows.map(r => {
+    let tds = '<td>' + r.rep.name + '</td>';
+    for (let i = 0; i < wesCols; i++) tds += '<td class="num">' + (r.nums[i] != null ? money(r.nums[i]) : '') + '</td>';
+    return '<tr>' + tds + '</tr>';
+  }).join('');
+  const unm = wesUnmatched.length
+    ? '<p class="unmatched"><strong>' + wesUnmatched.length + ' unmatched:</strong> ' +
+      wesUnmatched.slice(0, 6).map(l => l.slice(0, 40)).join(' · ') + (wesUnmatched.length > 6 ? ' · …' : '') + '</p>'
+    : '';
+  wesEl.preview.innerHTML =
+    '<div class="colsel">' +
+      '<label>Last 12 months = <select id="wes-l12">' + colOptions(0) + '</select></label>' +
+      '<label>Career sales = <select id="wes-car">' + colOptions(wesCols > 1 ? 1 : -1) + '</select></label>' +
+      '<label>YTD sales = <select id="wes-ytd">' + colOptions(-1) + '</select></label>' +
+      '<button class="runbtn runbtn--sm" id="wes-apply" type="button">Apply to board</button>' +
+    '</div>' +
+    '<div style="overflow-x:auto"><table class="wtable">' + head + body + '</table></div>' + unm;
+  document.getElementById('wes-apply').onclick = () => {
+    const l12 = +document.getElementById('wes-l12').value;
+    const car = +document.getElementById('wes-car').value;
+    const ytd = +document.getElementById('wes-ytd').value;
+    if (l12 < 0 && car < 0 && ytd < 0) { wesEl.note.textContent = 'Pick at least one column to apply.'; return; }
+    for (const r of wesRows) {
+      const s = state.sales[r.rep.id] || {};
+      if (l12 >= 0 && r.nums[l12] != null) s.last12Sales = r.nums[l12];
+      if (car >= 0 && r.nums[car] != null) s.careerSales = r.nums[car];
+      if (ytd >= 0 && r.nums[ytd] != null) s.ytdSales = r.nums[ytd];
+      state.sales[r.rep.id] = s;
+    }
+    save(); render();
+    wesEl.note.textContent = 'Applied to ' + wesRows.length + ' rep(s) — data checks and picking order now use these figures. Saved in this browser.';
+  };
+}
+
+render();
+</script>
