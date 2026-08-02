@@ -8895,10 +8895,20 @@ section{display:flex;flex-direction:column}
   <footer class="foot">Generated from the Stat Tracker and all three Show Shift Schedule books. Prospective, unbooked, red-marked shifts and golf tournaments are excluded.</footer>
 </div>
 <script>
-// Deep link support: sending someone yourpage#rep-jerry-ramirez opens their
-// section and scrolls to it, so each rep's link lands on their own list.
-if (location.hash) {
-  const el = document.getElementById(location.hash.slice(1));
-  if (el) { el.open = true; el.scrollIntoView({ block: 'start' }); }
+// Deep link support: yourpage#rep-jerry-ramirez opens that rep's section and
+// scrolls to it. Runs on several triggers because the browser's own fragment
+// navigation can race a single inline call — reps must never land on a
+// collapsed section.
+function openFromHash() {
+  var id = decodeURIComponent((location.hash || '').slice(1));
+  if (!id) return;
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.open = true;
+  el.scrollIntoView({ block: 'start' });
 }
+openFromHash();
+document.addEventListener('DOMContentLoaded', openFromHash);
+window.addEventListener('load', openFromHash);
+window.addEventListener('hashchange', openFromHash);
 </script>
