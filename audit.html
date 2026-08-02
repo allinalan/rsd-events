@@ -61,7 +61,22 @@ section{display:flex;flex-direction:column}
 .debt__tier{font-family:var(--data);font-size:.62rem;letter-spacing:.07em;color:var(--ink-3)}
 .debt__count{font-family:var(--data);font-size:.74rem;color:var(--bad);background:var(--bad-soft);padding:.12rem .45rem;border-radius:3px;font-variant-numeric:tabular-nums}
 .debt__split{font-family:var(--data);font-size:.7rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.debt .shifts{padding:0 .85rem .6rem 1.9rem}
+.debt .shifts{padding:0 .15rem .35rem}
+.split{border:1px solid var(--line);border-radius:5px;background:var(--sunk);margin:0 0 .5rem}
+.split summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;
+  padding:.7rem .8rem;min-height:44px;font-weight:600;font-size:.92rem}
+.split summary::-webkit-details-marker{display:none}
+.split summary::before{content:"▸";font-family:var(--data);font-size:.8rem;color:var(--ink-3);transition:transform .15s}
+.split[open] summary::before{transform:rotate(90deg)}
+.split summary:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.split--good summary{color:var(--good)}
+.split--bad summary{color:var(--bad)}
+.split__count{font-family:var(--data);font-size:.72rem;font-weight:400;margin-left:auto;
+  padding:.12rem .5rem;border-radius:3px;font-variant-numeric:tabular-nums}
+.split--good .split__count{color:var(--good);background:var(--good-soft)}
+.split--bad .split__count{color:var(--bad);background:var(--bad-soft)}
+.split>.shifts,.split__empty{margin:0;padding:0 .8rem .6rem}
+.split__empty{font-size:.85rem;color:var(--ink-3);padding-top:.1rem}
 .avgchip{font-family:var(--data);font-size:.74rem;color:var(--ink-2);background:var(--sunk);border:1px solid var(--line);border-radius:3px;padding:.14rem .5rem;font-variant-numeric:tabular-nums;white-space:nowrap}
 .avgchip em{font-style:normal;color:var(--ink-3);font-size:.66rem}
 .debt__clear{font-family:var(--data);font-size:.7rem;color:var(--good);background:var(--good-soft);padding:.12rem .45rem;border-radius:3px}
@@ -115,8 +130,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">33 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,851 · Trad $1,716</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,851 · Trad $1,716</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">73</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-20</span>
@@ -124,14 +141,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$348</span>
     <span class="e">Apache County Fair</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-08-21</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Apache County Fair<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -180,14 +189,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$2,227</span>
     <span class="e">Coconino County Fair</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mohave County Fair<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -244,30 +245,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$584</span>
     <span class="e">Heber-Overgaard Oktoberfest</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tucson Harvest Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-11</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tucson Harvest Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-12</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tucson Harvest Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -333,14 +310,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$4,851</span>
     <span class="e">The Hondo Rodeo Fest</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-09</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">The Hondo Rodeo Fest<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-11-13</span>
@@ -372,14 +341,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$1,961</span>
     <span class="e">Gilbert Days Rodeo</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-22</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Gilbert Days Rodeo<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -437,14 +398,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$129</span>
     <span class="e">Tempe Festival of the Arts - Booth #1 1126</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-02</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Rock &amp; Gem Show<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-01-03</span>
@@ -452,22 +405,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$601</span>
     <span class="e">Tyson Wells Rock &amp; Gem Show</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-04</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Rock &amp; Gem Show<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-17</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Winter Care free Fine art &amp; wine festival<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -524,46 +461,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$1,728</span>
     <span class="e">Waterfront Fine art &amp; wine festival</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-04</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-05</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-06</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-07</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-08</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -693,14 +590,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$830</span>
     <span class="e">Cactus League Spring Training - Goodyear<span class="t t--note" title="Submitted but not found on the shift schedule">not on schedule</span></span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-03-17</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mecum Auto Auction<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-03-18</span>
@@ -724,14 +613,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$3,010</span>
     <span class="e">Mecum Auto Auction</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-03-21</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mecum Auto Auction<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -836,6 +717,146 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$1,008</span>
     <span class="e">Guns and Roses - PBR and Vendor Marketplace</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">33</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-08-21</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Apache County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mohave County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tucson Harvest Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-11</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tucson Harvest Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-12</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tucson Harvest Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-09</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">The Hondo Rodeo Fest<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-22</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Gilbert Days Rodeo<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-02</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Rock &amp; Gem Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-04</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Rock &amp; Gem Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-17</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Winter Care free Fine art &amp; wine festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-04</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-05</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-06</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-07</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-08</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-03-17</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mecum Auto Auction<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-03-21</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mecum Auto Auction<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -965,6 +986,7 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Arizona Cattle Grower's Summer Convention<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-zach-duran">
@@ -975,8 +997,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">28 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $831 · Trad $901</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $831 · Trad $901</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">40</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-29</span>
@@ -1001,30 +1025,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$4,613</span>
     <span class="e">Charlie Clark's Labor Day Fine Art &amp; Craft Show</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-01</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Coconino County Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-02</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Navajo Nation Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-03</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Navajo Nation Fair<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-09-04</span>
@@ -1032,14 +1032,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$79</span>
     <span class="e">Navajo Nation Fair</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-05</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Navajo Nation Fair<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -1056,30 +1048,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$184</span>
     <span class="e">Navajo Nation Fair</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-17</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Arizona Fall Championship<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-18</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Arizona Fall Championship<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-19</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Arizona Fall Championship<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -1104,14 +1072,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$656</span>
     <span class="e">Maricopa County Home &amp; Garden Show</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-27</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Maricopa County Home &amp; Garden Show<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -1185,30 +1145,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$611</span>
     <span class="e">Barrett-Jackson Car Auction - Scottsdale</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-31</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">A Christmas Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-01</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">A Christmas Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-02</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">A Christmas Fair<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-11-06</span>
@@ -1232,54 +1168,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$536</span>
     <span class="e">Quilt, Craft &amp; Sewing Festival - Tucson</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-14</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fountain Hills Festival of Fine Arts &amp; Crafts<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-22</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Crossroads of the West Gun Show - Tucson<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-23</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Crossroads of the West Gun Show - Tucson<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-12-05</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tempe Festival of the Arts - Booth #1 1126<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-12-06</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tempe Festival of the Arts - Booth #1 1126<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-12-07</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tempe Festival of the Arts - Booth #1 1126<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -1337,14 +1225,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$948</span>
     <span class="e">Quilt, Craft &amp; Sewing Festival- phx</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Scottsdale Arabian Horse Show W2<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-02-13</span>
@@ -1352,22 +1232,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$213</span>
     <span class="e">24 Hours In Old Pueblo</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-14</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">24 Hours In Old Pueblo<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-15</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">24 Hours In Old Pueblo<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -1400,14 +1264,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$223</span>
     <span class="e">Tucson Rodeo</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-27</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tucson Rodeo W 2<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -1464,6 +1320,178 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$565</span>
     <span class="e">4th Ave Street Fair Spring</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">28</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-01</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Coconino County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-02</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Navajo Nation Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-03</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Navajo Nation Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-05</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Navajo Nation Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-17</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Arizona Fall Championship<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-18</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Arizona Fall Championship<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-19</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Arizona Fall Championship<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-27</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Maricopa County Home &amp; Garden Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-31</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">A Christmas Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-01</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">A Christmas Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-02</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">A Christmas Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-14</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fountain Hills Festival of Fine Arts &amp; Crafts<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-22</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Crossroads of the West Gun Show - Tucson<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-23</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Crossroads of the West Gun Show - Tucson<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-12-05</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tempe Festival of the Arts - Booth #1 1126<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-12-06</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tempe Festival of the Arts - Booth #1 1126<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-12-07</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tempe Festival of the Arts - Booth #1 1126<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Scottsdale Arabian Horse Show W2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-14</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">24 Hours In Old Pueblo<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-15</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">24 Hours In Old Pueblo<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-27</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tucson Rodeo W 2<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -1521,6 +1549,7 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Eddy County Fair<span class="nostat">no stats turned in</span></span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-adam-jeffrey">
@@ -1531,40 +1560,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">24 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $3,550 · Trad $1,488</strong>.</p>
-      <ul class="shifts">
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-08-28</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Quilt, Craft &amp; Sewing Festival Scottsdale<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-08-29</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Quilt, Craft &amp; Sewing Festival Scottsdale<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-19</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fort Huachucha Fun Fest<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-20</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fort Huachucha Fun Fest<span class="nostat">no stats turned in</span></span>
-  </li>
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $3,550 · Trad $1,488</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">26</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-09-21</span>
@@ -1572,30 +1571,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$151</span>
     <span class="e">Fort Huachucha Fun Fest</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-12</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -1612,14 +1587,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$2,079</span>
     <span class="e">Run to the Sun</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-19</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Run to the Sun<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -1661,14 +1628,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$2,084</span>
     <span class="e">Goodguys Southwest Nationals</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-23</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Goodguys Southwest Nationals<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-12-04</span>
@@ -1692,14 +1651,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$4,763</span>
     <span class="e">Dirt Expo</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-12-07</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Dirt Expo<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -1789,14 +1740,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$1,862</span>
     <span class="e">Maricopa County Home &amp; Landscape Show</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-03-14</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Windmill Winery Spring Market Vendor Fair<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-03-20</span>
@@ -1812,6 +1755,114 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$1,541</span>
     <span class="e">NHRA Nationals</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$1,361</span>
+    <span class="e">MM<span class="t t--note" title="Submitted but not found on the shift schedule">not on schedule</span></span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$1,170</span>
+    <span class="e">MM<span class="t t--note" title="Submitted but not found on the shift schedule">not on schedule</span></span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">24</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-08-28</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Quilt, Craft &amp; Sewing Festival Scottsdale<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-08-29</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Quilt, Craft &amp; Sewing Festival Scottsdale<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-19</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fort Huachucha Fun Fest<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-20</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fort Huachucha Fun Fest<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-12</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-19</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Run to the Sun<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-23</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Goodguys Southwest Nationals<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-12-07</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Dirt Expo<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-03-14</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Windmill Winery Spring Market Vendor Fair<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -1836,22 +1887,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Spring Carefree Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$1,361</span>
-    <span class="e">MM<span class="t t--note" title="Submitted but not found on the shift schedule">not on schedule</span></span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$1,170</span>
-    <span class="e">MM<span class="t t--note" title="Submitted but not found on the shift schedule">not on schedule</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -1933,6 +1968,7 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Taylor Rodeo<span class="nostat">no stats turned in</span></span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-cameron-couts">
@@ -1943,8 +1979,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">22 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,688 · Trad $810</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,688 · Trad $810</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">29</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-30</span>
@@ -1985,14 +2023,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$172</span>
     <span class="e">Yavapai County Fair</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-13</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Prescott Chamber Business Expo<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-10-03</span>
@@ -2008,30 +2038,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$0</span>
     <span class="e">mesa Market place B row</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet (B Row)<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet (B Row)<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-12</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet (B Row)<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -2049,14 +2055,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$2,394</span>
     <span class="e">Bullhead City Balloon Festival</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-09</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Bullhead City Balloon Festival<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-11-16</span>
@@ -2072,14 +2070,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$2,499</span>
     <span class="e">4th ave</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-08</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Ultimate RV Show - Mesa<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -2104,22 +2094,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$80</span>
     <span class="e">Tyson Wells Arts and Craft Fair WK1</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-02</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Arts and Craft Fair WK1<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-03</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -2176,6 +2150,138 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$0</span>
     <span class="e">Anthem days</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-18</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$2,910</span>
+    <span class="e">Pima County Fair Wk 2</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-20</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$1,359</span>
+    <span class="e">Pima County Fair - WK 1</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-21</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$1,718</span>
+    <span class="e">pima county fair</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-22</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$301</span>
+    <span class="e">pima county fair</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-23</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$735</span>
+    <span class="e">pima county fair</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-24</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$0</span>
+    <span class="e">pima county fair</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-25</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$1,300</span>
+    <span class="e">pima county fair</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-04-26</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$2,876</span>
+    <span class="e">pima county fair</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">22</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-13</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Prescott Chamber Business Expo<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet (B Row)<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet (B Row)<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-12</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet (B Row)<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-09</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Bullhead City Balloon Festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-08</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Ultimate RV Show - Mesa<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-02</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Arts and Craft Fair WK1<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-03</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Arts and Craft Fair WK2<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -2241,14 +2347,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Pima County Fair Wk 2<span class="nostat">no stats turned in</span></span>
   </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-18</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$2,910</span>
-    <span class="e">Pima County Fair Wk 2</span>
-  </li>
   <li class="row--miss">
     <span class="meta">
       <span class="d">2026-04-19</span>
@@ -2256,62 +2354,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Pima County Fair Wk 2<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-20</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$1,359</span>
-    <span class="e">Pima County Fair - WK 1</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-21</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$1,718</span>
-    <span class="e">pima county fair</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-22</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$301</span>
-    <span class="e">pima county fair</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-23</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$735</span>
-    <span class="e">pima county fair</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-24</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$0</span>
-    <span class="e">pima county fair</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-25</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$1,300</span>
-    <span class="e">pima county fair</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-04-26</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$2,876</span>
-    <span class="e">pima county fair</span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -2353,6 +2395,7 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">NRCHA Kimes Ranch Derby - WK 2<span class="nostat">no stats turned in</span></span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-jerry-ramirez">
@@ -2363,8 +2406,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">14 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,560 · Trad $1,307</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,560 · Trad $1,307</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">30</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-23</span>
@@ -2389,38 +2434,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$5,668</span>
     <span class="e">Las Cruces Harvest Wine Festival</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-12</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Navajo County Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-13</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Navajo County Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-27</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Maricopa County Home &amp; Garden Show<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-28</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Maricopa County Home &amp; Garden Show<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-09-30</span>
@@ -2428,38 +2441,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$115</span>
     <span class="e">Las Cruces Harvest Wine Festival</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-09</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Graham County Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Graham County Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Graham County Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-12</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Graham County Fair<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -2501,14 +2482,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$827</span>
     <span class="e">Quilt, Craft &amp; Sewing Festival - Tucson</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-06</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Quilt, Craft &amp; Sewing Festival - Tucson<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-11-07</span>
@@ -2549,14 +2522,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$1,091</span>
     <span class="e">Oro Valley Festival of the Arts</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-29</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Quilt, Craft &amp; Sewing Festival- phx<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-01-30</span>
@@ -2580,14 +2545,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$3,062</span>
     <span class="e">Lake havasu Winter Fest (#5)</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-20</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tucson Rodeo W 2<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -2653,30 +2610,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$0</span>
     <span class="e">Pima County Fair - WK 1</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-06-19</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Cherry Festival<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-06-20</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Cherry Festival<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-06-21</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Cherry Festival<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-06-29</span>
@@ -2717,6 +2650,123 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$0</span>
     <span class="e">Heber Overgaard July 4th Event</span>
   </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">14</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-12</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Navajo County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-13</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Navajo County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-27</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Maricopa County Home &amp; Garden Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-28</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Maricopa County Home &amp; Garden Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-09</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Graham County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Graham County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Graham County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-12</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Graham County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-06</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Quilt, Craft &amp; Sewing Festival - Tucson<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-29</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Quilt, Craft &amp; Sewing Festival- phx<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-20</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tucson Rodeo W 2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-06-19</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Cherry Festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-06-20</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Cherry Festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-06-21</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Cherry Festival<span class="nostat">no stats turned in</span></span>
+  </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-matthew-aragon">
@@ -2727,8 +2777,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">14 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $658</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $658</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">27</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-09-06</span>
@@ -2736,14 +2788,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$872</span>
     <span class="e">Crossroads of the West Gun Show - Phoenix</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-07</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Crossroads of the West Gun Show - Phoenix<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -2753,22 +2797,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$46</span>
     <span class="e">Oak Creek Arts &amp; Crafts Show - Sedona Vista</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-13</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Oak Creek Arts &amp; Crafts Show - Sedona Vista<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-14</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Oak Creek Arts &amp; Crafts Show - Sedona Vista<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-10-03</span>
@@ -2776,22 +2804,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$5,511</span>
     <span class="e">Run to the Pine Car Show</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-12</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -2808,14 +2820,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$0</span>
     <span class="e">Crossroads of the West Gun Shows - Mesa</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-09</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Crossroads of the West Gun Shows - Mesa<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -2865,22 +2869,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$891</span>
     <span class="e">Litchfield Christmas in the Park</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-05</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Rock &amp; Gem Show<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-06</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Rock &amp; Gem Show WK 2<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-01-07</span>
@@ -2912,38 +2900,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$654</span>
     <span class="e">Queen Creek Family Market- January</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Tyson Wells Rock &amp; Gem Show WK 2<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-07</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Queen creek Family market<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-13</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Downtown Chandler Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-14</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Downtown Chandler Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -3040,6 +2996,106 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$1,313</span>
     <span class="e">Great Food Expo</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">14</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-07</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Crossroads of the West Gun Show - Phoenix<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-13</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Oak Creek Arts &amp; Crafts Show - Sedona Vista<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-14</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Oak Creek Arts &amp; Crafts Show - Sedona Vista<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-12</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-09</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Crossroads of the West Gun Shows - Mesa<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-05</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Rock &amp; Gem Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-06</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Rock &amp; Gem Show WK 2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Tyson Wells Rock &amp; Gem Show WK 2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-07</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Queen creek Family market<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-13</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Downtown Chandler Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-14</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Downtown Chandler Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -3057,6 +3113,7 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">UTV Rally at Mormon Lake<span class="nostat">no stats turned in</span></span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-adam-conroy">
@@ -3067,8 +3124,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">13 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,989 · Trad $2,432</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,989 · Trad $2,432</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">16</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-29</span>
@@ -3092,14 +3151,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$608</span>
     <span class="e">Coconino County Fair</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-01</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Coconino County Fair<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -3140,22 +3191,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$2,683</span>
     <span class="e">FallFest In the Park</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-15</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">North Peoria Home Show<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-18</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">MTCAZ 2025 Trade Show<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -3212,6 +3247,42 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$2,647</span>
     <span class="e">Maricopa</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-07-19</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo">$6,697</span>
+    <span class="e">Maricopa County Summer Home &amp; Landscape Show</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">13</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-01</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Coconino County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-15</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">North Peoria Home Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-18</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">MTCAZ 2025 Trade Show<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -3292,15 +3363,8 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Maricopa County Home &amp; Flower Show<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-07-19</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo">$6,697</span>
-    <span class="e">Maricopa County Summer Home &amp; Landscape Show</span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-alec-luyendyk">
@@ -3311,8 +3375,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">13 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $2,829 · Trad $3,940</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $2,829 · Trad $3,940</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">29</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-30</span>
@@ -3353,14 +3419,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$4,775</span>
     <span class="e">Maricopa County Home &amp; Garden Show</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-15</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Barrett-Jackson Car Auction - Scottsdale<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-10-18</span>
@@ -3384,38 +3442,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$2,628</span>
     <span class="e">Italian Heritage Festival of Phoenix</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-07</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fall Carefree Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-08</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fall Carefree Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-12-06</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Oro Valley Festival of the Arts<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-12-07</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Oro Valley Festival of the Arts<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -3448,22 +3474,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$1,249</span>
     <span class="e">Barrett-Jackson</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-17</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Barrett- Jackson Car auction w1<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-18</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Barrett- Jackson Car auction w1<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -3600,6 +3610,66 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$758</span>
     <span class="e">YCCA Home &amp; Garden Show</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">13</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-15</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Barrett-Jackson Car Auction - Scottsdale<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-07</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fall Carefree Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-08</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fall Carefree Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-12-06</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Oro Valley Festival of the Arts<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-12-07</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Oro Valley Festival of the Arts<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-17</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Barrett- Jackson Car auction w1<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-18</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Barrett- Jackson Car auction w1<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -3649,6 +3719,7 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Maricopa County Summer Home &amp; Landscape Show<span class="nostat">no stats turned in</span></span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-sarah-krick">
@@ -3659,8 +3730,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">13 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $1,879</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $1,879</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">15</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-24</span>
@@ -3676,14 +3749,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$1,039</span>
     <span class="e">Sonoita Labor Day Rodeo</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-08-31</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Sonoita Labor Day Rodeo<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -3717,38 +3782,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$2,988</span>
     <span class="e">Northern Gila County Fair</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-07</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Northern Gila County Fair<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-12</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-10-18</span>
@@ -3773,14 +3806,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$1,182</span>
     <span class="e">Holiday Shopping Expo<span class="t t--note" title="Submitted but not found on the shift schedule">not on schedule</span></span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-09</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fall Carefree Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-11-15</span>
@@ -3788,14 +3813,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$2,107</span>
     <span class="e">Phoenix Pizza Festival</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-16</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Phoenix Pizza Festival<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -3836,6 +3853,66 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$3,281</span>
     <span class="e">Mesa Marketplace B row</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">13</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-08-31</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Sonoita Labor Day Rodeo<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-07</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Northern Gila County Fair<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-12</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-09</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fall Carefree Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-16</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Phoenix Pizza Festival<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -3885,6 +3962,7 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Heritage Square Wine Festival<span class="nostat">no stats turned in</span></span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-jeremy-katen">
@@ -3895,8 +3973,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">10 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $5,216 · Trad $3,485</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $5,216 · Trad $3,485</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">19</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-09-26</span>
@@ -3937,22 +4017,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$4,538</span>
     <span class="e">Southern Arizona Home Show</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-04</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Southern Arizona Home Show<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-05</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Southern Arizona Home Show<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-11-14</span>
@@ -3968,14 +4032,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$5,455</span>
     <span class="e">Fountain Hills Festival of Fine Arts &amp; Crafts</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-16</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fountain Hills Festival of Fine Arts &amp; Crafts<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -4009,22 +4065,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$1,968</span>
     <span class="e">Quartzsite RV Show W 2</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-01-31</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Lake havasu Winter Fest<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-01</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Lake havasu Winter Fest<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-03-06</span>
@@ -4040,22 +4080,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$4,990</span>
     <span class="e">NHRA Nationals</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-03-21</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">NHRA Nationals<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-03-22</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">NHRA Nationals<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -4081,30 +4105,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$1,405</span>
     <span class="e">Maricopa County Home &amp; Flower Show</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-06-05</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Flagstaff Rodeo<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-06-06</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Flagstaff Rodeo<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-06-07</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Flagstaff Rodeo<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-07-17</span>
@@ -4129,6 +4129,91 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$4,969</span>
     <span class="e">Maricopa County Summer Home &amp; Landscape Show</span>
   </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">10</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-04</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Southern Arizona Home Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-05</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Southern Arizona Home Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-16</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fountain Hills Festival of Fine Arts &amp; Crafts<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-01-31</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Lake havasu Winter Fest<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-01</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Lake havasu Winter Fest<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-03-21</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">NHRA Nationals<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-03-22</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">NHRA Nationals<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-06-05</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Flagstaff Rodeo<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-06-06</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Flagstaff Rodeo<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-06-07</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Flagstaff Rodeo<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-matt-foss">
@@ -4139,8 +4224,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">9 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $4,684 · Trad $3,503</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $4,684 · Trad $3,503</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">72</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-11-01</span>
@@ -4180,22 +4267,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$2,646</span>
     <span class="e">The Hondo Rodeo Fest</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-14</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Pinners Conference &amp; Expo - AZ<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-15</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Pinners Conference &amp; Expo - AZ<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -4664,22 +4735,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$1,265</span>
     <span class="e">Overland Expo West</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-05-23</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Prescott Off Street Festival<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-05-24</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Prescott Off Street Festival<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-06-06</span>
@@ -4712,14 +4767,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$1,805</span>
     <span class="e">Phoenix Volleyball Festival</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-07-03</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Flagstaff Art in the Park<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-07-04</span>
@@ -4735,14 +4782,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$9,605</span>
     <span class="e">Flagstaff Art in the Park</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-07-17</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Maricopa County Summer Home &amp; Landscape Show<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -4760,14 +4799,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$10,387</span>
     <span class="e">Maricopa County Summer Home &amp; Landscape Show</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-07-24</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Snowflake Pioneer Days<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-07-25</span>
@@ -4775,6 +4806,66 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$3,469</span>
     <span class="e">Snowflake Pioneer Days</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">9</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-14</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Pinners Conference &amp; Expo - AZ<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-15</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Pinners Conference &amp; Expo - AZ<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-05-23</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Prescott Off Street Festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-05-24</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Prescott Off Street Festival<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-07-03</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Flagstaff Art in the Park<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-07-17</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Maricopa County Summer Home &amp; Landscape Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-07-24</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Snowflake Pioneer Days<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -4792,6 +4883,7 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Prescott Summer Fine Art &amp; Wine Festival<span class="nostat">no stats turned in</span></span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-charity-campbell">
@@ -4802,8 +4894,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">6 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,769 · Trad $457</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $1,769 · Trad $457</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">17</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-28</span>
@@ -4812,14 +4906,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$1,875</span>
     <span class="e">Quilt, Craft &amp; Sewing Festival Scottsdale</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-08-29</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Quilt, Craft &amp; Sewing Festival Scottsdale<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2025-08-30</span>
@@ -4827,38 +4913,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$1,662</span>
     <span class="e">Quilt, Craft &amp; Sewing Festival Scottsdale</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-05</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fiddle &amp; Food Truck Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-06</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fiddle &amp; Food Truck Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-07</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Fiddle &amp; Food Truck Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -4948,14 +5002,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$931</span>
     <span class="e">Scottsdale Arabian Horse Show w1</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-02-15</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Scottsdale Arabian Horse Show w1<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-02-19</span>
@@ -4988,6 +5034,59 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$128</span>
     <span class="e">Scottsdale Arabian Horse Show W2</span>
   </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">6</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-08-29</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Quilt, Craft &amp; Sewing Festival Scottsdale<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-05</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fiddle &amp; Food Truck Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-06</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fiddle &amp; Food Truck Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-07</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Fiddle &amp; Food Truck Festival<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-02-15</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Scottsdale Arabian Horse Show w1<span class="nostat">no stats turned in</span></span>
+  </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-eli-camacho">
@@ -4998,8 +5097,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">6 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $2,317 · Trad $2,812</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $2,317 · Trad $2,812</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">30</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-24</span>
@@ -5216,30 +5317,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$5,399</span>
     <span class="e">El Paso Home &amp; Garden Show</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-04-17</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Pima County Fair Wk 2<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-04-18</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Pima County Fair Wk 2<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-04-19</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Pima County Fair Wk 2<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-04-24</span>
@@ -5263,6 +5340,34 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$1,090</span>
     <span class="e">Pima county fair</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">6</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-04-17</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Pima County Fair Wk 2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-04-18</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Pima County Fair Wk 2<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-04-19</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Pima County Fair Wk 2<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="row--miss">
     <span class="meta">
@@ -5288,6 +5393,7 @@ section{display:flex;flex-direction:column}
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Maricopa County Home &amp; Flower Show<span class="nostat">no stats turned in</span></span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-kendall-gooch">
@@ -5298,8 +5404,54 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">6 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $1,390</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $1,390</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">5</span></summary>
+        <ul class="shifts">
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-01-23</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$4,208</span>
+    <span class="e">Mesa Marketplace</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-02-14</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$396</span>
+    <span class="e">Glendale Chocolate Affaire</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-03-07</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$1,922</span>
+    <span class="e">Queen Creek Family market</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-03-21</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$289</span>
+    <span class="e">Queen creek Family market</span>
+  </li>
+  <li class="">
+    <span class="meta">
+      <span class="d">2026-03-22</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo">$137</span>
+    <span class="e">Mesa Marketplace</span>
+  </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">6</span></summary>
+        <ul class="shifts">
   <li class="row--miss">
     <span class="meta">
       <span class="d">2025-09-20</span>
@@ -5347,47 +5499,8 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo cpo--zero">$0</span>
     <span class="e">Queen Creek Family Market- January<span class="t t--unverified" title="No record anywhere that this event ran — tell Alan if it did not">unverified</span><span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-01-23</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$4,208</span>
-    <span class="e">Mesa Marketplace</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-02-14</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$396</span>
-    <span class="e">Glendale Chocolate Affaire</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-03-07</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$1,922</span>
-    <span class="e">Queen Creek Family market</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-03-21</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$289</span>
-    <span class="e">Queen creek Family market</span>
-  </li>
-  <li class="">
-    <span class="meta">
-      <span class="d">2026-03-22</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo">$137</span>
-    <span class="e">Mesa Marketplace</span>
   </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-craig-coker">
@@ -5398,32 +5511,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">3 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $567</strong>.</p>
-      <ul class="shifts">
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-12</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
-  </li>
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $567</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">22</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-10-31</span>
@@ -5600,6 +5691,35 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$115</span>
     <span class="e">Mesa Marketplace</span>
   </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">3</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-12</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-luke-mills">
@@ -5610,16 +5730,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">3 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $5,668 · Trad $3,458</strong>.</p>
-      <ul class="shifts">
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-09-12</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Sierra Vista Oktoberfest<span class="nostat">no stats turned in</span></span>
-  </li>
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $5,668 · Trad $3,458</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">12</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-09-26</span>
@@ -5651,22 +5765,6 @@ section{display:flex;flex-direction:column}
     </span>
     <span class="cpo">$0</span>
     <span class="e">Barrett-Jackson Car Auction - Scottsdale</span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-17</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Barrett-Jackson Car Auction - Scottsdale<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-11-18</span>
-      <span class="t t--key">Key</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">MTCAZ 2025 Trade Show<span class="nostat">no stats turned in</span></span>
   </li>
   <li class="">
     <span class="meta">
@@ -5732,6 +5830,35 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$8,643</span>
     <span class="e">Maricopa County Summer Home &amp; Landscape Show</span>
   </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">3</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-09-12</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Sierra Vista Oktoberfest<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-17</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Barrett-Jackson Car Auction - Scottsdale<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-11-18</span>
+      <span class="t t--key">Key</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">MTCAZ 2025 Trade Show<span class="nostat">no stats turned in</span></span>
+  </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-rob-lord">
@@ -5742,32 +5869,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">3 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $342</strong>.</p>
-      <ul class="shifts">
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-12</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
-  </li>
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $342</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">15</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-10-31</span>
@@ -5888,6 +5993,35 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$0</span>
     <span class="e">Mason marketplace<span class="t t--note" title="Submitted but not found on the shift schedule">not on schedule</span></span>
   </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">3</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-12</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet B ROW<span class="nostat">no stats turned in</span></span>
+  </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-roman-earhart">
@@ -5898,32 +6032,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">3 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $1,108</strong>.</p>
-      <ul class="shifts">
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-10</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-11</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
-  </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2025-10-12</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
-  </li>
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key — · Trad $1,108</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">5</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-12-12</span>
@@ -5964,6 +6076,35 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$3,236</span>
     <span class="e">Mesa Market Place Swapmeet A ROW</span>
   </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">3</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-10</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-11</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2025-10-12</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Mesa Market Place Swapmeet A ROW<span class="nostat">no stats turned in</span></span>
+  </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-jason-jeffrey">
@@ -5974,8 +6115,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__count">2 missing</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $4,849 · Trad $5,349</strong>.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average. With all stats in, your averages become <strong>Key $4,849 · Trad $5,349</strong>.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">38</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2025-08-30</span>
@@ -6176,14 +6319,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$6,322</span>
     <span class="e">Havasu Spring Craft &amp; Vendor Show</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-03-15</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Havasu Spring Craft &amp; Vendor Show<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-03-20</span>
@@ -6264,14 +6399,6 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$1,495</span>
     <span class="e">YCCA Home &amp; Garden Show</span>
   </li>
-  <li class="row--miss">
-    <span class="meta">
-      <span class="d">2026-06-20</span>
-      <span class="t t--traditional">Traditional</span>
-    </span>
-    <span class="cpo cpo--zero">$0</span>
-    <span class="e">Prescott Bluegrass Festival<span class="nostat">no stats turned in</span></span>
-  </li>
   <li class="">
     <span class="meta">
       <span class="d">2026-07-17</span>
@@ -6296,6 +6423,27 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$10,665</span>
     <span class="e">Maricopa County Summer Home &amp; Landscape Show</span>
   </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">2</span></summary>
+        <ul class="shifts">
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-03-15</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Havasu Spring Craft &amp; Vendor Show<span class="nostat">no stats turned in</span></span>
+  </li>
+  <li class="row--miss">
+    <span class="meta">
+      <span class="d">2026-06-20</span>
+      <span class="t t--traditional">Traditional</span>
+    </span>
+    <span class="cpo cpo--zero">$0</span>
+    <span class="e">Prescott Bluegrass Festival<span class="nostat">no stats turned in</span></span>
+  </li></ul>
+      </details>
     </div>
   </details>
   <details class="debt" id="rep-sean-potter">
@@ -6306,8 +6454,10 @@ section{display:flex;flex-direction:column}
       <span class="debt__clear">all stats in</span>
     </summary>
     <div class="audit">
-      <p class="audit__ask">Walk every line below. Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average.</p>
-      <ul class="shifts">
+      <p class="audit__ask">Check the dollar amounts against what you actually sold, flag any shift you didn't work, and get stats in for every <strong>$0</strong> — each one is dragging your average.</p>
+      <details class="split split--good">
+        <summary>Submitted Stats <span class="split__count">2</span></summary>
+        <ul class="shifts">
   <li class="">
     <span class="meta">
       <span class="d">2026-03-28</span>
@@ -6324,6 +6474,11 @@ section{display:flex;flex-direction:column}
     <span class="cpo">$470</span>
     <span class="e">Mesa market place</span>
   </li></ul>
+      </details>
+      <details class="split split--bad">
+        <summary>Stats You're Missing <span class="split__count">0</span></summary>
+        <p class="split__empty">Nothing missing — all stats in. 🎉</p>
+      </details>
     </div>
   </details>
   </section>
