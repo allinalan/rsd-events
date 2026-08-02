@@ -94,10 +94,13 @@ section{display:flex;flex-direction:column}
   .meta .t{grid-area:type}
   .e{grid-area:event}
   .nostat{display:none}
-  .debt summary{grid-template-columns:auto auto 1fr auto;align-items:center}
-  .debt summary>.debt__name{grid-column:auto}
-  .debt summary>.avgchip:nth-of-type(1){grid-column:auto}
-  .debt summary>.debt__count,.debt summary>.debt__clear{justify-self:end}
+  /* Desktop: one clean row. Flex handles the 5 children (marker, name, two
+     average chips, status) better than a fixed grid, which was wrapping. */
+  .debt summary{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem}
+  .debt summary::before{grid-row:auto;grid-column:auto}
+  .debt summary>.debt__name{flex:0 0 auto;min-width:14ch}
+  .debt summary>.avgchip{flex:0 0 auto}
+  .debt summary>.debt__count,.debt summary>.debt__clear{margin-left:auto}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
