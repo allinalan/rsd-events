@@ -1,0 +1,704 @@
+<title>Fall 2026 Picking Order — RSD Events Team</title>
+<style>
+:root{
+  --ground:#FBFAF7;--raised:#FFF;--sunk:#F2EFE9;--ink:#1A1B20;--ink-2:#4A4842;--ink-3:#7C786F;
+  --line:#E2DED4;--line-2:#CFC9BC;--amber:#C4741B;--amber-soft:#F6E7D2;
+  --good:#2F6B4C;--good-soft:#E2EFE7;--bad:#A93E27;--bad-soft:#F7E3DD;
+  --display:ui-serif,Georgia,"Iowan Old Style",serif;
+  --body:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --data:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --ground:#131418;--raised:#1B1D23;--sunk:#0E0F13;--ink:#F0EDE6;--ink-2:#B5B0A6;--ink-3:#807B72;
+  --line:#2A2C34;--line-2:#3A3D47;--amber:#E5A24E;--amber-soft:#33261492;
+  --good:#6FBF91;--good-soft:#16281E;--bad:#E58B70;--bad-soft:#2B1712;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:clamp(1.5rem,4vw,3.5rem) clamp(1rem,4vw,2rem) 5rem;display:flex;flex-direction:column;gap:2.4rem}
+.mast{display:flex;flex-direction:column;gap:.7rem;padding-bottom:1.5rem;border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:var(--data);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+h1{font-family:var(--display);font-size:clamp(2rem,5vw,3rem);line-height:1.05;margin:0;font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.sub{margin:0;color:var(--ink-2);max-width:62ch}
+.meta{font-family:var(--data);font-size:.72rem;color:var(--ink-3);display:flex;gap:1.25rem;flex-wrap:wrap}
+h2{font-family:var(--display);font-size:1.6rem;font-weight:600;margin:0 0 .6rem;letter-spacing:-.01em;display:flex;align-items:baseline;gap:.7rem}
+h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.how{background:var(--raised);border:1px solid var(--line);border-radius:8px;padding:1.2rem 1.3rem}
+.how h2{font-size:1.25rem;margin-bottom:.6rem}
+.how p{margin:.35rem 0;font-size:.92rem;color:var(--ink-2);max-width:70ch}
+.how .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin:.9rem 0}
+.how .cell{background:var(--sunk);border-radius:6px;padding:.7rem .85rem}
+.how .cell h3{margin:0 0 .3rem;font-family:var(--data);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.how .cell p{margin:0;font-size:.85rem}
+.how ul{margin:.4rem 0 0;padding-left:1.1rem;font-size:.88rem;color:var(--ink-2)}
+.how li{margin:.25rem 0}
+.rep{border:1px solid var(--line);border-radius:6px;background:var(--raised);margin-bottom:.45rem;overflow:hidden}
+.rep summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.9rem;padding:.8rem 1rem;min-height:48px}
+.rep summary::-webkit-details-marker{display:none}
+.rep summary:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.pick{font-family:var(--data);font-weight:700;font-size:1.05rem;color:var(--amber);background:var(--amber-soft);border-radius:5px;min-width:2.3rem;text-align:center;padding:.22rem 0;flex:0 0 auto}
+.name{font-weight:600;font-size:1.05rem;flex:1 1 auto}
+.total{font-family:var(--data);font-size:.82rem;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rep[open] summary{border-bottom:1px solid var(--line)}
+.body{padding:.9rem 1rem 1rem;background:var(--sunk)}
+.calc{width:100%;border-collapse:collapse;background:var(--raised);border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:.85rem}
+.calc th{font-family:var(--data);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:.5rem .65rem;border-bottom:1px solid var(--line)}
+.calc td{padding:.55rem .65rem;border-bottom:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums}
+.calc tbody tr:last-child td{border-bottom:1px solid var(--line-2)}
+.cat{color:var(--ink)}
+.wt{display:block;font-family:var(--data);font-size:.62rem;color:var(--ink-3);letter-spacing:.04em;margin-top:.1rem}
+.val{font-family:var(--data);font-size:.84rem;white-space:nowrap}
+.rk{font-family:var(--data);font-weight:700}
+.of{display:block;font-weight:400;font-size:.62rem;color:var(--ink-3)}
+.pts{font-family:var(--data);font-weight:700;text-align:right;color:var(--amber);white-space:nowrap}
+.pts--sum{font-size:1rem}
+.formula{font-family:var(--data);font-size:.72rem;color:var(--ink-3);text-align:right}
+.nodata{font-family:var(--data);font-size:.72rem;color:var(--bad);background:var(--bad-soft);padding:.1rem .4rem;border-radius:3px}
+.note{font-size:.8rem;color:var(--ink-3);margin:.6rem 0 0;max-width:70ch}
+.foot{font-family:var(--data);font-size:.72rem;color:var(--ink-3);border-top:1px solid var(--line);padding-top:1rem;line-height:1.7}
+@media (max-width:480px){
+  .calc th:nth-child(1),.calc td.cat{max-width:34vw}
+  .calc td,.calc th{padding:.45rem .45rem}
+}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="eyebrow">Rising Sun Division · Events Team</div>
+    <h1>Fall 2026 Picking Order</h1>
+    <p class="sub"><strong>Lowest points picks first.</strong> Tap your name to see exactly how your score was built — every number, every rank, every weight. Same math for everyone.</p>
+    <div class="meta">
+      <span>Updated August 4, 2026</span>
+      <span>Shift window 2025-08-05 → 2026-08-05</span>
+      <span>Order: Elite → Varsity → JV</span>
+    </div>
+  </header>
+
+  <section class="how">
+    <h2>How the scoring works</h2>
+    <p>Within each tier you're ranked 1 to N in three categories (1 = best). Each rank is multiplied by the category's weight, and the three results are added up — <strong>golf rules: lowest total picks first</strong>. Career sales break ties.</p>
+    <div class="grid">
+      <div class="cell"><h3>Elite &amp; Varsity</h3><p>Last 12-month sales <strong>20%</strong> · Weighted shift average <strong>40%</strong> · Campaign event sales <strong>40%</strong></p></div>
+      <div class="cell"><h3>JV</h3><p>Career sales <strong>20%</strong> · YTD sales <strong>40%</strong> · Campaign event sales <strong>40%</strong></p></div>
+      <div class="cell"><h3>Campaign window</h3><p>Spring + Summer event sales, Jan 1 – Aug 4, 2026 — straight from VectorConnect (booth, service events, and service calls from booth leads).</p></div>
+    </div>
+    <ul>
+      <li><strong>Weighted shift average</strong> = (Traditional CPO × 2.4 + Key CPO + 5 × team average) ÷ (shifts + 5). Unsubmitted shifts count as $0.</li>
+      <li><strong>Drops:</strong> every 10 shifts worked per type removes your lowest shift of that type before averaging. Misses can never be dropped.</li>
+      <li><strong>Missing data ranks last</strong> in that category — it is never treated as zero, and never ignored.</li>
+      <li><strong>Tiers</strong> require both the shift-average bar and the sales bars (Elite: 12-mo ≥ $200k · Varsity: 12-mo ≥ $120k + career ≥ $150k). No exceptions.</li>
+    </ul>
+  </section>
+
+  
+  <section>
+    <h2>Elite<span class="count">5 reps</span></h2>
+    
+    <details class="rep" id="rep-jason-jeffrey">
+      <summary>
+        <span class="pick">1</span>
+        <span class="name">Jason Jeffrey</span>
+        <span class="total">1.00 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
+          <td class="val">$570,788</td>
+          <td class="rk">#1<span class="of">of 5</span></td>
+          <td class="pts">0.20</td>
+        </tr>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
+          <td class="val">$6,375</td>
+          <td class="rk">#1<span class="of">of 5</span></td>
+          <td class="pts">0.40</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$184,905</td>
+          <td class="rk">#1<span class="of">of 5</span></td>
+          <td class="pts">0.40</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#1×0.2 + #1×0.4 + #1×0.4</td><td class="pts pts--sum">1.00</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average shown includes your drops (3 Key + 1 Traditional earned) and the +5-shift team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-alec-luyendyk">
+      <summary>
+        <span class="pick">2</span>
+        <span class="name">Alec Luyendyk</span>
+        <span class="total">2.40 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
+          <td class="val">$360,074</td>
+          <td class="rk">#4<span class="of">of 5</span></td>
+          <td class="pts">0.80</td>
+        </tr>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
+          <td class="val">$5,293</td>
+          <td class="rk">#2<span class="of">of 5</span></td>
+          <td class="pts">0.80</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$146,646</td>
+          <td class="rk">#2<span class="of">of 5</span></td>
+          <td class="pts">0.80</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#4×0.2 + #2×0.4 + #2×0.4</td><td class="pts pts--sum">2.40</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average shown includes your drops (2 Key + 1 Traditional earned) and the +5-shift team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-adam-conroy">
+      <summary>
+        <span class="pick">3</span>
+        <span class="name">Adam Conroy</span>
+        <span class="total">3.60 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
+          <td class="val">$557,625</td>
+          <td class="rk">#2<span class="of">of 5</span></td>
+          <td class="pts">0.40</td>
+        </tr>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
+          <td class="val">$3,678</td>
+          <td class="rk">#5<span class="of">of 5</span></td>
+          <td class="pts">2.00</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$98,690</td>
+          <td class="rk">#3<span class="of">of 5</span></td>
+          <td class="pts">1.20</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#2×0.2 + #5×0.4 + #3×0.4</td><td class="pts pts--sum">3.60</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average shown includes your drops (1 Key + 0 Traditional earned) and the +5-shift team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-jeremy-katen">
+      <summary>
+        <span class="pick">4</span>
+        <span class="name">Jeremy Katen</span>
+        <span class="total">3.80 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
+          <td class="val">$389,415</td>
+          <td class="rk">#3<span class="of">of 5</span></td>
+          <td class="pts">0.60</td>
+        </tr>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
+          <td class="val">$4,371</td>
+          <td class="rk">#4<span class="of">of 5</span></td>
+          <td class="pts">1.60</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$61,775</td>
+          <td class="rk">#4<span class="of">of 5</span></td>
+          <td class="pts">1.60</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#3×0.2 + #4×0.4 + #4×0.4</td><td class="pts pts--sum">3.80</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average shown includes your drops (2 Key + 0 Traditional earned) and the +5-shift team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-eli-camacho">
+      <summary>
+        <span class="pick">5</span>
+        <span class="name">Eli Camacho</span>
+        <span class="total">4.20 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
+          <td class="val">$205,222</td>
+          <td class="rk">#5<span class="of">of 5</span></td>
+          <td class="pts">1.00</td>
+        </tr>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
+          <td class="val">$4,599</td>
+          <td class="rk">#3<span class="of">of 5</span></td>
+          <td class="pts">1.20</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$31,495</td>
+          <td class="rk">#5<span class="of">of 5</span></td>
+          <td class="pts">2.00</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#5×0.2 + #3×0.4 + #5×0.4</td><td class="pts pts--sum">4.20</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average shown includes your drops (1 Key + 1 Traditional earned) and the +5-shift team blend.</p>
+      </div>
+    </details>
+  </section>
+  <section>
+    <h2>Varsity<span class="count">3 reps</span></h2>
+    
+    <details class="rep" id="rep-johnathan-parker">
+      <summary>
+        <span class="pick">6</span>
+        <span class="name">Johnathan Parker</span>
+        <span class="total">1.80 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
+          <td class="val">$308,135</td>
+          <td class="rk">#1<span class="of">of 3</span></td>
+          <td class="pts">0.20</td>
+        </tr>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
+          <td class="val">$3,264</td>
+          <td class="rk">#3<span class="of">of 3</span></td>
+          <td class="pts">1.20</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$72,390</td>
+          <td class="rk">#1<span class="of">of 3</span></td>
+          <td class="pts">0.40</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#1×0.2 + #3×0.4 + #1×0.4</td><td class="pts pts--sum">1.80</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average shown includes your drops (2 Key + 7 Traditional earned) and the +5-shift team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-sarah-krick">
+      <summary>
+        <span class="pick">7</span>
+        <span class="name">Sarah Krick</span>
+        <span class="total">2.00 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
+          <td class="val">$198,606</td>
+          <td class="rk">#2<span class="of">of 3</span></td>
+          <td class="pts">0.40</td>
+        </tr>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
+          <td class="val">$3,514</td>
+          <td class="rk">#1<span class="of">of 3</span></td>
+          <td class="pts">0.40</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$18,685</td>
+          <td class="rk">#3<span class="of">of 3</span></td>
+          <td class="pts">1.20</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#2×0.2 + #1×0.4 + #3×0.4</td><td class="pts pts--sum">2.00</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average shown includes your drops (0 Key + 2 Traditional earned) and the +5-shift team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-jerry-ramirez">
+      <summary>
+        <span class="pick">8</span>
+        <span class="name">Jerry Ramirez</span>
+        <span class="total">2.20 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
+          <td class="val">$133,297</td>
+          <td class="rk">#3<span class="of">of 3</span></td>
+          <td class="pts">0.60</td>
+        </tr>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
+          <td class="val">$3,376</td>
+          <td class="rk">#2<span class="of">of 3</span></td>
+          <td class="pts">0.80</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$28,347</td>
+          <td class="rk">#2<span class="of">of 3</span></td>
+          <td class="pts">0.80</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#3×0.2 + #2×0.4 + #2×0.4</td><td class="pts pts--sum">2.20</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average shown includes your drops (1 Key + 3 Traditional earned) and the +5-shift team blend.</p>
+      </div>
+    </details>
+  </section>
+  <section>
+    <h2>Jv<span class="count">10 reps</span></h2>
+    
+    <details class="rep" id="rep-cameron-couts">
+      <summary>
+        <span class="pick">9</span>
+        <span class="name">Cameron Couts</span>
+        <span class="total">2.20 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val">$1,173,835</td>
+          <td class="rk">#3<span class="of">of 10</span></td>
+          <td class="pts">0.60</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$107,138</td>
+          <td class="rk">#1<span class="of">of 10</span></td>
+          <td class="pts">0.40</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$24,692</td>
+          <td class="rk">#3<span class="of">of 10</span></td>
+          <td class="pts">1.20</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#3×0.2 + #1×0.4 + #3×0.4</td><td class="pts pts--sum">2.20</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,578</strong> after 4 drops + team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-zach-duran">
+      <summary>
+        <span class="pick">10</span>
+        <span class="name">Zach Duran</span>
+        <span class="total">2.60 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val">$2,570,741</td>
+          <td class="rk">#1<span class="of">of 10</span></td>
+          <td class="pts">0.20</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$70,841</td>
+          <td class="rk">#4<span class="of">of 10</span></td>
+          <td class="pts">1.60</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$25,696</td>
+          <td class="rk">#2<span class="of">of 10</span></td>
+          <td class="pts">0.80</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#1×0.2 + #4×0.4 + #2×0.4</td><td class="pts pts--sum">2.60</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,685</strong> after 5 drops + team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-sean-potter">
+      <summary>
+        <span class="pick">11</span>
+        <span class="name">Sean Potter</span>
+        <span class="total">4.00 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val">$1,533,752</td>
+          <td class="rk">#2<span class="of">of 10</span></td>
+          <td class="pts">0.40</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$77,118</td>
+          <td class="rk">#3<span class="of">of 10</span></td>
+          <td class="pts">1.20</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$7,279</td>
+          <td class="rk">#6<span class="of">of 10</span></td>
+          <td class="pts">2.40</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#2×0.2 + #3×0.4 + #6×0.4</td><td class="pts pts--sum">4.00</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,638</strong> after 0 drops + team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-matthew-aragon">
+      <summary>
+        <span class="pick">12</span>
+        <span class="name">Matthew Aragon</span>
+        <span class="total">4.40 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val">$162,822</td>
+          <td class="rk">#8<span class="of">of 10</span></td>
+          <td class="pts">1.60</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$65,358</td>
+          <td class="rk">#6<span class="of">of 10</span></td>
+          <td class="pts">2.40</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$29,818</td>
+          <td class="rk">#1<span class="of">of 10</span></td>
+          <td class="pts">0.40</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#8×0.2 + #6×0.4 + #1×0.4</td><td class="pts pts--sum">4.40</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,199</strong> after 4 drops + team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-adam-jeffrey">
+      <summary>
+        <span class="pick">13</span>
+        <span class="name">Adam Jeffrey</span>
+        <span class="total">5.00 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val">$480,367</td>
+          <td class="rk">#7<span class="of">of 10</span></td>
+          <td class="pts">1.40</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$68,845</td>
+          <td class="rk">#5<span class="of">of 10</span></td>
+          <td class="pts">2.00</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$18,234</td>
+          <td class="rk">#4<span class="of">of 10</span></td>
+          <td class="pts">1.60</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#7×0.2 + #5×0.4 + #4×0.4</td><td class="pts pts--sum">5.00</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$3,533</strong> after 3 drops + team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-roman-earhart">
+      <summary>
+        <span class="pick">14</span>
+        <span class="name">Roman Earhart</span>
+        <span class="total">5.20 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val">$1,100,000</td>
+          <td class="rk">#4<span class="of">of 10</span></td>
+          <td class="pts">0.80</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$100,000</td>
+          <td class="rk">#2<span class="of">of 10</span></td>
+          <td class="pts">0.80</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$1,553</td>
+          <td class="rk">#9<span class="of">of 10</span></td>
+          <td class="pts">3.60</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#4×0.2 + #2×0.4 + #9×0.4</td><td class="pts pts--sum">5.20</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,971</strong> after 0 drops + team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-charity-campbell">
+      <summary>
+        <span class="pick">15</span>
+        <span class="name">Charity Campbell</span>
+        <span class="total">6.80 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val">$658,800</td>
+          <td class="rk">#6<span class="of">of 10</span></td>
+          <td class="pts">1.20</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$50,690</td>
+          <td class="rk">#7<span class="of">of 10</span></td>
+          <td class="pts">2.80</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$6,318</td>
+          <td class="rk">#7<span class="of">of 10</span></td>
+          <td class="pts">2.80</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#6×0.2 + #7×0.4 + #7×0.4</td><td class="pts pts--sum">6.80</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,414</strong> after 1 drop + team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-kendall-gooch">
+      <summary>
+        <span class="pick">16</span>
+        <span class="name">Kendall Gooch</span>
+        <span class="total">7.00 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val">$119,501</td>
+          <td class="rk">#9<span class="of">of 10</span></td>
+          <td class="pts">1.80</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$40,541</td>
+          <td class="rk">#8<span class="of">of 10</span></td>
+          <td class="pts">3.20</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$7,613</td>
+          <td class="rk">#5<span class="of">of 10</span></td>
+          <td class="pts">2.00</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#9×0.2 + #8×0.4 + #5×0.4</td><td class="pts pts--sum">7.00</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,901</strong> after 1 drop + team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-craig-coker">
+      <summary>
+        <span class="pick">17</span>
+        <span class="name">Craig Coker</span>
+        <span class="total">8.20 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val">$974,785</td>
+          <td class="rk">#5<span class="of">of 10</span></td>
+          <td class="pts">1.00</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$2,538</td>
+          <td class="rk">#10<span class="of">of 10</span></td>
+          <td class="pts">4.00</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$2,492</td>
+          <td class="rk">#8<span class="of">of 10</span></td>
+          <td class="pts">3.20</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#5×0.2 + #10×0.4 + #8×0.4</td><td class="pts pts--sum">8.20</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,775</strong> after 2 drops + team blend.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-rob-lord">
+      <summary>
+        <span class="pick">18</span>
+        <span class="name">Rob Lord</span>
+        <span class="total">9.60 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Career sales<span class="wt">20% weight</span></td>
+          <td class="val"><span class="nodata">no data</span></td>
+          <td class="rk">#10<span class="of">of 10</span></td>
+          <td class="pts">2.00</td>
+        </tr>
+        <tr>
+          <td class="cat">YTD sales<span class="wt">40% weight</span></td>
+          <td class="val">$25,000</td>
+          <td class="rk">#9<span class="of">of 10</span></td>
+          <td class="pts">3.60</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$483</td>
+          <td class="rk">#10<span class="of">of 10</span></td>
+          <td class="pts">4.00</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#10×0.2 + #9×0.4 + #10×0.4</td><td class="pts pts--sum">9.60</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,501</strong> after 1 drop + team blend.</p>
+      </div>
+    </details>
+  </section>
+
+  <footer class="foot">
+    Sources: Show Shift Schedules + Stat Tracker (shift averages, misses = $0) · VectorConnect Team Sales Jan 1–Aug 4 2026 (campaign) · division sales reports Aug 4 2026 (career / 12-month / YTD).
+    Coordinators pick outside this order. Questions about your numbers → your audit page or Alan.
+  </footer>
+</div>
