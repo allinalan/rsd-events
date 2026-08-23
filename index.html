@@ -106,7 +106,17 @@ section{display:flex;flex-direction:column}
   .debt summary>.debt__count,.debt summary>.debt__clear{margin-left:auto}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.sitenav{position:sticky;top:0;z-index:50;display:flex;gap:.45rem;justify-content:center;
+  padding:.6rem clamp(1rem,4vw,2rem);background:var(--ground);border-bottom:1px solid var(--line)}
+.sitenav a{flex:1;max-width:230px;text-align:center;font-family:var(--data);font-size:.72rem;
+  letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);
+  padding:.6rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--raised)}
+.sitenav a[aria-current="page"]{color:var(--amber);border-color:var(--amber);background:var(--amber-soft);font-weight:700}
+[id]{scroll-margin-top:4.4rem}   /* #rep-… deep links must clear the sticky bar */
 </style>
+<nav class="sitenav"><a href="./" aria-current="page">My Stat Audit</a><a href="./picking.html">Picking Order</a></nav>
+
 
 <div class="wrap">
   <header class="mast">
