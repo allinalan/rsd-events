@@ -1,0 +1,1254 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Maricopa Team Standings — RSD Events Team</title>
+<style>
+:root{
+  --ground:#FBFAF7;--raised:#FFF;--sunk:#F2EFE9;--ink:#1A1B20;--ink-2:#4A4842;--ink-3:#7C786F;
+  --line:#E2DED4;--line-2:#CFC9BC;--amber:#C4741B;--amber-soft:#F6E7D2;
+  --good:#2F6B4C;--good-soft:#E2EFE7;--bad:#A93E27;--bad-soft:#F7E3DD;
+  --display:ui-serif,Georgia,"Iowan Old Style",serif;
+  --body:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --data:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --ground:#131418;--raised:#1B1D23;--sunk:#0E0F13;--ink:#F0EDE6;--ink-2:#B5B0A6;--ink-3:#807B72;
+  --line:#2A2C34;--line-2:#3A3D47;--amber:#E5A24E;--amber-soft:#33261492;
+  --good:#6FBF91;--good-soft:#16281E;--bad:#E58B70;--bad-soft:#2B1712;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:clamp(1.5rem,4vw,3.5rem) clamp(1rem,4vw,2rem) 5rem;display:flex;flex-direction:column;gap:2.4rem}
+.mast{display:flex;flex-direction:column;gap:.7rem;padding-bottom:1.5rem;border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:var(--data);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+h1{font-family:var(--display);font-size:clamp(2rem,5vw,3rem);line-height:1.05;margin:0;font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.sub{margin:0;color:var(--ink-2);max-width:62ch}
+.meta{font-family:var(--data);font-size:.72rem;color:var(--ink-3);display:flex;gap:.4rem 1.25rem;flex-wrap:wrap}
+h2{font-family:var(--display);font-size:1.6rem;font-weight:600;margin:0 0 .6rem;letter-spacing:-.01em;display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.lede{margin:0 0 1rem;color:var(--ink-2);font-size:.95rem;max-width:68ch}
+.grp{font-family:var(--data);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--good);margin:1rem 0 .5rem}
+.grp--res{color:var(--ink-3);border-top:1px dashed var(--line-2);padding-top:1rem;margin-top:1.1rem}
+.how{background:var(--raised);border:1px solid var(--line);border-radius:8px;padding:1.2rem 1.3rem}
+.how h2{font-size:1.25rem;margin-bottom:.6rem}
+.how h3{font-family:var(--display);font-size:1.02rem;margin:1.1rem 0 .2rem}
+.how p{margin:.35rem 0;font-size:.92rem;color:var(--ink-2);max-width:70ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin:.9rem 0}
+.cell{background:var(--sunk);border-radius:6px;padding:.7rem .85rem}
+.cell h3{margin:0 0 .3rem;font-family:var(--data);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
+.cell p{margin:0;font-size:.85rem;color:var(--ink-2)}
+.eq{font-family:var(--data);font-size:.78rem;background:var(--sunk);border-radius:6px;padding:.6rem .75rem;margin:.5rem 0;color:var(--ink);overflow-x:auto;white-space:nowrap}
+.rep{border:1px solid var(--line);border-radius:6px;background:var(--raised);margin-bottom:.45rem;overflow:hidden}
+.rep--in{border-left:3px solid var(--good)}
+.rep summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.9rem;padding:.8rem 1rem;min-height:48px}
+.rep summary::-webkit-details-marker{display:none}
+.rep summary:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.pick{font-family:var(--data);font-weight:700;font-size:1.05rem;color:var(--amber);background:var(--amber-soft);border-radius:5px;min-width:2.3rem;text-align:center;padding:.22rem 0;flex:0 0 auto}
+.name{font-weight:600;font-size:1.05rem;flex:1 1 auto}
+.total{font-family:var(--data);font-size:1rem;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rep[open] summary{border-bottom:1px solid var(--line)}
+.body{padding:.9rem 1rem 1rem;background:var(--sunk)}
+.calc{width:100%;border-collapse:collapse;background:var(--raised);border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:.85rem}
+.calc th{font-family:var(--data);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:.5rem .65rem;border-bottom:1px solid var(--line)}
+.calc td{padding:.55rem .65rem;border-bottom:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums}
+.calc tbody tr:last-child td{border-bottom:1px solid var(--line-2)}
+.calc th:nth-child(n+2),.calc td:nth-child(n+2){text-align:right}
+.cat{color:var(--ink)}
+.wt{display:block;font-family:var(--data);font-size:.62rem;color:var(--ink-3);letter-spacing:.02em;margin-top:.1rem}
+.val{font-family:var(--data);font-size:.84rem;white-space:nowrap}
+.rk{font-family:var(--data)}
+.pts{font-family:var(--data);font-weight:700;color:var(--amber);white-space:nowrap}
+.pts--sum{font-size:1rem}
+.formula{font-family:var(--data);font-size:.72rem;color:var(--ink-3)}
+.nodata{font-family:var(--data);font-size:.72rem;font-weight:400;color:var(--bad);background:var(--bad-soft);padding:.1rem .4rem;border-radius:3px}
+.note{font-size:.8rem;color:var(--ink-3);margin:.6rem 0 0;max-width:70ch}
+.note a,.live a{color:var(--amber);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.opp{margin-top:.7rem;background:var(--good-soft);border-left:3px solid var(--good);border-radius:0 6px 6px 0;padding:.6rem .8rem}
+.opp h4{margin:0 0 .2rem;font-family:var(--data);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--good)}
+.opp p{margin:0;font-size:.86rem;color:var(--ink-2)}
+.opp strong{color:var(--ink)}
+.foot{font-family:var(--data);font-size:.72rem;color:var(--ink-3);border-top:1px solid var(--line);padding-top:1rem;line-height:1.7}
+.badge{font-family:var(--data);font-size:.6rem;letter-spacing:.09em;padding:.2rem .45rem;border-radius:4px;font-weight:700;white-space:nowrap}
+.badge--ok{background:var(--good-soft);color:var(--good)}
+.badge--warn{background:var(--amber-soft);color:var(--amber)}
+.live{background:var(--amber-soft);border:1px solid var(--amber);border-radius:8px;padding:1rem 1.2rem}
+.live h2{font-size:1.15rem;margin:0 0 .4rem}
+.live p{margin:.3rem 0;font-size:.9rem;color:var(--ink-2);max-width:70ch}
+.warn{background:var(--bad-soft);border-left:3px solid var(--bad);border-radius:0 6px 6px 0;padding:.6rem .8rem;font-size:.86rem;color:var(--ink);margin:.6rem 0 0}
+.ex{width:100%;border-collapse:collapse;font-size:.82rem;margin:.6rem 0}
+.ex th,.ex td{padding:.4rem .5rem;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+.ex th:first-child,.ex td:first-child{text-align:left}
+.ex th{font-family:var(--data);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.ex small{display:block;color:var(--ink-3);font-family:var(--data);font-size:.66rem}
+@media (max-width:480px){
+  .calc td,.calc th{padding:.45rem .4rem}
+  .calc td.cat{max-width:36vw}
+  .ex{font-size:.74rem}.ex th,.ex td{padding:.35rem .25rem}
+}
+
+.sitenav{position:sticky;top:0;z-index:50;display:flex;gap:.45rem;justify-content:center;
+  padding:.6rem clamp(1rem,4vw,2rem);background:var(--ground);border-bottom:1px solid var(--line)}
+.sitenav a{flex:1;max-width:230px;text-align:center;font-family:var(--data);font-size:.72rem;
+  letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);
+  padding:.6rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--raised)}
+.sitenav a[aria-current="page"]{color:var(--amber);border-color:var(--amber);background:var(--amber-soft);font-weight:700}
+[id]{scroll-margin-top:4.4rem}   /* #rep-… deep links must clear the sticky bar */
+</style>
+<nav class="sitenav"><a href="./">My Stat Audit</a><a href="./picking.html">Picking Order</a></nav>
+
+
+<div class="wrap">
+  <header class="mast">
+    <div class="eyebrow">Rising Sun Division · Events Team · Maricopa</div>
+    <h1>Maricopa Team Standings</h1>
+    <p class="sub"><strong>The top 6 total scores are the Starting 6.</strong> Tap your name to see every number behind your score. Same math for everyone.</p>
+    <div class="meta">
+      <span>Updated Oct 3, 2026</span>
+      <span>Shift window Oct 3, 2025 → Oct 3, 2026</span>
+      <span>Next lock Jan 6, 2027</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Official lineup<span class="count">locked May 8, 2026</span></h2>
+    <p class="lede">This is the Maricopa Team in force right now. It does not change until the next lineup locks on Jan 6, 2027.</p>
+    
+    <h3 class="grp">Starting 6</h3>
+    
+    <details class="rep rep--in" id="official-matt-foss">
+      <summary>
+        <span class="pick">1</span>
+        <span class="name">Matt Foss</span>
+        <span class="total">98.5</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$4,756</td>
+          <td class="rk">100.0</td>
+          <td class="pts">45.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$484,000</td>
+          <td class="rk">92.4</td>
+          <td class="pts">13.9</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$393,252</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">5.56</td>
+          <td class="rk">95.9</td>
+          <td class="pts">9.6</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">98.5</td></tr></tfoot>
+        </table>
+        <p class="note">52 Key shifts averaging $4,861; 15 Traditional shifts averaging $2,927, counted with the 1.5× bonus.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Stay consistent.</strong> You hold the top spot. The opportunity is to keep posting the same per-shift numbers.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="official-jason-jeffrey">
+      <summary>
+        <span class="pick">2</span>
+        <span class="name">Jason Jeffrey</span>
+        <span class="total">90.8</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$4,716</td>
+          <td class="rk">98.3</td>
+          <td class="pts">44.2</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$365,000</td>
+          <td class="rk">62.2</td>
+          <td class="pts">9.3</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$304,332</td>
+          <td class="rk">72.9</td>
+          <td class="pts">7.3</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">5.63</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">90.8</td></tr></tfoot>
+        </table>
+        <p class="note">30 Key shifts averaging $4,716; 5 Traditional shifts averaging $5,152, not counted (under the 6-shift threshold, so the score is Key only).</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Work 1 more Traditional shift.</strong> You have 5 Traditional shifts on file. 1 more reaches the 6-shift threshold, which brings your Traditional average ($5,152) into your score with the 1.5× bonus.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="official-alan-hernandez">
+      <summary>
+        <span class="pick">3</span>
+        <span class="name">Alan Hernandez</span>
+        <span class="total">74.0</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$3,868</td>
+          <td class="rk">60.9</td>
+          <td class="pts">27.4</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$425,000</td>
+          <td class="rk">77.4</td>
+          <td class="pts">11.6</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$244,517</td>
+          <td class="rk">54.6</td>
+          <td class="pts">5.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">5.54</td>
+          <td class="rk">95.1</td>
+          <td class="pts">9.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">74.0</td></tr></tfoot>
+        </table>
+        <p class="note">23 Key shifts averaging $4,040; 22 Traditional shifts averaging $2,458, counted with the 1.5× bonus.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Lift Traditional shift performance.</strong> Your Key average ($4,040) is carrying your score. Your Traditional average ($2,458) pulls the weighted number down across 22 Traditional shifts, even with the 1.5× bonus.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="official-luke-mills">
+      <summary>
+        <span class="pick">4</span>
+        <span class="name">Luke Mills</span>
+        <span class="total">71.8</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$4,218</td>
+          <td class="rk">76.3</td>
+          <td class="pts">34.3</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$380,000</td>
+          <td class="rk">66.0</td>
+          <td class="pts">9.9</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$87,741</td>
+          <td class="rk">6.8</td>
+          <td class="pts">0.7</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">5.06</td>
+          <td class="rk">68.6</td>
+          <td class="pts">6.9</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">71.8</td></tr></tfoot>
+        </table>
+        <p class="note">16 Key shifts averaging $4,218; no Traditional shifts.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Lift per-shift sales.</strong> Weighted shift average is 45% of the score. Yours is $4,218; the team's top is $4,756.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="official-jeremy-katen">
+      <summary>
+        <span class="pick">5</span>
+        <span class="name">Jeremy Katen</span>
+        <span class="total">71.6</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$4,482</td>
+          <td class="rk">87.9</td>
+          <td class="pts">39.6</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$400,000</td>
+          <td class="rk">71.1</td>
+          <td class="pts">10.7</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$111,713</td>
+          <td class="rk">14.1</td>
+          <td class="pts">1.4</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">3.82</td>
+          <td class="rk">0.0</td>
+          <td class="pts">0.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">71.6</td></tr></tfoot>
+        </table>
+        <p class="note">22 Key shifts averaging $4,482; no Traditional shifts.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Lift orders per shift.</strong> You write 3.82 orders per shift; the team's top is 5.63. More orders, even smaller ones, move this category.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="official-alec-luyendyk">
+      <summary>
+        <span class="pick">6</span>
+        <span class="name">Alec Luyendyk</span>
+        <span class="total">55.4</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$3,494</td>
+          <td class="rk">44.5</td>
+          <td class="pts">20.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$310,000</td>
+          <td class="rk">48.2</td>
+          <td class="pts">7.2</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$176,751</td>
+          <td class="rk">34.0</td>
+          <td class="pts">3.4</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">4.69</td>
+          <td class="rk">48.0</td>
+          <td class="pts">4.8</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">55.4</td></tr></tfoot>
+        </table>
+        <p class="note">26 Key shifts averaging $3,046; 11 Traditional shifts averaging $3,034, counted with the 1.5× bonus.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Lift per-shift sales.</strong> Weighted shift average is 45% of the score. Yours is $3,494; the team's top is $4,756.</p></div>
+      </div>
+    </details>
+    <h3 class="grp grp--res">Reserve</h3>
+    
+    <details class="rep" id="official-adam-conroy">
+      <summary>
+        <span class="pick">7</span>
+        <span class="name">Adam Conroy</span>
+        <span class="total">48.2</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$2,861</td>
+          <td class="rk">16.6</td>
+          <td class="pts">7.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$514,000</td>
+          <td class="rk">100.0</td>
+          <td class="pts">15.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$89,280</td>
+          <td class="rk">7.3</td>
+          <td class="pts">0.7</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">4.72</td>
+          <td class="rk">49.7</td>
+          <td class="pts">5.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">48.2</td></tr></tfoot>
+        </table>
+        <p class="note">17 Key shifts averaging $2,565; 8 Traditional shifts averaging $2,326, counted with the 1.5× bonus.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Lift per-shift sales.</strong> Weighted shift average is 45% of the score. Yours is $2,861; the team's top is $4,756.</p></div>
+      </div>
+    </details>
+    <details class="rep" id="official-johnathan-parker">
+      <summary>
+        <span class="pick">8</span>
+        <span class="name">Johnathan Parker</span>
+        <span class="total">42.7</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$2,914</td>
+          <td class="rk">19.0</td>
+          <td class="pts">8.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$236,000</td>
+          <td class="rk">29.4</td>
+          <td class="pts">4.4</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$182,257</td>
+          <td class="rk">35.7</td>
+          <td class="pts">3.6</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">4.94</td>
+          <td class="rk">61.8</td>
+          <td class="pts">6.2</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">42.7</td></tr></tfoot>
+        </table>
+        <p class="note">15 Key shifts averaging $1,823; 60 Traditional shifts averaging $2,125, counted with the 1.5× bonus.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Lift per-shift sales.</strong> Weighted shift average is 45% of the score. Yours is $2,914; the team's top is $4,756.</p></div>
+      </div>
+    </details>
+    <details class="rep" id="official-eli-camacho">
+      <summary>
+        <span class="pick">9</span>
+        <span class="name">Eli Camacho</span>
+        <span class="total">41.1</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$2,939</td>
+          <td class="rk">20.1</td>
+          <td class="pts">9.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$212,000</td>
+          <td class="rk">23.4</td>
+          <td class="pts">3.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$114,723</td>
+          <td class="rk">15.1</td>
+          <td class="pts">1.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">5.11</td>
+          <td class="rk">71.0</td>
+          <td class="pts">7.1</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">41.1</td></tr></tfoot>
+        </table>
+        <p class="note">28 Key shifts averaging $2,702; 14 Traditional shifts averaging $2,276, counted with the 1.5× bonus.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Lift per-shift sales.</strong> Weighted shift average is 45% of the score. Yours is $2,939; the team's top is $4,756.</p></div>
+      </div>
+    </details>
+    <details class="rep" id="official-jerry-ramirez">
+      <summary>
+        <span class="pick">10</span>
+        <span class="name">Gerardo Ramirez</span>
+        <span class="total">24.3</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$2,483</td>
+          <td class="rk">0.0</td>
+          <td class="pts">0.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$120,000</td>
+          <td class="rk">0.0</td>
+          <td class="pts">0.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$65,318</td>
+          <td class="rk">0.0</td>
+          <td class="pts">0.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">4.59</td>
+          <td class="rk">42.7</td>
+          <td class="pts">4.3</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">24.3</td></tr></tfoot>
+        </table>
+        <p class="note">8 Key shifts averaging $1,953; 24 Traditional shifts averaging $1,773, counted with the 1.5× bonus.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Lift per-shift sales.</strong> Weighted shift average is 45% of the score. Yours is $2,483; the team's top is $4,756.</p></div>
+      </div>
+    </details>
+  </section>
+  <section class="live">
+    <h2>Live standings, toward the January 2027 lineup</h2>
+    <p>This is where everyone stands today. It rebuilds every Wednesday as stats come in, so it moves. The January 2027 lineup locks <strong>Jan 6, 2027</strong>, one week before the Jan 13, 2027 meeting. It sets the March 2027, May 2027 and July 2027 shows.</p>
+    
+    
+    <div class="grid">
+      <div class="cell"><h3>Shift average &amp; orders <span class="badge badge--ok">LIVE</span></h3><p>Stat Tracker, last pulled Oct 3, 2026. Same shift list as your My Stat Audit tab: a shift with no stat turned in counts as $0.</p></div>
+      <div class="cell"><h3>Event sales <span class="badge badge--warn">CARRIED OVER</span></h3><p>These are the figures from May 8, 2026 (the May 2026 packet). They refresh from VectorConnect every Wednesday, so this category will move.</p></div>
+      <div class="cell"><h3>Last year's sales <span class="badge badge--warn">ENTERED</span></h3><p>2025 calendar-year totals, every sales channel.</p></div>
+      <div class="cell"><h3>Presence &amp; teamwork <span class="badge badge--warn">ENTERED</span></h3><p>Scored 1 to 5 by leadership.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where everyone stands today<span class="count">tap a name</span></h2>
+    
+    <h3 class="grp">Starting 6</h3>
+    
+    <details class="rep rep--in" id="rep-matt-foss">
+      <summary>
+        <span class="pick">1</span>
+        <span class="name">Matt Foss</span>
+        <span class="total">93.2</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$4,476</td>
+          <td class="rk">89.3</td>
+          <td class="pts">40.2</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$486,871</td>
+          <td class="rk">92.6</td>
+          <td class="pts">13.9</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$393,252</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">5.06</td>
+          <td class="rk">91.1</td>
+          <td class="pts">9.1</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">93.2</td></tr></tfoot>
+        </table>
+        <p class="note">60 Key shifts averaging $4,597; 29 Traditional shifts averaging $2,817, counted with the 1.5× bonus.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Stay consistent.</strong> You hold the top spot. The opportunity is to keep posting the same per-shift numbers.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="rep-jason-jeffrey">
+      <summary>
+        <span class="pick">2</span>
+        <span class="name">Jason Jeffrey</span>
+        <span class="total">87.9</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$4,632</td>
+          <td class="rk">93.4</td>
+          <td class="pts">42.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$362,665</td>
+          <td class="rk">61.3</td>
+          <td class="pts">9.2</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$304,332</td>
+          <td class="rk">72.9</td>
+          <td class="pts">7.3</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">5.16</td>
+          <td class="rk">94.1</td>
+          <td class="pts">9.4</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">87.9</td></tr></tfoot>
+        </table>
+        <p class="note">34 Key shifts averaging $4,794; 7 Traditional shifts averaging $2,563, counted with the 1.5× bonus. <strong>1</strong> of the counted shifts has no stat on file and counts as $0. <a href="./#rep-jason-jeffrey">See them on My Stat Audit</a>.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Turn in your missing stats.</strong> 1 of your 41 counted shifts has no stat on file, and each one counts as a $0 shift. On the shifts you did turn in you average $4,748; with the misses it reads $4,632.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="rep-jeremy-katen">
+      <summary>
+        <span class="pick">3</span>
+        <span class="name">Jeremy Katen</span>
+        <span class="total">82.3</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$4,881</td>
+          <td class="rk">100.0</td>
+          <td class="pts">45.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$400,000</td>
+          <td class="rk">70.7</td>
+          <td class="pts">10.6</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$111,713</td>
+          <td class="rk">14.1</td>
+          <td class="pts">1.4</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">3.75</td>
+          <td class="rk">53.2</td>
+          <td class="pts">5.3</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">82.3</td></tr></tfoot>
+        </table>
+        <p class="note">20 Key shifts averaging $4,881; 2 Traditional shifts averaging $0, not counted (under the 6-shift threshold, so the score is Key only). <strong>3</strong> of the counted shifts have no stat on file and count as $0. <a href="./#rep-jeremy-katen">See them on My Stat Audit</a>.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Turn in your missing stats.</strong> 3 of your 20 counted shifts have no stat on file, and each one counts as a $0 shift. On the shifts you did turn in you average $5,743; with the misses it reads $4,881.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="rep-adam-conroy">
+      <summary>
+        <span class="pick">4</span>
+        <span class="name">Adam Conroy</span>
+        <span class="total">76.5</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$3,688</td>
+          <td class="rk">68.4</td>
+          <td class="pts">30.8</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$516,234</td>
+          <td class="rk">100.0</td>
+          <td class="pts">15.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$89,280</td>
+          <td class="rk">7.3</td>
+          <td class="pts">0.7</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">5.36</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">76.5</td></tr></tfoot>
+        </table>
+        <p class="note">12 Key shifts averaging $3,321; 6 Traditional shifts averaging $2,949, counted with the 1.5× bonus.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Lift per-shift sales.</strong> Weighted shift average is 45% of the score. Yours is $3,688; the team's top is $4,881.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="rep-alec-luyendyk">
+      <summary>
+        <span class="pick">5</span>
+        <span class="name">Alec Luyendyk</span>
+        <span class="total">67.6</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$3,672</td>
+          <td class="rk">67.9</td>
+          <td class="pts">30.6</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$307,085</td>
+          <td class="rk">47.2</td>
+          <td class="pts">7.1</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$176,751</td>
+          <td class="rk">34.0</td>
+          <td class="pts">3.4</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">4.17</td>
+          <td class="rk">65.3</td>
+          <td class="pts">6.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">67.6</td></tr></tfoot>
+        </table>
+        <p class="note">29 Key shifts averaging $3,004; 7 Traditional shifts averaging $4,291, counted with the 1.5× bonus. <strong>2</strong> of the counted shifts have no stat on file and count as $0. <a href="./#rep-alec-luyendyk">See them on My Stat Audit</a>.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Turn in your missing stats.</strong> 2 of your 36 counted shifts have no stat on file, and each one counts as a $0 shift. On the shifts you did turn in you average $3,888; with the misses it reads $3,672.</p></div>
+      </div>
+    </details>
+    <details class="rep rep--in" id="rep-luke-mills">
+      <summary>
+        <span class="pick">6</span>
+        <span class="name">Luke Mills</span>
+        <span class="total">62.7</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$3,644</td>
+          <td class="rk">67.2</td>
+          <td class="pts">30.2</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$369,301</td>
+          <td class="rk">62.9</td>
+          <td class="pts">9.4</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$87,741</td>
+          <td class="rk">6.8</td>
+          <td class="pts">0.7</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">2.71</td>
+          <td class="rk">23.1</td>
+          <td class="pts">2.3</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">62.7</td></tr></tfoot>
+        </table>
+        <p class="note">14 Key shifts averaging $3,644; no Traditional shifts. <strong>5</strong> of the counted shifts have no stat on file and count as $0. <a href="./#rep-luke-mills">See them on My Stat Audit</a>.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Turn in your missing stats.</strong> 5 of your 14 counted shifts have no stat on file, and each one counts as a $0 shift. On the shifts you did turn in you average $5,668; with the misses it reads $3,644.</p></div>
+      </div>
+    </details>
+    <h3 class="grp grp--res">Reserve</h3>
+    
+    <details class="rep" id="rep-johnathan-parker">
+      <summary>
+        <span class="pick">7</span>
+        <span class="name">Johnathan Parker</span>
+        <span class="total">40.6</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$1,836</td>
+          <td class="rk">19.3</td>
+          <td class="pts">8.7</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$230,785</td>
+          <td class="rk">28.0</td>
+          <td class="pts">4.2</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$182,257</td>
+          <td class="rk">35.7</td>
+          <td class="pts">3.6</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">3.35</td>
+          <td class="rk">41.6</td>
+          <td class="pts">4.2</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">40.6</td></tr></tfoot>
+        </table>
+        <p class="note">22 Key shifts averaging $1,540; 76 Traditional shifts averaging $1,281, counted with the 1.5× bonus. <strong>12</strong> of the counted shifts have no stat on file and count as $0. <a href="./#rep-johnathan-parker">See them on My Stat Audit</a>.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Turn in your missing stats.</strong> 12 of your 98 counted shifts have no stat on file, and each one counts as a $0 shift. On the shifts you did turn in you average $2,093; with the misses it reads $1,836.</p></div>
+      </div>
+    </details>
+    <details class="rep" id="rep-eli-camacho">
+      <summary>
+        <span class="pick">8</span>
+        <span class="name">Eli Camacho</span>
+        <span class="total">37.9</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$1,780</td>
+          <td class="rk">17.8</td>
+          <td class="pts">8.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$209,931</td>
+          <td class="rk">22.7</td>
+          <td class="pts">3.4</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$114,723</td>
+          <td class="rk">15.1</td>
+          <td class="pts">1.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">3.62</td>
+          <td class="rk">49.4</td>
+          <td class="pts">4.9</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">37.9</td></tr></tfoot>
+        </table>
+        <p class="note">16 Key shifts averaging $2,195; 21 Traditional shifts averaging $977, counted with the 1.5× bonus. <strong>10</strong> of the counted shifts have no stat on file and count as $0. <a href="./#rep-eli-camacho">See them on My Stat Audit</a>.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Turn in your missing stats.</strong> 10 of your 37 counted shifts have no stat on file, and each one counts as a $0 shift. On the shifts you did turn in you average $2,440; with the misses it reads $1,780.</p></div>
+      </div>
+    </details>
+    <details class="rep" id="rep-alan-hernandez">
+      <summary>
+        <span class="pick">9</span>
+        <span class="name">Alan Hernandez</span>
+        <span class="total">36.9</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$1,110</td>
+          <td class="rk">0.0</td>
+          <td class="pts">0.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$422,860</td>
+          <td class="rk">76.4</td>
+          <td class="pts">11.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$244,517</td>
+          <td class="rk">54.6</td>
+          <td class="pts">5.5</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">1.92</td>
+          <td class="rk">0.0</td>
+          <td class="pts">0.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">36.9</td></tr></tfoot>
+        </table>
+        <p class="note">39 Key shifts averaging $1,293; 18 Traditional shifts averaging $476, counted with the 1.5× bonus. <strong>37</strong> of the counted shifts have no stat on file and count as $0. <a href="./#rep-alan-hernandez">See them on My Stat Audit</a>.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Turn in your missing stats.</strong> 37 of your 57 counted shifts have no stat on file, and each one counts as a $0 shift. On the shifts you did turn in you average $3,164; with the misses it reads $1,110.</p></div>
+      </div>
+    </details>
+    <details class="rep" id="rep-jerry-ramirez">
+      <summary>
+        <span class="pick">10</span>
+        <span class="name">Gerardo Ramirez</span>
+        <span class="total">26.7</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Score</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">45% · Key + Traditional, last 12 months</span></td>
+          <td class="val">$1,435</td>
+          <td class="rk">8.6</td>
+          <td class="pts">3.9</td>
+        </tr>
+        <tr>
+          <td class="cat">Last year's sales<span class="wt">15% · every channel, calendar year</span></td>
+          <td class="val">$119,827</td>
+          <td class="rk">0.0</td>
+          <td class="pts">0.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Event sales<span class="wt">10% · VectorConnect, events only</span></td>
+          <td class="val">$65,318</td>
+          <td class="rk">0.0</td>
+          <td class="pts">0.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Orders per shift<span class="wt">10% · weighted Key + Traditional</span></td>
+          <td class="val">2.88</td>
+          <td class="rk">27.9</td>
+          <td class="pts">2.8</td>
+        </tr>
+        <tr>
+          <td class="cat">Presence<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr>
+        <tr>
+          <td class="cat">Teamwork<span class="wt">10% · 1–5 by leadership</span></td>
+          <td class="val">5 / 5</td>
+          <td class="rk">100.0</td>
+          <td class="pts">10.0</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">Total score, out of 100</td><td class="pts pts--sum">26.7</td></tr></tfoot>
+        </table>
+        <p class="note">10 Key shifts averaging $1,579; 40 Traditional shifts averaging $933, counted with the 1.5× bonus. <strong>10</strong> of the counted shifts have no stat on file and count as $0. <a href="./#rep-jerry-ramirez">See them on My Stat Audit</a>.</p>
+        <div class="opp"><h4>Greatest area of opportunity</h4><p><strong>Turn in your missing stats.</strong> 10 of your 50 counted shifts have no stat on file, and each one counts as a $0 shift. On the shifts you did turn in you average $1,794; with the misses it reads $1,435.</p></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="how">
+    <h2>How your score is calculated</h2>
+    <p>Six categories, each turned into a score from 0 to 100, each multiplied by its weight, then added up to one total out of 100.</p>
+    <div class="grid">
+      <div class="cell"><h3>Weighted shift average · 45%</h3><p>Your sales per shift across Key and Traditional events in the last 12 months.</p></div><div class="cell"><h3>Last year's sales · 15%</h3><p>Your total sales last calendar year, every channel: events, realtor orders, referrals.</p></div><div class="cell"><h3>Event sales · 10%</h3><p>What VectorConnect credits you at events only: the work the booth is staffed for.</p></div><div class="cell"><h3>Orders per shift · 10%</h3><p>How many orders you write per shift, weighted the same way as the shift average.</p></div><div class="cell"><h3>Presence · 10%</h3><p>Your energy behind the booth, on the slow shifts as much as the busy ones.</p></div><div class="cell"><h3>Teamwork · 10%</h3><p>Whether you make the booth better for the people working next to you.</p></div>
+    </div>
+
+    <h3>1. The weighted shift average</h3>
+    <p>Traditional events have smaller crowds than Key events, so every Traditional dollar and order counts <strong>1.5×</strong>. The bonus applies once you have <strong>6 or more Traditional shifts</strong> in the window. With fewer, your Traditional shifts are left out entirely and you are scored on Key shifts alone, so one hot Traditional shift cannot carry an average.</p>
+    <div class="eq">6+ Traditional shifts: (Key $ + Traditional $ × 1.5) ÷ (Key shifts + Traditional shifts)</div>
+    <div class="eq">Fewer than 6: Key $ ÷ Key shifts</div>
+    <p>Same shift list as your My Stat Audit tab: a shift with no stat turned in counts as $0. Maricopa shifts are Key shifts.</p>
+
+    <h3>2. Every category becomes a score from 0 to 100</h3>
+    <p>For the four sales categories, whoever is lowest on the team gets 0, whoever is highest gets 100, and everyone else lands between them on a straight line. Presence and Teamwork turn 1 to 5 into 0 to 100.</p>
+    <div class="eq">Score = (your number − team's lowest) ÷ (team's highest − team's lowest) × 100</div>
+
+    <h3>3. Scores are weighted and added</h3>
+    <div class="eq">Total = Shift × 45% + Last year × 15% + Event sales × 10% + Orders × 10% + Presence × 10% + Teamwork × 10%</div>
+    <p>If a category has no data for someone, it is left out for the whole team and the rest are rescaled, so nobody is compared on a different set of numbers. The top 6 totals are the Starting 6; a tie goes to the higher weighted shift average.</p>
+
+    <h3>A worked example</h3>
+    <p>Three made-up reps, with round numbers so the math is easy to follow.</p>
+    <table class="ex">
+      <thead><tr><th>Category</th><th>Sam</th><th>Jordan</th><th>Riley</th></tr></thead>
+      <tbody>
+        <tr><td>Weighted shift avg · 45%</td><td>$4,000<small>score 100</small></td><td>$3,200<small>score 33</small></td><td>$2,800<small>score 0</small></td></tr>
+        <tr><td>Last year's sales · 15%</td><td>$200K<small>score 100</small></td><td>$160K<small>score 33</small></td><td>$140K<small>score 0</small></td></tr>
+        <tr><td>Event sales · 10%</td><td>$150K<small>score 100</small></td><td>$120K<small>score 40</small></td><td>$100K<small>score 0</small></td></tr>
+        <tr><td>Orders per shift · 10%</td><td>5.0<small>score 100</small></td><td>4.5<small>score 50</small></td><td>4.0<small>score 0</small></td></tr>
+        <tr><td>Presence · 10%</td><td>4 / 5<small>score 75</small></td><td>3 / 5<small>score 50</small></td><td>5 / 5<small>score 100</small></td></tr>
+        <tr><td>Teamwork · 10%</td><td>5 / 5<small>score 100</small></td><td>4 / 5<small>score 75</small></td><td>3 / 5<small>score 50</small></td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>97.5</strong></td><td><strong>41.5</strong></td><td><strong>15.0</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="eq">Sam = 45 + 15 + 10 + 10 + 7.5 + 10 = 97.5</div>
+    <p>Riley has the best Presence score and still finishes last: the heaviest weight sits on the shift average for a reason.</p>
+
+    <h3>What a 0 means</h3>
+    <p>A 0 in a category does not mean you are failing. It means you are the lowest on this team in that one category, and someone has to be. A 100 means highest on the team, not perfect. The scale only compares the people on this page to each other.</p>
+  </section>
+
+  <section class="how">
+    <h2>When the lineup is set</h2>
+    <p>The standings above are live, but the team is not reshuffled every week. Twice a year the lineup <strong>locks one week before the meeting</strong>, so everyone knows where they stand before shifts are picked. A locked lineup never changes afterwards.</p>
+    <div class="grid">
+      <div class="cell"><h3>January 2027</h3><p>Locks Jan 6, 2027. It sets the March 2027, May 2027 and July 2027 shows.</p></div><div class="cell"><h3>June 2027</h3><p>Lock date to be set. It sets the October 2027 and January 2028 shows.</p></div>
+    </div>
+    <p>On the reserve? You are next in line, and you take part in the Maricopa training calls all year. Your greatest area of opportunity, on your card, is the single biggest lever on your score.</p>
+  </section>
+
+  <footer class="foot">
+    Sources: Show Shift Schedules + Stat Tracker (shift average and orders per shift) · VectorConnect Team Sales (event sales) · division sales report (last year's sales) · leadership (presence and teamwork).
+    Questions about your numbers → your My Stat Audit tab, or Alan.
+  </footer>
+</div>
+<script>
+// Deep link support: maricopa.html#rep-jerry-ramirez opens that rep's card and
+// scrolls to it. Several triggers, because the browser's own fragment
+// navigation can race a single inline call.
+function openFromHash() {
+  var id = decodeURIComponent((location.hash || '').slice(1));
+  if (!id) return;
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.open = true;
+  el.scrollIntoView({ block: 'start' });
+}
+openFromHash();
+document.addEventListener('DOMContentLoaded', openFromHash);
+window.addEventListener('load', openFromHash);
+window.addEventListener('hashchange', openFromHash);
+</script>
