@@ -75,6 +75,25 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
 .live h2{font-size:1.15rem;margin:0 0 .4rem}
 .live p{margin:.3rem 0;font-size:.9rem;color:var(--ink-2);max-width:70ch}
 .live a{color:var(--amber);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.perk{display:block;font-family:var(--data);font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--good);margin-top:.1rem}
+.before{background:var(--raised);border:1px solid var(--line);border-radius:8px;padding:1.2rem 1.3rem}
+.before h2{font-size:1.25rem;margin-bottom:.5rem}
+.before h3{margin:0 0 .45rem;font-family:var(--data);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.seq{margin:0;padding-left:1.3rem;font-size:.9rem;color:var(--ink-2);max-width:70ch}
+.seq li{margin:.35rem 0}
+.seq strong{color:var(--ink)}
+.pregrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1rem;margin-top:1.1rem}
+.preorder{margin:0;padding-left:1.4rem;font-size:.92rem;font-weight:600}
+.preorder li{margin:.2rem 0}
+.shows{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.show{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.1rem .7rem;background:var(--sunk);border-radius:6px;padding:.55rem .75rem}
+.show__name{font-weight:600;font-size:.92rem}
+.show__when{grid-column:1;font-family:var(--data);font-size:.72rem;color:var(--ink-3)}
+.show__state{grid-column:2;grid-row:1 / span 2;align-self:center;font-family:var(--data);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:.2rem .45rem;border-radius:4px;white-space:nowrap}
+.show__state--open{background:var(--good-soft);color:var(--good)}
+.show__state--full{background:var(--sunk);color:var(--ink-3);border:1px solid var(--line-2)}
+.show__state--none{background:var(--amber-soft);color:var(--amber)}
+@media (max-width:600px){.pregrid{grid-template-columns:1fr}}
 
 .sitenav{position:sticky;top:0;z-index:50;display:flex;gap:.45rem;justify-content:center;
   padding:.6rem clamp(1rem,4vw,2rem);background:var(--ground);border-bottom:1px solid var(--line)}
@@ -93,8 +112,8 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
     <h1>Spring 2027 Picking Order</h1>
     <p class="sub"><strong>Lowest points picks first.</strong> Tap your name to see exactly how your score was built — every number, every rank, every weight. Same math for everyone.</p>
     <div class="meta">
-      <span>Updated October 23, 2026</span>
-      <span>Shift window 2025-10-21 → 2026-10-21</span>
+      <span>Updated October 28, 2026</span>
+      <span>Shift window 2025-10-28 → 2026-10-28</span>
       <span>Order: Elite → Varsity → JV</span>
       <span>Next meeting: 2027-01-13</span>
     </div>
@@ -105,9 +124,9 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
     <p>It rebuilds as stats come in, so it will move between now and the meeting. Nothing here is locked until the meeting itself.</p>
     <p>Looking for the order you are picking on right now? That is the <a href=./picking-fall-2026.html>Fall 2026 order</a>, locked 2026-08-05 and unchanged.</p>
     <div class="grid">
-      <div class="cell"><h3>Weighted shift average <span class="badge badge--ok">LIVE</span></h3><p>Rebuilt from the schedule and stat tracker, last pulled 2026-10-21. Every stat you turn in changes this.</p></div>
+      <div class="cell"><h3>Weighted shift average <span class="badge badge--ok">LIVE</span></h3><p>Rebuilt from the schedule and stat tracker, last pulled 2026-10-28. Every stat you turn in changes this.</p></div>
       <div class="cell"><h3>What January will score <span class="badge badge--warn">PARTIAL</span></h3><p>On 2027-01-13 the averages are taken over <strong>2026-01-13 to 2027-01-13</strong>. The order above still ranks on a rolling 12 months ending today, because that window is only part way through. Open your name to see how many of your shifts are already inside it.</p></div>
-      <div class="cell"><h3>Campaign event sales <span class="badge badge--warn">PARTIAL</span></h3><p>VectorConnect data currently runs to 2026-10-18, and the campaign closes 2026-12-31. Expect this leg to move.</p></div>
+      <div class="cell"><h3>Campaign event sales <span class="badge badge--warn">PARTIAL</span></h3><p>VectorConnect data currently runs to 2026-10-25, and the campaign closes 2026-12-31. Expect this leg to move.</p></div>
       <div class="cell"><h3>12-month &amp; career sales <span class="badge badge--warn">CARRIED OVER</span></h3><p>These are the figures from the last meeting. Fresh 12-month and career totals come from the Wes Frank report before each meeting, so they will change.</p></div>
     </div>
   </section>
@@ -170,13 +189,64 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
   </section>
 
   
+  <section class="before" id="before-round-1">
+    <h2>Before round 1</h2>
+    <ol class="seq"><li><strong>Leaders' pre-picks.</strong> Coordinators and leaders turn theirs in by the day before the meeting.</li><li><strong>Extra show pick.</strong> Pick 1 in the order below gets one extra show pick.</li><li><strong>Elite pre-pick.</strong> Elite members pick Elite shows, and only Elite shows, from Jan 14, 2027 through Jan 31, 2028. In Elite order, each picks every Elite show they want, then the next goes.</li><li><strong>Round 1.</strong> Elite → Varsity → JV, 2 shows a turn.</li></ol>
+    <div class="pregrid">
+      <div><h3>Elite pre-pick order</h3><ol class="preorder"><li>Jason Jeffrey</li><li>Alec Luyendyk</li><li>Jeremy Katen</li><li>Adam Conroy</li></ol></div>
+      <div><h3>Elite shows in the pre-pick</h3><ul class="shows">
+        <li class="show">
+          <span class="show__name">Barrett- Jackson Car auction W 1</span>
+          <span class="show__when">Jan 23–31, 2027 · Scottsdale, AZ</span>
+          <span class="show__state show__state--full">staffed</span>
+        </li>
+        <li class="show">
+          <span class="show__name">Barrett- Jackson Car auction W 2</span>
+          <span class="show__when">Jan 23–31, 2027</span>
+          <span class="show__state show__state--full">staffed</span>
+        </li>
+        <li class="show">
+          <span class="show__name">Lake havasu Winter Fest</span>
+          <span class="show__when">Feb 6–7, 2027 · Lake Havasu, AZ</span>
+          <span class="show__state show__state--full">staffed</span>
+        </li>
+        <li class="show">
+          <span class="show__name">Tempe Festival of the Arts</span>
+          <span class="show__when">Mar 12–14, 2027 · Tempe, AZ</span>
+          <span class="show__state show__state--open">open</span>
+        </li>
+        <li class="show">
+          <span class="show__name">4th Ave Street Fair Spring</span>
+          <span class="show__when">Mar 19–21, 2027 · Tucson AZ</span>
+          <span class="show__state show__state--open">open</span>
+        </li>
+        <li class="show">
+          <span class="show__name">NHRA Nationals</span>
+          <span class="show__when">Mar 19–21, 2027 · Chandler, AZ</span>
+          <span class="show__state show__state--open">open</span>
+        </li>
+        <li class="show">
+          <span class="show__name">YCCA Home &amp; Garden Show</span>
+          <span class="show__when">Apr 23–25, 2027 · Prescott Valley, AZ</span>
+          <span class="show__state show__state--open">open</span>
+        </li>
+        <li class="show">
+          <span class="show__name">4th Avenue Winter Street Fair</span>
+          <span class="show__when">Dec 10–13, 2027</span>
+          <span class="show__state show__state--open">open</span>
+        </li></ul></div>
+    </div>
+    <p class="note">Maricopa shows are not in the pre-pick: the Maricopa team works them.</p><p class="note">Listed from the Show Shift Board as of October 28, 2026. Shows later in the year appear here as they are added to the board.</p>
+  </section>
+
+  
   <section>
     <h2>Elite<span class="count">4 reps</span></h2>
     
     <details class="rep" id="rep-jason-jeffrey">
       <summary>
         <span class="pick">1</span>
-        <span class="name">Jason Jeffrey</span>
+        <span class="name">Jason Jeffrey<span class="perk">+1 extra show pick</span></span>
         <span class="total">1.00 pts</span>
       </summary>
       <div class="body">
@@ -191,7 +261,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr>
         <tr>
           <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
-          <td class="val">$5,110</td>
+          <td class="val">$5,094</td>
           <td class="rk">#1<span class="of">of 4</span></td>
           <td class="pts">0.40</td>
         </tr>
@@ -211,7 +281,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
       <summary>
         <span class="pick">2</span>
         <span class="name">Alec Luyendyk</span>
-        <span class="total">2.40 pts</span>
+        <span class="total">2.80 pts</span>
       </summary>
       <div class="body">
         <table class="calc">
@@ -225,9 +295,9 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr>
         <tr>
           <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
-          <td class="val">$4,278</td>
-          <td class="rk">#2<span class="of">of 4</span></td>
-          <td class="pts">0.80</td>
+          <td class="val">$3,567</td>
+          <td class="rk">#3<span class="of">of 4</span></td>
+          <td class="pts">1.20</td>
         </tr>
         <tr>
           <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
@@ -235,15 +305,49 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
           <td class="rk">#2<span class="of">of 4</span></td>
           <td class="pts">0.80</td>
         </tr></tbody>
-          <tfoot><tr><td colspan="3" class="formula">#4×0.2 + #2×0.4 + #2×0.4</td><td class="pts pts--sum">2.40</td></tr></tfoot>
+          <tfoot><tr><td colspan="3" class="formula">#4×0.2 + #3×0.4 + #2×0.4</td><td class="pts pts--sum">2.80</td></tr></tfoot>
         </table>
         <p class="note">Weighted shift average shown includes your drops (3 Key + 0 Traditional earned) and the +5-shift team blend.</p>
-        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>31</strong>.</p>
+        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>33</strong>.</p>
+      </div>
+    </details>
+    <details class="rep" id="rep-jeremy-katen">
+      <summary>
+        <span class="pick">3</span>
+        <span class="name">Jeremy Katen</span>
+        <span class="total">3.00 pts</span>
+      </summary>
+      <div class="body">
+        <table class="calc">
+          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
+          <td class="val">$434,925</td>
+          <td class="rk">#3<span class="of">of 4</span></td>
+          <td class="pts">0.60</td>
+        </tr>
+        <tr>
+          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
+          <td class="val">$4,245</td>
+          <td class="rk">#2<span class="of">of 4</span></td>
+          <td class="pts">0.80</td>
+        </tr>
+        <tr>
+          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
+          <td class="val">$61,775</td>
+          <td class="rk">#4<span class="of">of 4</span></td>
+          <td class="pts">1.60</td>
+        </tr></tbody>
+          <tfoot><tr><td colspan="3" class="formula">#3×0.2 + #2×0.4 + #4×0.4</td><td class="pts pts--sum">3.00</td></tr></tfoot>
+        </table>
+        <p class="note">Weighted shift average shown includes your drops (2 Key + 0 Traditional earned) and the +5-shift team blend.</p>
+        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>20</strong>.</p>
       </div>
     </details>
     <details class="rep" id="rep-adam-conroy">
       <summary>
-        <span class="pick">3</span>
+        <span class="pick">4</span>
         <span class="name">Adam Conroy</span>
         <span class="total">3.20 pts</span>
       </summary>
@@ -259,7 +363,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr>
         <tr>
           <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
-          <td class="val">$3,536</td>
+          <td class="val">$3,502</td>
           <td class="rk">#4<span class="of">of 4</span></td>
           <td class="pts">1.60</td>
         </tr>
@@ -273,40 +377,6 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </table>
         <p class="note">Weighted shift average shown includes your drops (1 Key + 0 Traditional earned) and the +5-shift team blend.</p>
         <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>12</strong>.</p>
-      </div>
-    </details>
-    <details class="rep" id="rep-jeremy-katen">
-      <summary>
-        <span class="pick">4</span>
-        <span class="name">Jeremy Katen</span>
-        <span class="total">3.40 pts</span>
-      </summary>
-      <div class="body">
-        <table class="calc">
-          <thead><tr><th>Category</th><th>Your number</th><th>Rank in tier</th><th>Points</th></tr></thead>
-          <tbody>
-        <tr>
-          <td class="cat">Last 12-month sales<span class="wt">20% weight</span></td>
-          <td class="val">$434,925</td>
-          <td class="rk">#3<span class="of">of 4</span></td>
-          <td class="pts">0.60</td>
-        </tr>
-        <tr>
-          <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
-          <td class="val">$4,275</td>
-          <td class="rk">#3<span class="of">of 4</span></td>
-          <td class="pts">1.20</td>
-        </tr>
-        <tr>
-          <td class="cat">Campaign event sales<span class="wt">40% weight</span></td>
-          <td class="val">$61,775</td>
-          <td class="rk">#4<span class="of">of 4</span></td>
-          <td class="pts">1.60</td>
-        </tr></tbody>
-          <tfoot><tr><td colspan="3" class="formula">#3×0.2 + #3×0.4 + #4×0.4</td><td class="pts pts--sum">3.40</td></tr></tfoot>
-        </table>
-        <p class="note">Weighted shift average shown includes your drops (2 Key + 0 Traditional earned) and the +5-shift team blend.</p>
-        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>20</strong>.</p>
       </div>
     </details>
   </section>
@@ -331,7 +401,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr>
         <tr>
           <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
-          <td class="val">$2,991</td>
+          <td class="val">$2,985</td>
           <td class="rk">#2<span class="of">of 2</span></td>
           <td class="pts">0.80</td>
         </tr>
@@ -365,7 +435,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr>
         <tr>
           <td class="cat">Weighted shift average<span class="wt">40% weight</span></td>
-          <td class="val">$4,206</td>
+          <td class="val">$4,168</td>
           <td class="rk">#1<span class="of">of 2</span></td>
           <td class="pts">0.40</td>
         </tr>
@@ -415,7 +485,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#2×0.2 + #2×0.4 + #1×0.4</td><td class="pts pts--sum">1.60</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,137</strong> after 3 drops + team blend.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,776</strong> after 3 drops + team blend.</p>
         <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>26</strong>.</p>
       </div>
     </details>
@@ -449,8 +519,8 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#4×0.2 + #1×0.4 + #5×0.4</td><td class="pts pts--sum">3.20</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,906</strong> after 4 drops + team blend.</p>
-        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>39</strong>.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,744</strong> after 4 drops + team blend.</p>
+        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>42</strong>.</p>
       </div>
     </details>
     <details class="rep" id="rep-zach-duran">
@@ -483,7 +553,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#1×0.2 + #5×0.4 + #4×0.4</td><td class="pts pts--sum">3.80</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,314</strong> after 3 drops + team blend.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,165</strong> after 3 drops + team blend.</p>
         <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>25</strong>.</p>
       </div>
     </details>
@@ -517,7 +587,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#3×0.2 + #4×0.4 + #8×0.4</td><td class="pts pts--sum">5.40</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,415</strong> after 0 drops + team blend.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,302</strong> after 0 drops + team blend.</p>
         <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>2</strong> (tier qualification needs 10 by 2027-01-13).</p>
       </div>
     </details>
@@ -551,8 +621,8 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#7×0.2 + #7×0.4 + #3×0.4</td><td class="pts pts--sum">5.40</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,365</strong> after 4 drops + team blend.</p>
-        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>31</strong>.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,625</strong> after 4 drops + team blend.</p>
+        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>34</strong>.</p>
       </div>
     </details>
     <details class="rep" id="rep-matthew-aragon">
@@ -585,8 +655,8 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#10×0.2 + #8×0.4 + #2×0.4</td><td class="pts pts--sum">6.00</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,498</strong> after 4 drops + team blend.</p>
-        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>32</strong>.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,682</strong> after 5 drops + team blend.</p>
+        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>38</strong>.</p>
       </div>
     </details>
     <details class="rep" id="rep-roman-earhart">
@@ -619,7 +689,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#5×0.2 + #3×0.4 + #11×0.4</td><td class="pts pts--sum">6.60</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,829</strong> after 0 drops + team blend.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,758</strong> after 0 drops + team blend.</p>
         <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>0</strong> (tier qualification needs 10 by 2027-01-13).</p>
       </div>
     </details>
@@ -653,8 +723,8 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#9×0.2 + #6×0.4 + #6×0.4</td><td class="pts pts--sum">6.60</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$3,007</strong> after 3 drops + team blend.</p>
-        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>28</strong>.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,779</strong> after 3 drops + team blend.</p>
+        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>30</strong>.</p>
       </div>
     </details>
     <details class="rep" id="rep-charity-campbell">
@@ -687,7 +757,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#8×0.2 + #9×0.4 + #9×0.4</td><td class="pts pts--sum">8.80</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,652</strong> after 1 drop + team blend.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,608</strong> after 1 drop + team blend.</p>
         <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>8</strong> (tier qualification needs 10 by 2027-01-13).</p>
       </div>
     </details>
@@ -721,8 +791,8 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#11×0.2 + #10×0.4 + #7×0.4</td><td class="pts pts--sum">9.00</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$2,112</strong> after 1 drop + team blend.</p>
-        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>15</strong>.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,740</strong> after 2 drops + team blend.</p>
+        <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>21</strong>.</p>
       </div>
     </details>
     <details class="rep" id="rep-craig-coker">
@@ -755,7 +825,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#6×0.2 + #12×0.4 + #10×0.4</td><td class="pts pts--sum">10.00</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,715</strong> after 2 drops + team blend.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,685</strong> after 2 drops + team blend.</p>
         <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>8</strong> (tier qualification needs 10 by 2027-01-13).</p>
       </div>
     </details>
@@ -789,7 +859,7 @@ h2 .count{font-family:var(--data);font-size:.68rem;letter-spacing:.08em;text-tra
         </tr></tbody>
           <tfoot><tr><td colspan="3" class="formula">#12×0.2 + #11×0.4 + #12×0.4</td><td class="pts pts--sum">11.60</td></tr></tfoot>
         </table>
-        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,419</strong> after 1 drop + team blend.</p>
+        <p class="note">Weighted shift average (info only — not scored for JV): <strong>$1,378</strong> after 1 drop + team blend.</p>
         <p class="note">Shifts worked so far inside the 2026-01-13 → 2027-01-13 window the meeting will score: <strong>7</strong> (tier qualification needs 10 by 2027-01-13).</p>
       </div>
     </details>
