@@ -1,7 +1,7 @@
 {
  "v": 1,
- "generatedAt": "2026-11-18T16:04:49.698Z",
- "feedPulledAt": "2026-11-18T16:00:05.967Z",
+ "generatedAt": "2026-11-18T20:01:25.899Z",
+ "feedPulledAt": "2026-11-18T20:00:07.178Z",
  "window": {
   "from": "2025-11-18",
   "to": "2026-11-18"
@@ -2818,6 +2818,170 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-jeremy-katen"
   },
   {
+   "id": "luke-mills",
+   "name": "Luke Mills",
+   "aliases": [
+    "Luke"
+   ],
+   "tier": "LEADER",
+   "formName": "Luke Mills",
+   "missingCount": 4,
+   "owed": [
+    {
+     "date": "2025-11-18",
+     "event": "MTCAZ 2025 Trade Show",
+     "eventType": "Key",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=MTCAZ%202025%20Trade%20Show&entry.884907221=2025-11-18&entry.321892841=Key"
+    },
+    {
+     "date": "2026-01-09",
+     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-09&entry.321892841=Key"
+    },
+    {
+     "date": "2026-01-10",
+     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-10&entry.321892841=Key"
+    },
+    {
+     "date": "2026-01-11",
+     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-11&entry.321892841=Key"
+    }
+   ],
+   "averages": {
+    "withMissing": {
+     "key": 4503,
+     "trad": null
+    },
+    "allIn": {
+     "key": 6141,
+     "trad": null
+    }
+   },
+   "shifts": {
+    "key": 15,
+    "trad": 0
+   },
+   "submitted": [
+    {
+     "date": "2026-03-06",
+     "event": "Maricopa County Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 5004,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-07",
+     "event": "Maricopa County Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3466,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-08",
+     "event": "Maricopa County Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 9611,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-01",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1959,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-02",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4705,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-03",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4070,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-07-18",
+     "event": "Maricopa County Summer Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 13557,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-07-19",
+     "event": "Maricopa County Summer Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 8643,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-02",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2967,
+     "counts": true,
+     "note": "the stat form had it dated 2026-10-04"
+    },
+    {
+     "date": "2026-10-03",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 5096,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-04",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 8473,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-luke-mills"
+  },
+  {
    "id": "johnathan-parker",
    "name": "Johnathan Parker",
    "aliases": [
@@ -2831,7 +2995,7 @@
    ],
    "tier": "VARSITY",
    "formName": "Johnathan Parker",
-   "missingCount": 5,
+   "missingCount": 2,
    "owed": [
     {
      "date": "2026-11-06",
@@ -2850,33 +3014,6 @@
      "counts": true,
      "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Page-Lake%20Powell%20Balloon%20Festival&entry.884907221=2026-11-07&entry.321892841=Traditional"
-    },
-    {
-     "date": "2026-11-13",
-     "event": "Hondo Rodeo Fest",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Hondo%20Rodeo%20Fest&entry.884907221=2026-11-13&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-14",
-     "event": "Hondo Rodeo Fest",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Hondo%20Rodeo%20Fest&entry.884907221=2026-11-14&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-15",
-     "event": "Hondo Rodeo Fest",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Hondo%20Rodeo%20Fest&entry.884907221=2026-11-15&entry.321892841=Key"
     },
     {
      "date": "2026-02-04",
@@ -2926,11 +3063,11 @@
    ],
    "averages": {
     "withMissing": {
-     "key": 1257,
+     "key": 1505,
      "trad": 1078
     },
     "allIn": {
-     "key": 1526,
+     "key": 1505,
      "trad": 1107
     }
    },
@@ -3820,173 +3957,36 @@
      "cpo": 0,
      "counts": true,
      "note": ""
+    },
+    {
+     "date": "2026-11-13",
+     "event": "Hondo Rodeo Fest",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1976,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Hondo Rodeo Fest",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2100,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-15",
+     "event": "Hondo Rodeo Fest",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 139,
+     "counts": true,
+     "note": ""
     }
    ],
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-johnathan-parker"
-  },
-  {
-   "id": "luke-mills",
-   "name": "Luke Mills",
-   "aliases": [
-    "Luke"
-   ],
-   "tier": "LEADER",
-   "formName": "Luke Mills",
-   "missingCount": 4,
-   "owed": [
-    {
-     "date": "2025-11-18",
-     "event": "MTCAZ 2025 Trade Show",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=MTCAZ%202025%20Trade%20Show&entry.884907221=2025-11-18&entry.321892841=Key"
-    },
-    {
-     "date": "2026-01-09",
-     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": "Shift 2",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-09&entry.321892841=Key"
-    },
-    {
-     "date": "2026-01-10",
-     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": "Shift 2",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-10&entry.321892841=Key"
-    },
-    {
-     "date": "2026-01-11",
-     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": "Shift 2",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-11&entry.321892841=Key"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": 4503,
-     "trad": null
-    },
-    "allIn": {
-     "key": 6141,
-     "trad": null
-    }
-   },
-   "shifts": {
-    "key": 15,
-    "trad": 0
-   },
-   "submitted": [
-    {
-     "date": "2026-03-06",
-     "event": "Maricopa County Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 5004,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-07",
-     "event": "Maricopa County Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 3466,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-08",
-     "event": "Maricopa County Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 9611,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-01",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1959,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-02",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4705,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-03",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4070,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-07-18",
-     "event": "Maricopa County Summer Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 13557,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-07-19",
-     "event": "Maricopa County Summer Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 8643,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-02",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2967,
-     "counts": true,
-     "note": "the stat form had it dated 2026-10-04"
-    },
-    {
-     "date": "2026-10-03",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 5096,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-04",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 8473,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-luke-mills"
   },
   {
    "id": "alan-hernandez",
@@ -4769,145 +4769,6 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-craig-coker"
   },
   {
-   "id": "david-roesch",
-   "name": "David Roesch",
-   "aliases": [],
-   "tier": "FRESHMAN",
-   "formName": "David Roesch",
-   "missingCount": 1,
-   "owed": [
-    {
-     "date": "2026-11-14",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 2",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=__other_option__&entry.37139300.other_option_response=David%20Roesch&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-14&entry.321892841=Traditional"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": null,
-     "trad": 33
-    },
-    "allIn": {
-     "key": null,
-     "trad": 40
-    }
-   },
-   "shifts": {
-    "key": 0,
-    "trad": 6
-   },
-   "submitted": [
-    {
-     "date": "2026-10-02",
-     "event": "Mesa Market Place Swapmeet (A Row)",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-16",
-     "event": "Mesa Market Place Swapmeet B ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 76,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-17",
-     "event": "Mesa Market Place Swapmeet B ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-30",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 122,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-31",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-david-roesch"
-  },
-  {
-   "id": "michael-wood",
-   "name": "Michael Wood",
-   "aliases": [
-    "Mike",
-    "Mike W",
-    "Mike W."
-   ],
-   "tier": "FRESHMAN",
-   "formName": "Michael Wood",
-   "missingCount": 1,
-   "owed": [
-    {
-     "date": "2026-11-14",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=__other_option__&entry.37139300.other_option_response=Michael%20Wood&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-14&entry.321892841=Traditional"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": null,
-     "trad": 211
-    },
-    "allIn": {
-     "key": null,
-     "trad": 316
-    }
-   },
-   "shifts": {
-    "key": 0,
-    "trad": 3
-   },
-   "submitted": [
-    {
-     "date": "2026-10-18",
-     "event": "Mesa Market Place Swapmeet B ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 404,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-24",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 228,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-michael-wood"
-  },
-  {
    "id": "sarah-krick",
    "name": "Sarah Krick",
    "aliases": [
@@ -5306,6 +5167,95 @@
     }
    ],
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-charity-campbell"
+  },
+  {
+   "id": "david-roesch",
+   "name": "David Roesch",
+   "aliases": [],
+   "tier": "FRESHMAN",
+   "formName": "David Roesch",
+   "missingCount": 0,
+   "owed": [],
+   "averages": {
+    "withMissing": {
+     "key": null,
+     "trad": 61
+    },
+    "allIn": {
+     "key": null,
+     "trad": 61
+    }
+   },
+   "shifts": {
+    "key": 0,
+    "trad": 7
+   },
+   "submitted": [
+    {
+     "date": "2026-10-02",
+     "event": "Mesa Market Place Swapmeet (A Row)",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-16",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 76,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-17",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-30",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 122,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-31",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-13",
+     "event": "Mesa market place a row",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 230,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-david-roesch"
   },
   {
    "id": "jason-jeffrey",
@@ -7782,6 +7732,63 @@
     }
    ],
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-matthew-aragon"
+  },
+  {
+   "id": "michael-wood",
+   "name": "Michael Wood",
+   "aliases": [
+    "Mike",
+    "Mike W",
+    "Mike W."
+   ],
+   "tier": "FRESHMAN",
+   "formName": "Michael Wood",
+   "missingCount": 0,
+   "owed": [],
+   "averages": {
+    "withMissing": {
+     "key": null,
+     "trad": 211
+    },
+    "allIn": {
+     "key": null,
+     "trad": 211
+    }
+   },
+   "shifts": {
+    "key": 0,
+    "trad": 3
+   },
+   "submitted": [
+    {
+     "date": "2026-10-18",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 404,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-24",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 228,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-michael-wood"
   },
   {
    "id": "reed-ehmann",
