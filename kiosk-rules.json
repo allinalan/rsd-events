@@ -1,0 +1,36 @@
+{
+  "_about": "The Kiosk Agent's mall (holiday kiosk) charging rules, for SUNNY. Built by rsd-shift-picking lib/kiosk-rules-json.js from the agent's own settings at every publish. Rules only: no mall prices, no names, no amounts owed.",
+  "agent": "Kiosk Agent",
+  "season": 2026,
+  "rules": [
+    "A mall kiosk shift is one day of the mall's run. A split day (two names on the day) is half a shift each.",
+    "Each day has a weight: a weekday 1, a Saturday or Sunday 1.25, and a peak day 1.5. Peak days are the last 14 days of the mall's run and Black Friday weekend (the Friday after Thanksgiving through Sunday).",
+    "What a rep owes for a mall is the weights of their shifts times the mall's price per point. The price per point is the mall's Event Cost in VectorConnect divided by the weights of every open day of the run, worked or not. It is set when the mall's first charges are made.",
+    "Days nobody works are covered after the mall closes by one top-up, shared by weight among the reps who worked that mall (freshmen are left out of the top-up). Nobody gets a refund.",
+    "Freshmen pay at most $100 a shift at any mall, whatever the day's weight ($50 for half a split day). What the cap leaves is spread over the other reps' shifts at that mall, by weight.",
+    "How a rep pays is what they picked on the mall charge form: Regular (spread over up to 7 weeks), Paid in full (one week), Bonus (the first bonus week), or Pre-cap (their whole kiosk schedule charged up front, over as many weeks as VectorConnect allows, up to 16). No answer means their usual setup.",
+    "A pre-capped day stays the pre-cap rep's: whoever covers it is not charged for it. A day a pre-cap rep picks up later is charged weekly, as Regular.",
+    "Charges go into VectorConnect on Tuesdays for the days worked through Monday, as Mall Precap. After a mall closes, one last Event Charge Recap adds the days not charged yet and the top-up, so nothing is left owed.",
+    "Nothing is charged until Alan approves it. For your own kiosk charges, or a question these rules do not answer, ask Alan."
+  ],
+  "numbers": {
+    "weights": {
+      "weekday": 1,
+      "weekend": 1.25,
+      "peak": 1.5
+    },
+    "peakDays": 14,
+    "freshmanCapPerShift": "$100",
+    "freshmanCapHalfDay": "$50",
+    "regularWeeksMax": 7,
+    "precapWeeksMax": 16
+  },
+  "form": {
+    "deadline": "2026-11-02",
+    "deadlineText": "Mon 11/2 at 11:59pm",
+    "lateDeadline": "2026-11-23",
+    "lateDeadlineText": "Mon 11/23 at 11:59pm",
+    "lateFor": "reps on the kiosk schedule who got the form late"
+  },
+  "ask": "Alan"
+}
