@@ -1,7 +1,7 @@
 {
  "v": 1,
- "generatedAt": "2026-11-18T15:01:23.558Z",
- "feedPulledAt": "2026-11-17T14:00:06.294Z",
+ "generatedAt": "2026-11-18T16:04:49.698Z",
+ "feedPulledAt": "2026-11-18T16:00:05.967Z",
  "window": {
   "from": "2025-11-18",
   "to": "2026-11-18"
@@ -1376,577 +1376,6 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-eli-camacho"
   },
   {
-   "id": "alan-hernandez",
-   "name": "Alan Hernandez",
-   "aliases": [
-    "Alan",
-    "Alan H",
-    "A. Hernandez"
-   ],
-   "tier": "COORDINATOR",
-   "formName": "Alan Hernandez",
-   "missingCount": 10,
-   "owed": [
-    {
-     "date": "2025-12-05",
-     "event": "Dirt Expo",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Dirt%20Expo&entry.884907221=2025-12-05&entry.321892841=Key"
-    },
-    {
-     "date": "2025-12-06",
-     "event": "Dirt Expo",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Dirt%20Expo&entry.884907221=2025-12-06&entry.321892841=Key"
-    },
-    {
-     "date": "2025-12-07",
-     "event": "Dirt Expo",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Dirt%20Expo&entry.884907221=2025-12-07&entry.321892841=Key"
-    },
-    {
-     "date": "2026-09-25",
-     "event": "Run to the Pines Car Show",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Run%20to%20the%20Pines%20Car%20Show&entry.884907221=2026-09-25&entry.321892841=Traditional"
-    },
-    {
-     "date": "2026-10-16",
-     "event": "Southern Arizona Home Show",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Southern%20Arizona%20Home%20Show&entry.884907221=2026-10-16&entry.321892841=Key"
-    },
-    {
-     "date": "2026-10-17",
-     "event": "Southern Arizona Home Show",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Southern%20Arizona%20Home%20Show&entry.884907221=2026-10-17&entry.321892841=Key"
-    },
-    {
-     "date": "2026-10-18",
-     "event": "Southern Arizona Home Show",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Southern%20Arizona%20Home%20Show&entry.884907221=2026-10-18&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-13",
-     "event": "Pinners Conference & Expo - AZ",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Pinners%20Conference%20%26%20Expo%20-%20AZ&entry.884907221=2026-11-13&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-14",
-     "event": "Pinners Conference & Expo - AZ",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Pinners%20Conference%20%26%20Expo%20-%20AZ&entry.884907221=2026-11-14&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-15",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": true,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-15&entry.321892841=Traditional"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": 3123,
-     "trad": 1491
-    },
-    "allIn": {
-     "key": 3798,
-     "trad": 1721
-    }
-   },
-   "shifts": {
-    "key": 45,
-    "trad": 15
-   },
-   "submitted": [
-    {
-     "date": "2026-01-09",
-     "event": "Maricopa Booth #2 (Ag Building) (820/822) (8x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 661,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-10",
-     "event": "Maricopa Booth #2 (Ag Building) (820/822) (8x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4243,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-11",
-     "event": "Maricopa Booth #2 (Ag Building) (820/822) (8x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2052,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-20",
-     "event": "Barrett- Jackson Car auction W 2",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4364,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-21",
-     "event": "Barrett- Jackson Car auction W 2",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 797,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-22",
-     "event": "Barrett- Jackson Car auction W 2",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 9077,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-23",
-     "event": "Barrett- Jackson Car auction W 2",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2628,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-24",
-     "event": "Barrett- Jackson Car auction W 2",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 7297,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-25",
-     "event": "Barrett- Jackson Car auction W 2",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 593,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-31",
-     "event": "Lake havasu Winter Fest (#5)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4339,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-01",
-     "event": "Lake havasu Winter Fest (#5)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1563,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-14",
-     "event": "Downtown Chandler Fine Art & Wine Festival",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1209,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-15",
-     "event": "Downtown Chandler Fine Art & Wine Festival",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 792,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-20",
-     "event": "Fountain Hills Festival of Fine Arts & Crafts",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2696,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-21",
-     "event": "Fountain Hills Festival of Fine Arts & Crafts",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4185,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-22",
-     "event": "Fountain Hills Festival of Fine Arts & Crafts",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1534,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-06",
-     "event": "Maricopa Booth #3 #312",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2103,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-07",
-     "event": "Maricopa Booth #3 #312",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1523,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-08",
-     "event": "Maricopa Booth #3 #312",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1565,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-27",
-     "event": "Southern Arizona Home Show\n(Formerly SAHBA)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 5422,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-28",
-     "event": "Southern Arizona Home Show\n(Formerly SAHBA)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2499,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-29",
-     "event": "Southern Arizona Home Show\n(Formerly SAHBA)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4498,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-04-24",
-     "event": "YCCA Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 274,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-04-25",
-     "event": "YCCA Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 12249,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-04-26",
-     "event": "YCCA Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 5776,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-01",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2232,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-02",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 6465,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-03",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 6582,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-09",
-     "event": "Prescott Mother's Day Fine Art Festival",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1823,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-10",
-     "event": "Prescott Mother's Day Fine Art Festival",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 497,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-22",
-     "event": "Rocking The Rim (formerly Show Low Days)",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 271,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-23",
-     "event": "Rocking The Rim' (formerly Show Low Days)",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1155,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-24",
-     "event": "Rocking The Rim' (formerly Show Low Days)",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-06-06",
-     "event": "Prescott Territorial Days",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 3581,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-06-07",
-     "event": "Prescott Territorial Days",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 408,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-06-20",
-     "event": "Prescott Bluegrass Festival",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 397,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-06-21",
-     "event": "Prescott Bluegrass Festival",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1228,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-07-17",
-     "event": "Maricopa County Summer Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 3520,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-07-18",
-     "event": "Maricopa County Summer Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 11870,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-09-05",
-     "event": "Prescott Labor Day Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 3055,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-09-06",
-     "event": "Prescott Labor Day Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 6291,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-09-11",
-     "event": "Sierra Vista Oktoberfest",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1993,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-09-12",
-     "event": "Sierra Vista Oktoberfest",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 3055,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-09-26",
-     "event": "Run to the Pines Car Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 9677,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-09-27",
-     "event": "Run to the Pines Car Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1330,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-02",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 3824,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-03",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2752,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-04",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 254,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-07",
-     "event": "Litchfield Park Festival of Arts",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 3872,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-08",
-     "event": "Litchfield Park Festival of Arts",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2814,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-alan-hernandez"
-  },
-  {
    "id": "jerry-ramirez",
    "name": "Jerry Ramirez",
    "aliases": [
@@ -1956,7 +1385,7 @@
    ],
    "tier": "VARSITY",
    "formName": "Gerardo Ramirez",
-   "missingCount": 9,
+   "missingCount": 7,
    "owed": [
     {
      "date": "2026-08-09",
@@ -2020,34 +1449,16 @@
      "counts": true,
      "unverified": true,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Gerardo%20Ramirez&entry.984069513=FallFest%20In%20the%20Park&entry.884907221=2026-10-03&entry.321892841=Traditional"
-    },
-    {
-     "date": "2026-11-13",
-     "event": "Lake Havasu Sand & Water & RV Show",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Gerardo%20Ramirez&entry.984069513=Lake%20Havasu%20Sand%20%26%20Water%20%26%20RV%20Show&entry.884907221=2026-11-13&entry.321892841=Traditional"
-    },
-    {
-     "date": "2026-11-14",
-     "event": "Lake Havasu Sand & Water & RV Show",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Gerardo%20Ramirez&entry.984069513=Lake%20Havasu%20Sand%20%26%20Water%20%26%20RV%20Show&entry.884907221=2026-11-14&entry.321892841=Traditional"
     }
    ],
    "averages": {
     "withMissing": {
      "key": 2213,
-     "trad": 1029
+     "trad": 1060
     },
     "allIn": {
      "key": 2213,
-     "trad": 1348
+     "trad": 1300
     }
    },
    "shifts": {
@@ -2493,6 +1904,24 @@
      "eventType": "Key",
      "shiftLabel": null,
      "cpo": 1061,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-13",
+     "event": "Lake Havasu Sand & Water & RV Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 1077,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Lake Havasu Sand & Water & RV Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 105,
      "counts": true,
      "note": ""
     }
@@ -3210,16 +2639,16 @@
    ],
    "averages": {
     "withMissing": {
-     "key": 4745,
+     "key": 4732,
      "trad": 0
     },
     "allIn": {
-     "key": 5694,
+     "key": 5521,
      "trad": null
     }
    },
    "shifts": {
-    "key": 18,
+    "key": 21,
     "trad": 2
    },
    "submitted": [
@@ -3355,6 +2784,33 @@
      "eventType": "Key",
      "shiftLabel": null,
      "cpo": 330,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Fountain Hills",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1679,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-15",
+     "event": "Fountain Hills Art Fest",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 9049,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-15",
+     "event": "Fountain Hills Art Fest",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3240,
      "counts": true,
      "note": ""
     }
@@ -4533,69 +3989,575 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-luke-mills"
   },
   {
-   "id": "sean-potter",
-   "name": "Sean Potter",
+   "id": "alan-hernandez",
+   "name": "Alan Hernandez",
    "aliases": [
-    "Sean"
+    "Alan",
+    "Alan H",
+    "A. Hernandez"
    ],
-   "tier": "JV",
-   "formName": "Sean Potter",
-   "missingCount": 2,
+   "tier": "COORDINATOR",
+   "formName": "Alan Hernandez",
+   "missingCount": 1,
    "owed": [
     {
-     "date": "2026-11-14",
-     "event": "Mesa Market Place Swapmeet B ROW",
+     "date": "2026-09-25",
+     "event": "Run to the Pines Car Show",
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Sean%20Potter&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20B%20ROW&entry.884907221=2026-11-14&entry.321892841=Traditional"
-    },
-    {
-     "date": "2026-11-15",
-     "event": "Mesa Market Place Swapmeet B ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": true,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Sean%20Potter&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20B%20ROW&entry.884907221=2026-11-15&entry.321892841=Traditional"
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Alan%20Hernandez&entry.984069513=Run%20to%20the%20Pines%20Car%20Show&entry.884907221=2026-09-25&entry.321892841=Traditional"
     }
    ],
    "averages": {
     "withMissing": {
-     "key": null,
-     "trad": 235
+     "key": 3496,
+     "trad": 1498
     },
     "allIn": {
-     "key": null,
-     "trad": 470
+     "key": 3496,
+     "trad": 1605
     }
    },
    "shifts": {
-    "key": 0,
-    "trad": 4
+    "key": 45,
+    "trad": 15
    },
    "submitted": [
     {
-     "date": "2026-03-28",
-     "event": "Mesa B row",
+     "date": "2025-12-05",
+     "event": "Dirt Expo",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2025-12-06",
+     "event": "Dirt Expo",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1929,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2025-12-07",
+     "event": "Dirt Expo",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2163,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-09",
+     "event": "Maricopa Booth #2 (Ag Building) (820/822) (8x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 661,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-10",
+     "event": "Maricopa Booth #2 (Ag Building) (820/822) (8x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4243,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-11",
+     "event": "Maricopa Booth #2 (Ag Building) (820/822) (8x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2052,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-20",
+     "event": "Barrett- Jackson Car auction W 2",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4364,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-21",
+     "event": "Barrett- Jackson Car auction W 2",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 797,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-22",
+     "event": "Barrett- Jackson Car auction W 2",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 9077,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-23",
+     "event": "Barrett- Jackson Car auction W 2",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2628,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-24",
+     "event": "Barrett- Jackson Car auction W 2",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 7297,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-25",
+     "event": "Barrett- Jackson Car auction W 2",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 593,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-31",
+     "event": "Lake havasu Winter Fest (#5)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4339,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-01",
+     "event": "Lake havasu Winter Fest (#5)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1563,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-14",
+     "event": "Downtown Chandler Fine Art & Wine Festival",
      "eventType": "Traditional",
      "shiftLabel": null,
-     "cpo": 470,
+     "cpo": 1209,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-15",
+     "event": "Downtown Chandler Fine Art & Wine Festival",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 792,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-20",
+     "event": "Fountain Hills Festival of Fine Arts & Crafts",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2696,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-21",
+     "event": "Fountain Hills Festival of Fine Arts & Crafts",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4185,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-22",
+     "event": "Fountain Hills Festival of Fine Arts & Crafts",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1534,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-06",
+     "event": "Maricopa Booth #3 #312",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2103,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-07",
+     "event": "Maricopa Booth #3 #312",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1523,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-08",
+     "event": "Maricopa Booth #3 #312",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1565,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-27",
+     "event": "Southern Arizona Home Show\n(Formerly SAHBA)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 5422,
      "counts": true,
      "note": ""
     },
     {
      "date": "2026-03-28",
-     "event": "Mesa market place",
+     "event": "Southern Arizona Home Show\n(Formerly SAHBA)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2499,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-29",
+     "event": "Southern Arizona Home Show\n(Formerly SAHBA)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4498,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-04-24",
+     "event": "YCCA Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 274,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-04-25",
+     "event": "YCCA Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 12249,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-04-26",
+     "event": "YCCA Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 5776,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-01",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2232,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-02",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 6465,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-03",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 6582,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-09",
+     "event": "Prescott Mother's Day Fine Art Festival",
      "eventType": "Traditional",
      "shiftLabel": null,
-     "cpo": 470,
+     "cpo": 1823,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-10",
+     "event": "Prescott Mother's Day Fine Art Festival",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 497,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-22",
+     "event": "Rocking The Rim (formerly Show Low Days)",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 271,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-23",
+     "event": "Rocking The Rim' (formerly Show Low Days)",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 1155,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-24",
+     "event": "Rocking The Rim' (formerly Show Low Days)",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-06-06",
+     "event": "Prescott Territorial Days",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 3581,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-06-07",
+     "event": "Prescott Territorial Days",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 408,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-06-20",
+     "event": "Prescott Bluegrass Festival",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 397,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-06-21",
+     "event": "Prescott Bluegrass Festival",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 1228,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-07-17",
+     "event": "Maricopa County Summer Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3520,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-07-18",
+     "event": "Maricopa County Summer Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 11870,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-09-05",
+     "event": "Prescott Labor Day Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3055,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-09-06",
+     "event": "Prescott Labor Day Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 6291,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-09-11",
+     "event": "Sierra Vista Oktoberfest",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1993,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-09-12",
+     "event": "Sierra Vista Oktoberfest",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3055,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-09-26",
+     "event": "Run to the Pines Car Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 9677,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-09-27",
+     "event": "Run to the Pines Car Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 1330,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-02",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3824,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-03",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2752,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-04",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 254,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-16",
+     "event": "Southern Arizona Home Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 633,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-17",
+     "event": "Southern Arizona Home Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3879,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-18",
+     "event": "Southern Arizona Home Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4012,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-07",
+     "event": "Litchfield Park Festival of Arts",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3872,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-08",
+     "event": "Litchfield Park Festival of Arts",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2814,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-13",
+     "event": "Pinners Conference & Expo - AZ",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2613,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Pinners Conference & Expo - AZ",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1563,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-15",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 96,
      "counts": true,
      "note": ""
     }
    ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-sean-potter"
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-alan-hernandez"
   },
   {
    "id": "craig-coker",
@@ -4820,7 +4782,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 2",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=__other_option__&entry.37139300.other_option_response=David%20Roesch&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-14&entry.321892841=Traditional"
     }
    ],
@@ -4888,78 +4850,6 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-david-roesch"
   },
   {
-   "id": "maddie-dallas",
-   "name": "Maddie Dallas",
-   "aliases": [],
-   "tier": "FRESHMAN",
-   "formName": "Maddie Dallas",
-   "missingCount": 1,
-   "owed": [
-    {
-     "date": "2026-11-13",
-     "event": "Mesa Market Place Swapmeet B ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=__other_option__&entry.37139300.other_option_response=Maddie%20Dallas&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20B%20ROW&entry.884907221=2026-11-13&entry.321892841=Traditional"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": null,
-     "trad": 0
-    },
-    "allIn": {
-     "key": null,
-     "trad": 0
-    }
-   },
-   "shifts": {
-    "key": 0,
-    "trad": 5
-   },
-   "submitted": [
-    {
-     "date": "2026-10-09",
-     "event": "Mesa Market Place Swapmeet",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-10",
-     "event": "Mesa Market Place Swapmeet",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-11",
-     "event": "Mesa Market Place Swapmeet",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-25",
-     "event": "Mesa Market Place Swapmeet B ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-maddie-dallas"
-  },
-  {
    "id": "michael-wood",
    "name": "Michael Wood",
    "aliases": [
@@ -4977,7 +4867,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=__other_option__&entry.37139300.other_option_response=Michael%20Wood&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-14&entry.321892841=Traditional"
     }
    ],
@@ -6199,16 +6089,16 @@
    "averages": {
     "withMissing": {
      "key": null,
-     "trad": 132
+     "trad": 147
     },
     "allIn": {
      "key": null,
-     "trad": 132
+     "trad": 147
     }
    },
    "shifts": {
     "key": 0,
-    "trad": 6
+    "trad": 7
    },
    "submitted": [
     {
@@ -6264,6 +6154,15 @@
      "cpo": 62,
      "counts": true,
      "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Queen Creek Family Market",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 242,
+     "counts": true,
+     "note": "submitted but not on the shift schedule"
     }
    ],
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-kendall-harrison"
@@ -6311,6 +6210,77 @@
     }
    ],
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-leslie-van-hoy"
+  },
+  {
+   "id": "maddie-dallas",
+   "name": "Maddie Dallas",
+   "aliases": [],
+   "tier": "FRESHMAN",
+   "formName": "Maddie Dallas",
+   "missingCount": 0,
+   "owed": [],
+   "averages": {
+    "withMissing": {
+     "key": null,
+     "trad": 35
+    },
+    "allIn": {
+     "key": null,
+     "trad": 35
+    }
+   },
+   "shifts": {
+    "key": 0,
+    "trad": 5
+   },
+   "submitted": [
+    {
+     "date": "2026-10-09",
+     "event": "Mesa Market Place Swapmeet",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-10",
+     "event": "Mesa Market Place Swapmeet",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-11",
+     "event": "Mesa Market Place Swapmeet",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-25",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-13",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 175,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-maddie-dallas"
   },
   {
    "id": "matt-foss",
@@ -8235,6 +8205,70 @@
     }
    ],
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-romeo-velasquez"
+  },
+  {
+   "id": "sean-potter",
+   "name": "Sean Potter",
+   "aliases": [
+    "Sean"
+   ],
+   "tier": "JV",
+   "formName": "Sean Potter",
+   "missingCount": 0,
+   "owed": [],
+   "averages": {
+    "withMissing": {
+     "key": null,
+     "trad": 235
+    },
+    "allIn": {
+     "key": null,
+     "trad": 235
+    }
+   },
+   "shifts": {
+    "key": 0,
+    "trad": 4
+   },
+   "submitted": [
+    {
+     "date": "2026-03-28",
+     "event": "Mesa B row",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 470,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-28",
+     "event": "Mesa market place",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 470,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-15",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-sean-potter"
   },
   {
    "id": "zach-duran",
