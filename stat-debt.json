@@ -1,10 +1,10 @@
 {
  "v": 1,
- "generatedAt": "2026-11-19T03:04:21.744Z",
- "feedPulledAt": "2026-11-19T03:03:05.129Z",
+ "generatedAt": "2026-11-20T03:04:17.098Z",
+ "feedPulledAt": "2026-11-20T03:03:07.643Z",
  "window": {
-  "from": "2025-11-18",
-  "to": "2026-11-18"
+  "from": "2025-11-19",
+  "to": "2026-11-19"
  },
  "tierLines": {
   "ELITE": {
@@ -1996,28 +1996,19 @@
    ],
    "averages": {
     "withMissing": {
-     "key": 2469,
+     "key": 2511,
      "trad": 1546
     },
     "allIn": {
-     "key": 3174,
+     "key": 3284,
      "trad": 2319
     }
    },
    "shifts": {
-    "key": 18,
+    "key": 17,
     "trad": 6
    },
    "submitted": [
-    {
-     "date": "2025-11-18",
-     "event": "MTCAZ 2025 Trade Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1754,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-12-05",
      "event": "Tempe Festival of the Arts - Booth #1 1126",
@@ -2825,17 +2816,8 @@
    ],
    "tier": "LEADER",
    "formName": "Luke Mills",
-   "missingCount": 4,
+   "missingCount": 3,
    "owed": [
-    {
-     "date": "2025-11-18",
-     "event": "MTCAZ 2025 Trade Show",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=MTCAZ%202025%20Trade%20Show&entry.884907221=2025-11-18&entry.321892841=Key"
-    },
     {
      "date": "2026-01-09",
      "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
@@ -2866,7 +2848,7 @@
    ],
    "averages": {
     "withMissing": {
-     "key": 4503,
+     "key": 4825,
      "trad": null
     },
     "allIn": {
@@ -2875,7 +2857,7 @@
     }
    },
    "shifts": {
-    "key": 15,
+    "key": 14,
     "trad": 0
    },
    "submitted": [
