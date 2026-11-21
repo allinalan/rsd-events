@@ -1,10 +1,10 @@
 {
  "v": 1,
- "generatedAt": "2026-11-20T03:04:17.098Z",
- "feedPulledAt": "2026-11-20T03:03:07.643Z",
+ "generatedAt": "2026-11-21T03:04:14.224Z",
+ "feedPulledAt": "2026-11-21T03:03:10.359Z",
  "window": {
-  "from": "2025-11-19",
-  "to": "2026-11-19"
+  "from": "2025-11-20",
+  "to": "2026-11-20"
  },
  "tierLines": {
   "ELITE": {
@@ -34,7 +34,7 @@
    ],
    "tier": "JV",
    "formName": "Adam Jeffrey",
-   "missingCount": 16,
+   "missingCount": 17,
    "owed": [
     {
      "date": "2025-11-23",
@@ -181,6 +181,15 @@
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Jeffrey&entry.984069513=Pinners%20Conference%20%26%20Expo%20-%20AZ&entry.884907221=2026-11-14&entry.321892841=Key"
     },
     {
+     "date": "2026-11-20",
+     "event": "Goodguys Southwest Nationals",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": true,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Jeffrey&entry.984069513=Goodguys%20Southwest%20Nationals&entry.884907221=2026-11-20&entry.321892841=Traditional"
+    },
+    {
      "date": "2026-03-14",
      "event": "Windmill Winery Spring Market Vendor Fair",
      "eventType": "Traditional",
@@ -220,7 +229,7 @@
    "averages": {
     "withMissing": {
      "key": 1654,
-     "trad": 1365
+     "trad": 1316
     },
     "allIn": {
      "key": 2895,
@@ -229,7 +238,7 @@
    },
    "shifts": {
     "key": 14,
-    "trad": 27
+    "trad": 28
    },
    "submitted": [
     {
@@ -1929,243 +1938,6 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-jerry-ramirez"
   },
   {
-   "id": "adam-conroy",
-   "name": "Adam Conroy",
-   "aliases": [
-    "Adam C",
-    "Conroy"
-   ],
-   "tier": "ELITE",
-   "formName": "Adam Conroy",
-   "missingCount": 6,
-   "owed": [
-    {
-     "date": "2026-10-02",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": "Shift 2",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=Maricopa%20County%20Home%20%26%20Garden%20Show&entry.884907221=2026-10-02&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-06",
-     "event": "A Christmas Fair",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-06&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-07",
-     "event": "A Christmas Fair",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-07&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-08",
-     "event": "A Christmas Fair",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-08&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-14",
-     "event": "Havasu Christmas Craft & Gift Show",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": true,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=Havasu%20Christmas%20Craft%20%26%20Gift%20Show&entry.884907221=2026-11-14&entry.321892841=Traditional"
-    },
-    {
-     "date": "2026-11-15",
-     "event": "Havasu Christmas Craft & Gift Show",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": true,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=Havasu%20Christmas%20Craft%20%26%20Gift%20Show&entry.884907221=2026-11-15&entry.321892841=Traditional"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": 2511,
-     "trad": 1546
-    },
-    "allIn": {
-     "key": 3284,
-     "trad": 2319
-    }
-   },
-   "shifts": {
-    "key": 17,
-    "trad": 6
-   },
-   "submitted": [
-    {
-     "date": "2025-12-05",
-     "event": "Tempe Festival of the Arts - Booth #1 1126",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1805,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2025-12-06",
-     "event": "Tempe Festival of the Arts - Booth #1 1126",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2597,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2025-12-07",
-     "event": "Tempe Festival of the Arts - Booth #1 1126",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1905,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-09",
-     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2287,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-10",
-     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1874,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-11",
-     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2647,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-31",
-     "event": "Lake havasu Winter Fest (#5)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 12851,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-01",
-     "event": "Lake havasu Winter Fest (#5)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2764,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-20",
-     "event": "Las Cruces Home and Garden Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 563,
-     "counts": true,
-     "note": "submitted but not on the shift schedule"
-    },
-    {
-     "date": "2026-02-21",
-     "event": "Las Cruces Home and Garden Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 4319,
-     "counts": true,
-     "note": "submitted but not on the shift schedule"
-    },
-    {
-     "date": "2026-02-22",
-     "event": "Las Cruces Home and Garden Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1044,
-     "counts": true,
-     "note": "submitted but not on the shift schedule"
-    },
-    {
-     "date": "2026-03-07",
-     "event": "Litchfield Park Art & Wine Festival",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 687,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-08",
-     "event": "Litchfield Park Art & Wine Festival",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1978,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-07-19",
-     "event": "Maricopa County Summer Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 6697,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-09-05",
-     "event": "Taylor Sweet Corn Festival",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 3351,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-03",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4563,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-04",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 31,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-adam-conroy"
-  },
-  {
    "id": "alec-luyendyk",
    "name": "Alec Luyendyk",
    "aliases": [
@@ -2809,118 +2581,182 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-jeremy-katen"
   },
   {
-   "id": "luke-mills",
-   "name": "Luke Mills",
+   "id": "adam-conroy",
+   "name": "Adam Conroy",
    "aliases": [
-    "Luke"
+    "Adam C",
+    "Conroy"
    ],
-   "tier": "LEADER",
-   "formName": "Luke Mills",
-   "missingCount": 3,
+   "tier": "ELITE",
+   "formName": "Adam Conroy",
+   "missingCount": 4,
    "owed": [
     {
-     "date": "2026-01-09",
-     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "date": "2026-10-02",
+     "event": "Maricopa County Home & Garden Show",
      "eventType": "Key",
      "shiftLabel": "Shift 2",
      "counts": true,
      "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-09&entry.321892841=Key"
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=Maricopa%20County%20Home%20%26%20Garden%20Show&entry.884907221=2026-10-02&entry.321892841=Key"
     },
     {
-     "date": "2026-01-10",
-     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "date": "2026-11-06",
+     "event": "A Christmas Fair",
      "eventType": "Key",
-     "shiftLabel": "Shift 2",
+     "shiftLabel": "Shift 1",
      "counts": true,
      "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-10&entry.321892841=Key"
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-06&entry.321892841=Key"
     },
     {
-     "date": "2026-01-11",
-     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "date": "2026-11-07",
+     "event": "A Christmas Fair",
      "eventType": "Key",
-     "shiftLabel": "Shift 2",
+     "shiftLabel": "Shift 1",
      "counts": true,
      "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-11&entry.321892841=Key"
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-07&entry.321892841=Key"
+    },
+    {
+     "date": "2026-11-08",
+     "event": "A Christmas Fair",
+     "eventType": "Key",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-08&entry.321892841=Key"
     }
    ],
    "averages": {
     "withMissing": {
-     "key": 4825,
-     "trad": null
+     "key": 2511,
+     "trad": 1546
     },
     "allIn": {
-     "key": 6141,
-     "trad": null
+     "key": 3284,
+     "trad": 1546
     }
    },
    "shifts": {
-    "key": 14,
-    "trad": 0
+    "key": 17,
+    "trad": 6
    },
    "submitted": [
     {
-     "date": "2026-03-06",
-     "event": "Maricopa County Home & Landscape Show",
+     "date": "2025-12-05",
+     "event": "Tempe Festival of the Arts - Booth #1 1126",
      "eventType": "Key",
      "shiftLabel": null,
-     "cpo": 5004,
+     "cpo": 1805,
      "counts": true,
      "note": ""
     },
     {
-     "date": "2026-03-07",
-     "event": "Maricopa County Home & Landscape Show",
+     "date": "2025-12-06",
+     "event": "Tempe Festival of the Arts - Booth #1 1126",
      "eventType": "Key",
      "shiftLabel": null,
-     "cpo": 3466,
+     "cpo": 2597,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2025-12-07",
+     "event": "Tempe Festival of the Arts - Booth #1 1126",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1905,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-09",
+     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2287,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-10",
+     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1874,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-11",
+     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2647,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-31",
+     "event": "Lake havasu Winter Fest (#5)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 12851,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-01",
+     "event": "Lake havasu Winter Fest (#5)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2764,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-20",
+     "event": "Las Cruces Home and Garden Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 563,
+     "counts": true,
+     "note": "submitted but not on the shift schedule"
+    },
+    {
+     "date": "2026-02-21",
+     "event": "Las Cruces Home and Garden Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 4319,
+     "counts": true,
+     "note": "submitted but not on the shift schedule"
+    },
+    {
+     "date": "2026-02-22",
+     "event": "Las Cruces Home and Garden Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 1044,
+     "counts": true,
+     "note": "submitted but not on the shift schedule"
+    },
+    {
+     "date": "2026-03-07",
+     "event": "Litchfield Park Art & Wine Festival",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 687,
      "counts": true,
      "note": ""
     },
     {
      "date": "2026-03-08",
-     "event": "Maricopa County Home & Landscape Show",
+     "event": "Litchfield Park Art & Wine Festival",
      "eventType": "Key",
      "shiftLabel": null,
-     "cpo": 9611,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-01",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1959,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-02",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4705,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-03",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4070,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-07-18",
-     "event": "Maricopa County Summer Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 13557,
+     "cpo": 1978,
      "counts": true,
      "note": ""
     },
@@ -2929,25 +2765,25 @@
      "event": "Maricopa County Summer Home & Landscape Show",
      "eventType": "Key",
      "shiftLabel": null,
-     "cpo": 8643,
+     "cpo": 6697,
      "counts": true,
      "note": ""
     },
     {
-     "date": "2026-10-02",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
+     "date": "2026-09-05",
+     "event": "Taylor Sweet Corn Festival",
+     "eventType": "Traditional",
      "shiftLabel": null,
-     "cpo": 2967,
+     "cpo": 3351,
      "counts": true,
-     "note": "the stat form had it dated 2026-10-04"
+     "note": ""
     },
     {
      "date": "2026-10-03",
      "event": "Maricopa County Home & Garden Show",
      "eventType": "Key",
      "shiftLabel": null,
-     "cpo": 5096,
+     "cpo": 4563,
      "counts": true,
      "note": ""
     },
@@ -2956,12 +2792,30 @@
      "event": "Maricopa County Home & Garden Show",
      "eventType": "Key",
      "shiftLabel": null,
-     "cpo": 8473,
+     "cpo": 31,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Havasu Christmas Craft & Gift Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-15",
+     "event": "Havasu Christmas Craft & Gift Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
      "counts": true,
      "note": ""
     }
    ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-luke-mills"
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-adam-conroy"
   },
   {
    "id": "johnathan-parker",
@@ -2977,7 +2831,7 @@
    ],
    "tier": "VARSITY",
    "formName": "Johnathan Parker",
-   "missingCount": 2,
+   "missingCount": 3,
    "owed": [
     {
      "date": "2026-11-06",
@@ -2996,6 +2850,15 @@
      "counts": true,
      "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Page-Lake%20Powell%20Balloon%20Festival&entry.884907221=2026-11-07&entry.321892841=Traditional"
+    },
+    {
+     "date": "2026-11-20",
+     "event": "Gilbert Days Rodeo",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": true,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Gilbert%20Days%20Rodeo&entry.884907221=2026-11-20&entry.321892841=Traditional"
     },
     {
      "date": "2026-02-04",
@@ -3046,7 +2909,7 @@
    "averages": {
     "withMissing": {
      "key": 1505,
-     "trad": 1078
+     "trad": 1064
     },
     "allIn": {
      "key": 1505,
@@ -3055,7 +2918,7 @@
    },
    "shifts": {
     "key": 17,
-    "trad": 75
+    "trad": 76
    },
    "submitted": [
     {
@@ -3971,6 +3834,161 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-johnathan-parker"
   },
   {
+   "id": "luke-mills",
+   "name": "Luke Mills",
+   "aliases": [
+    "Luke"
+   ],
+   "tier": "LEADER",
+   "formName": "Luke Mills",
+   "missingCount": 3,
+   "owed": [
+    {
+     "date": "2026-01-09",
+     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-09&entry.321892841=Key"
+    },
+    {
+     "date": "2026-01-10",
+     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-10&entry.321892841=Key"
+    },
+    {
+     "date": "2026-01-11",
+     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-11&entry.321892841=Key"
+    }
+   ],
+   "averages": {
+    "withMissing": {
+     "key": 4825,
+     "trad": null
+    },
+    "allIn": {
+     "key": 6141,
+     "trad": null
+    }
+   },
+   "shifts": {
+    "key": 14,
+    "trad": 0
+   },
+   "submitted": [
+    {
+     "date": "2026-03-06",
+     "event": "Maricopa County Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 5004,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-07",
+     "event": "Maricopa County Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3466,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-08",
+     "event": "Maricopa County Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 9611,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-01",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1959,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-02",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4705,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-03",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4070,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-07-18",
+     "event": "Maricopa County Summer Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 13557,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-07-19",
+     "event": "Maricopa County Summer Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 8643,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-02",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2967,
+     "counts": true,
+     "note": "the stat form had it dated 2026-10-04"
+    },
+    {
+     "date": "2026-10-03",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 5096,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-04",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 8473,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-luke-mills"
+  },
+  {
    "id": "craig-coker",
    "name": "Craig Coker",
    "aliases": [
@@ -3978,7 +3996,7 @@
    ],
    "tier": "JV",
    "formName": "Craig Coker",
-   "missingCount": 1,
+   "missingCount": 2,
    "owed": [
     {
      "date": "2026-11-13",
@@ -3988,12 +4006,21 @@
      "counts": true,
      "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Craig%20Coker&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-13&entry.321892841=Traditional"
+    },
+    {
+     "date": "2026-11-20",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Craig%20Coker&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-20&entry.321892841=Traditional"
     }
    ],
    "averages": {
     "withMissing": {
      "key": null,
-     "trad": 453
+     "trad": 432
     },
     "allIn": {
      "key": null,
@@ -4002,7 +4029,7 @@
    },
    "shifts": {
     "key": 0,
-    "trad": 20
+    "trad": 21
    },
    "submitted": [
     {
