@@ -1,10 +1,10 @@
 {
  "v": 1,
- "generatedAt": "2026-11-22T03:04:05.153Z",
- "feedPulledAt": "2026-11-22T03:03:10.999Z",
+ "generatedAt": "2026-11-23T03:04:19.376Z",
+ "feedPulledAt": "2026-11-23T03:03:11.820Z",
  "window": {
-  "from": "2025-11-21",
-  "to": "2026-11-21"
+  "from": "2025-11-22",
+  "to": "2026-11-22"
  },
  "tierLines": {
   "ELITE": {
@@ -34,7 +34,7 @@
    ],
    "tier": "JV",
    "formName": "Adam Jeffrey",
-   "missingCount": 18,
+   "missingCount": 19,
    "owed": [
     {
      "date": "2025-11-23",
@@ -199,6 +199,15 @@
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Jeffrey&entry.984069513=Goodguys%20Southwest%20Nationals&entry.884907221=2026-11-21&entry.321892841=Traditional"
     },
     {
+     "date": "2026-11-22",
+     "event": "Goodguys Southwest Nationals",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": true,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Jeffrey&entry.984069513=Goodguys%20Southwest%20Nationals&entry.884907221=2026-11-22&entry.321892841=Traditional"
+    },
+    {
      "date": "2026-03-14",
      "event": "Windmill Winery Spring Market Vendor Fair",
      "eventType": "Traditional",
@@ -238,11 +247,11 @@
    "averages": {
     "withMissing": {
      "key": 1654,
-     "trad": 1271
+     "trad": 1223
     },
     "allIn": {
      "key": 2895,
-     "trad": 2168
+     "trad": 2217
     }
    },
    "shifts": {
@@ -250,15 +259,6 @@
     "trad": 29
    },
    "submitted": [
-    {
-     "date": "2025-11-21",
-     "event": "Goodguys Southwest Nationals",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1378,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-22",
      "event": "Goodguys Southwest Nationals",
@@ -2590,243 +2590,6 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-jeremy-katen"
   },
   {
-   "id": "adam-conroy",
-   "name": "Adam Conroy",
-   "aliases": [
-    "Adam C",
-    "Conroy"
-   ],
-   "tier": "ELITE",
-   "formName": "Adam Conroy",
-   "missingCount": 4,
-   "owed": [
-    {
-     "date": "2026-10-02",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": "Shift 2",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=Maricopa%20County%20Home%20%26%20Garden%20Show&entry.884907221=2026-10-02&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-06",
-     "event": "A Christmas Fair",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-06&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-07",
-     "event": "A Christmas Fair",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-07&entry.321892841=Key"
-    },
-    {
-     "date": "2026-11-08",
-     "event": "A Christmas Fair",
-     "eventType": "Key",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-08&entry.321892841=Key"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": 2511,
-     "trad": 1546
-    },
-    "allIn": {
-     "key": 3284,
-     "trad": 1546
-    }
-   },
-   "shifts": {
-    "key": 17,
-    "trad": 6
-   },
-   "submitted": [
-    {
-     "date": "2025-12-05",
-     "event": "Tempe Festival of the Arts - Booth #1 1126",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1805,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2025-12-06",
-     "event": "Tempe Festival of the Arts - Booth #1 1126",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2597,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2025-12-07",
-     "event": "Tempe Festival of the Arts - Booth #1 1126",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1905,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-09",
-     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2287,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-10",
-     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1874,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-11",
-     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2647,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-31",
-     "event": "Lake havasu Winter Fest (#5)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 12851,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-01",
-     "event": "Lake havasu Winter Fest (#5)",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2764,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-20",
-     "event": "Las Cruces Home and Garden Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 563,
-     "counts": true,
-     "note": "submitted but not on the shift schedule"
-    },
-    {
-     "date": "2026-02-21",
-     "event": "Las Cruces Home and Garden Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 4319,
-     "counts": true,
-     "note": "submitted but not on the shift schedule"
-    },
-    {
-     "date": "2026-02-22",
-     "event": "Las Cruces Home and Garden Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1044,
-     "counts": true,
-     "note": "submitted but not on the shift schedule"
-    },
-    {
-     "date": "2026-03-07",
-     "event": "Litchfield Park Art & Wine Festival",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 687,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-08",
-     "event": "Litchfield Park Art & Wine Festival",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1978,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-07-19",
-     "event": "Maricopa County Summer Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 6697,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-09-05",
-     "event": "Taylor Sweet Corn Festival",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 3351,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-03",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4563,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-04",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 31,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-14",
-     "event": "Havasu Christmas Craft & Gift Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-15",
-     "event": "Havasu Christmas Craft & Gift Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-adam-conroy"
-  },
-  {
    "id": "johnathan-parker",
    "name": "Johnathan Parker",
    "aliases": [
@@ -2840,7 +2603,7 @@
    ],
    "tier": "VARSITY",
    "formName": "Johnathan Parker",
-   "missingCount": 4,
+   "missingCount": 5,
    "owed": [
     {
      "date": "2026-11-06",
@@ -2877,6 +2640,15 @@
      "counts": true,
      "unverified": true,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Gilbert%20Days%20Rodeo&entry.884907221=2026-11-21&entry.321892841=Traditional"
+    },
+    {
+     "date": "2026-11-22",
+     "event": "Gilbert Days Rodeo",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": true,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Gilbert%20Days%20Rodeo&entry.884907221=2026-11-22&entry.321892841=Traditional"
     },
     {
      "date": "2026-02-04",
@@ -2927,11 +2699,11 @@
    "averages": {
     "withMissing": {
      "key": 1505,
-     "trad": 1050
+     "trad": 1024
     },
     "allIn": {
      "key": 1505,
-     "trad": 1107
+     "trad": 1096
     }
    },
    "shifts": {
@@ -2939,15 +2711,6 @@
     "trad": 77
    },
    "submitted": [
-    {
-     "date": "2025-11-21",
-     "event": "Gilbert Days Rodeo",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1961,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-22",
      "event": "Gilbert Days Rodeo",
@@ -3852,6 +3615,243 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-johnathan-parker"
   },
   {
+   "id": "adam-conroy",
+   "name": "Adam Conroy",
+   "aliases": [
+    "Adam C",
+    "Conroy"
+   ],
+   "tier": "ELITE",
+   "formName": "Adam Conroy",
+   "missingCount": 4,
+   "owed": [
+    {
+     "date": "2026-10-02",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=Maricopa%20County%20Home%20%26%20Garden%20Show&entry.884907221=2026-10-02&entry.321892841=Key"
+    },
+    {
+     "date": "2026-11-06",
+     "event": "A Christmas Fair",
+     "eventType": "Key",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-06&entry.321892841=Key"
+    },
+    {
+     "date": "2026-11-07",
+     "event": "A Christmas Fair",
+     "eventType": "Key",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-07&entry.321892841=Key"
+    },
+    {
+     "date": "2026-11-08",
+     "event": "A Christmas Fair",
+     "eventType": "Key",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Conroy&entry.984069513=A%20Christmas%20Fair&entry.884907221=2026-11-08&entry.321892841=Key"
+    }
+   ],
+   "averages": {
+    "withMissing": {
+     "key": 2511,
+     "trad": 1546
+    },
+    "allIn": {
+     "key": 3284,
+     "trad": 1546
+    }
+   },
+   "shifts": {
+    "key": 17,
+    "trad": 6
+   },
+   "submitted": [
+    {
+     "date": "2025-12-05",
+     "event": "Tempe Festival of the Arts - Booth #1 1126",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1805,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2025-12-06",
+     "event": "Tempe Festival of the Arts - Booth #1 1126",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2597,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2025-12-07",
+     "event": "Tempe Festival of the Arts - Booth #1 1126",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1905,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-09",
+     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2287,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-10",
+     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1874,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-11",
+     "event": "Maricopa County Home & Garden Show \n(South Entrance Tent) (3134/3136) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2647,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-31",
+     "event": "Lake havasu Winter Fest (#5)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 12851,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-01",
+     "event": "Lake havasu Winter Fest (#5)",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2764,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-20",
+     "event": "Las Cruces Home and Garden Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 563,
+     "counts": true,
+     "note": "submitted but not on the shift schedule"
+    },
+    {
+     "date": "2026-02-21",
+     "event": "Las Cruces Home and Garden Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 4319,
+     "counts": true,
+     "note": "submitted but not on the shift schedule"
+    },
+    {
+     "date": "2026-02-22",
+     "event": "Las Cruces Home and Garden Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 1044,
+     "counts": true,
+     "note": "submitted but not on the shift schedule"
+    },
+    {
+     "date": "2026-03-07",
+     "event": "Litchfield Park Art & Wine Festival",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 687,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-08",
+     "event": "Litchfield Park Art & Wine Festival",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1978,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-07-19",
+     "event": "Maricopa County Summer Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 6697,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-09-05",
+     "event": "Taylor Sweet Corn Festival",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 3351,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-03",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4563,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-04",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 31,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Havasu Christmas Craft & Gift Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-15",
+     "event": "Havasu Christmas Craft & Gift Show",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-adam-conroy"
+  },
+  {
    "id": "craig-coker",
    "name": "Craig Coker",
    "aliases": [
@@ -3859,7 +3859,7 @@
    ],
    "tier": "JV",
    "formName": "Craig Coker",
-   "missingCount": 3,
+   "missingCount": 4,
    "owed": [
     {
      "date": "2026-11-13",
@@ -3887,16 +3887,25 @@
      "counts": true,
      "unverified": true,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Craig%20Coker&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-21&entry.321892841=Traditional"
+    },
+    {
+     "date": "2026-11-22",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": true,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Craig%20Coker&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-22&entry.321892841=Traditional"
     }
    ],
    "averages": {
     "withMissing": {
      "key": null,
-     "trad": 412
+     "trad": 405
     },
     "allIn": {
      "key": null,
-     "trad": 477
+     "trad": 495
     }
    },
    "shifts": {
@@ -3904,15 +3913,6 @@
     "trad": 22
    },
    "submitted": [
-    {
-     "date": "2025-11-21",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 154,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-22",
      "event": "Mesa Marketplace",
@@ -4234,6 +4234,89 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-luke-mills"
   },
   {
+   "id": "sean-potter",
+   "name": "Sean Potter",
+   "aliases": [
+    "Sean"
+   ],
+   "tier": "JV",
+   "formName": "Sean Potter",
+   "missingCount": 2,
+   "owed": [
+    {
+     "date": "2026-11-21",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": true,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Sean%20Potter&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20B%20ROW&entry.884907221=2026-11-21&entry.321892841=Traditional"
+    },
+    {
+     "date": "2026-11-22",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": true,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Sean%20Potter&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20B%20ROW&entry.884907221=2026-11-22&entry.321892841=Traditional"
+    }
+   ],
+   "averages": {
+    "withMissing": {
+     "key": null,
+     "trad": 157
+    },
+    "allIn": {
+     "key": null,
+     "trad": 235
+    }
+   },
+   "shifts": {
+    "key": 0,
+    "trad": 6
+   },
+   "submitted": [
+    {
+     "date": "2026-03-28",
+     "event": "Mesa B row",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 470,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-28",
+     "event": "Mesa market place",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 470,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-15",
+     "event": "Mesa Market Place Swapmeet B ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-sean-potter"
+  },
+  {
    "id": "sarah-krick",
    "name": "Sarah Krick",
    "aliases": [
@@ -4256,27 +4339,18 @@
    "averages": {
     "withMissing": {
      "key": null,
-     "trad": 1827
+     "trad": 1958
     },
     "allIn": {
      "key": null,
-     "trad": 1958
+     "trad": 2108
     }
    },
    "shifts": {
     "key": 0,
-    "trad": 15
+    "trad": 14
    },
    "submitted": [
-    {
-     "date": "2025-11-21",
-     "event": "Dayspring Holiday Boutique",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-22",
      "event": "Dayspring Holiday Boutique",
@@ -4477,80 +4551,6 @@
     }
    ],
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-sarah-krick"
-  },
-  {
-   "id": "sean-potter",
-   "name": "Sean Potter",
-   "aliases": [
-    "Sean"
-   ],
-   "tier": "JV",
-   "formName": "Sean Potter",
-   "missingCount": 1,
-   "owed": [
-    {
-     "date": "2026-11-21",
-     "event": "Mesa Market Place Swapmeet B ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": true,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Sean%20Potter&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20B%20ROW&entry.884907221=2026-11-21&entry.321892841=Traditional"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": null,
-     "trad": 188
-    },
-    "allIn": {
-     "key": null,
-     "trad": 235
-    }
-   },
-   "shifts": {
-    "key": 0,
-    "trad": 5
-   },
-   "submitted": [
-    {
-     "date": "2026-03-28",
-     "event": "Mesa B row",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 470,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-28",
-     "event": "Mesa market place",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 470,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-14",
-     "event": "Mesa Market Place Swapmeet B ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-15",
-     "event": "Mesa Market Place Swapmeet B ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-sean-potter"
   },
   {
    "id": "alan-hernandez",
@@ -7974,27 +7974,18 @@
    "averages": {
     "withMissing": {
      "key": null,
-     "trad": 382
+     "trad": 205
     },
     "allIn": {
      "key": null,
-     "trad": 382
+     "trad": 205
     }
    },
    "shifts": {
     "key": 0,
-    "trad": 13
+    "trad": 12
    },
    "submitted": [
-    {
-     "date": "2025-11-21",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 2501,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-28",
      "event": "Chandler fashion Center",
