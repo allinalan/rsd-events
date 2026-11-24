@@ -1,10 +1,10 @@
 {
  "v": 1,
- "generatedAt": "2026-11-23T03:04:19.376Z",
- "feedPulledAt": "2026-11-23T03:03:11.820Z",
+ "generatedAt": "2026-11-24T03:04:21.901Z",
+ "feedPulledAt": "2026-11-24T03:03:13.775Z",
  "window": {
-  "from": "2025-11-22",
-  "to": "2026-11-22"
+  "from": "2025-11-23",
+  "to": "2026-11-23"
  },
  "tierLines": {
   "ELITE": {
@@ -247,27 +247,18 @@
    "averages": {
     "withMissing": {
      "key": 1654,
-     "trad": 1223
+     "trad": 1193
     },
     "allIn": {
      "key": 2895,
-     "trad": 2217
+     "trad": 2226
     }
    },
    "shifts": {
     "key": 14,
-    "trad": 29
+    "trad": 28
    },
    "submitted": [
-    {
-     "date": "2025-11-22",
-     "event": "Goodguys Southwest Nationals",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 2084,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-12-05",
      "event": "Dirt Expo",
@@ -2699,27 +2690,18 @@
    "averages": {
     "withMissing": {
      "key": 1505,
-     "trad": 1024
+     "trad": 1038
     },
     "allIn": {
      "key": 1505,
-     "trad": 1096
+     "trad": 1111
     }
    },
    "shifts": {
     "key": 17,
-    "trad": 77
+    "trad": 76
    },
    "submitted": [
-    {
-     "date": "2025-11-22",
-     "event": "Gilbert Days Rodeo",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-23",
      "event": "Gilbert Days Rodeo",
@@ -3852,233 +3834,6 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-adam-conroy"
   },
   {
-   "id": "craig-coker",
-   "name": "Craig Coker",
-   "aliases": [
-    "Craig"
-   ],
-   "tier": "JV",
-   "formName": "Craig Coker",
-   "missingCount": 4,
-   "owed": [
-    {
-     "date": "2026-11-13",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Craig%20Coker&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-13&entry.321892841=Traditional"
-    },
-    {
-     "date": "2026-11-20",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Craig%20Coker&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-20&entry.321892841=Traditional"
-    },
-    {
-     "date": "2026-11-21",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": true,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Craig%20Coker&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-21&entry.321892841=Traditional"
-    },
-    {
-     "date": "2026-11-22",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": true,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Craig%20Coker&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-22&entry.321892841=Traditional"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": null,
-     "trad": 405
-    },
-    "allIn": {
-     "key": null,
-     "trad": 495
-    }
-   },
-   "shifts": {
-    "key": 0,
-    "trad": 22
-   },
-   "submitted": [
-    {
-     "date": "2025-11-22",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 984,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2025-11-23",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 290,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-09",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-10",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-11",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 45,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-16",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-17",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 197,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-18",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 2335,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-23",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-24",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-01-25",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-27",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1980,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-02-28",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 115,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-31",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 95,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-01",
-     "event": "Mesa Market Place Swapmeet A ROW",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-06",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 975,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-07",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1455,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-11-08",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 440,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-craig-coker"
-  },
-  {
    "id": "luke-mills",
    "name": "Luke Mills",
    "aliases": [
@@ -4249,7 +4004,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Sean%20Potter&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20B%20ROW&entry.884907221=2026-11-21&entry.321892841=Traditional"
     },
     {
@@ -4258,7 +4013,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Sean%20Potter&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20B%20ROW&entry.884907221=2026-11-22&entry.321892841=Traditional"
     }
    ],
@@ -4317,6 +4072,224 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-sean-potter"
   },
   {
+   "id": "craig-coker",
+   "name": "Craig Coker",
+   "aliases": [
+    "Craig"
+   ],
+   "tier": "JV",
+   "formName": "Craig Coker",
+   "missingCount": 1,
+   "owed": [
+    {
+     "date": "2026-11-13",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Craig%20Coker&entry.984069513=Mesa%20Market%20Place%20Swapmeet%20A%20ROW&entry.884907221=2026-11-13&entry.321892841=Traditional"
+    }
+   ],
+   "averages": {
+    "withMissing": {
+     "key": null,
+     "trad": 460
+    },
+    "allIn": {
+     "key": null,
+     "trad": 483
+    }
+   },
+   "shifts": {
+    "key": 0,
+    "trad": 21
+   },
+   "submitted": [
+    {
+     "date": "2025-11-23",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 290,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-09",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-10",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-11",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 45,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-16",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-17",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 197,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-18",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 2335,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-23",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-24",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-01-25",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-27",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 1980,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-02-28",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 115,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-31",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 95,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-01",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 0,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-06",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 975,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-07",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 1455,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-08",
+     "event": "Mesa Marketplace",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 440,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-20",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 629,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-21",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 595,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-22",
+     "event": "Mesa Market Place Swapmeet A ROW",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 518,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-craig-coker"
+  },
+  {
    "id": "sarah-krick",
    "name": "Sarah Krick",
    "aliases": [
@@ -4339,11 +4312,11 @@
    "averages": {
     "withMissing": {
      "key": null,
-     "trad": 1958
+     "trad": 1702
     },
     "allIn": {
      "key": null,
-     "trad": 2108
+     "trad": 1833
     }
    },
    "shifts": {
@@ -4351,15 +4324,6 @@
     "trad": 14
    },
    "submitted": [
-    {
-     "date": "2025-11-22",
-     "event": "Dayspring Holiday Boutique",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 5160,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-28",
      "event": "Chandler Fashion Square",
@@ -4465,8 +4429,8 @@
      "eventType": "Traditional",
      "shiftLabel": null,
      "cpo": 1574,
-     "counts": false,
-     "note": "mall shift, not counted (only counts when it helps the average)"
+     "counts": true,
+     "note": "mall shift, counted because it helps the average"
     },
     {
      "date": "2025-12-23",
@@ -7215,27 +7179,18 @@
    "averages": {
     "withMissing": {
      "key": 1484,
-     "trad": 648
+     "trad": 660
     },
     "allIn": {
      "key": 1484,
-     "trad": 648
+     "trad": 660
     }
    },
    "shifts": {
     "key": 1,
-    "trad": 51
+    "trad": 49
    },
    "submitted": [
-    {
-     "date": "2025-11-22",
-     "event": "Lake Havasu Christmas Gift and Craft Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-23",
      "event": "Lake Havasu Christmas Gift and Craft Show",
@@ -7287,8 +7242,8 @@
      "eventType": "Traditional",
      "shiftLabel": null,
      "cpo": 690,
-     "counts": true,
-     "note": "mall shift, counted because it helps the average"
+     "counts": false,
+     "note": "mall shift, not counted (only counts when it helps the average)"
     },
     {
      "date": "2025-12-10",
@@ -8320,27 +8275,18 @@
    "averages": {
     "withMissing": {
      "key": 871,
-     "trad": 356
+     "trad": 375
     },
     "allIn": {
      "key": 871,
-     "trad": 356
+     "trad": 375
     }
    },
    "shifts": {
     "key": 11,
-    "trad": 20
+    "trad": 19
    },
    "submitted": [
-    {
-     "date": "2025-11-22",
-     "event": "Crossroads of the West Gun Show - Tucson",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-23",
      "event": "Crossroads of the West Gun Show - Tucson",
