@@ -1,10 +1,10 @@
 {
  "v": 1,
- "generatedAt": "2026-11-25T06:29:53.239Z",
+ "generatedAt": "2026-11-25T15:01:14.775Z",
  "feedPulledAt": "2026-11-25T06:28:54.678Z",
  "window": {
-  "from": "2025-11-24",
-  "to": "2026-11-24"
+  "from": "2025-11-25",
+  "to": "2026-11-25"
  },
  "tierLines": {
   "ELITE": {
@@ -177,7 +177,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Jeffrey&entry.984069513=Goodguys%20Southwest%20Nationals&entry.884907221=2026-11-20&entry.321892841=Traditional"
     },
     {
@@ -186,7 +186,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Jeffrey&entry.984069513=Goodguys%20Southwest%20Nationals&entry.884907221=2026-11-21&entry.321892841=Traditional"
     },
     {
@@ -195,7 +195,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Jeffrey&entry.984069513=Goodguys%20Southwest%20Nationals&entry.884907221=2026-11-22&entry.321892841=Traditional"
     },
     {
@@ -2611,7 +2611,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Gilbert%20Days%20Rodeo&entry.884907221=2026-11-20&entry.321892841=Traditional"
     },
     {
@@ -2620,7 +2620,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Gilbert%20Days%20Rodeo&entry.884907221=2026-11-21&entry.321892841=Traditional"
     },
     {
@@ -2629,7 +2629,7 @@
      "eventType": "Traditional",
      "shiftLabel": "Shift 1",
      "counts": true,
-     "unverified": true,
+     "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Gilbert%20Days%20Rodeo&entry.884907221=2026-11-22&entry.321892841=Traditional"
     },
     {
