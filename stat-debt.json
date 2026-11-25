@@ -1,7 +1,7 @@
 {
  "v": 1,
- "generatedAt": "2026-11-25T03:04:19.665Z",
- "feedPulledAt": "2026-11-25T03:03:19.890Z",
+ "generatedAt": "2026-11-25T06:29:53.239Z",
+ "feedPulledAt": "2026-11-25T06:28:54.678Z",
  "window": {
   "from": "2025-11-24",
   "to": "2026-11-24"
@@ -7152,16 +7152,16 @@
    "averages": {
     "withMissing": {
      "key": 1484,
-     "trad": 647
+     "trad": 643
     },
     "allIn": {
      "key": 1484,
-     "trad": 647
+     "trad": 643
     }
    },
    "shifts": {
     "key": 1,
-    "trad": 49
+    "trad": 51
    },
    "submitted": [
     {
@@ -7746,6 +7746,24 @@
      "eventType": "Traditional",
      "shiftLabel": null,
      "cpo": 1788,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-20",
+     "event": "Dayspring Holiday Boutique",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 575,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-11-21",
+     "event": "Dayspring Holiday Boutique",
+     "eventType": "Traditional",
+     "shiftLabel": null,
+     "cpo": 512,
      "counts": true,
      "note": ""
     }
