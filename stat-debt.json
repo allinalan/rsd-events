@@ -1,10 +1,10 @@
 {
  "v": 1,
- "generatedAt": "2026-11-24T03:04:21.901Z",
- "feedPulledAt": "2026-11-24T03:03:13.775Z",
+ "generatedAt": "2026-11-25T03:04:19.665Z",
+ "feedPulledAt": "2026-11-25T03:03:19.890Z",
  "window": {
-  "from": "2025-11-23",
-  "to": "2026-11-23"
+  "from": "2025-11-24",
+  "to": "2026-11-24"
  },
  "tierLines": {
   "ELITE": {
@@ -34,17 +34,8 @@
    ],
    "tier": "JV",
    "formName": "Adam Jeffrey",
-   "missingCount": 19,
+   "missingCount": 18,
    "owed": [
-    {
-     "date": "2025-11-23",
-     "event": "Goodguys Southwest Nationals",
-     "eventType": "Traditional",
-     "shiftLabel": "Shift 1",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Adam%20Jeffrey&entry.984069513=Goodguys%20Southwest%20Nationals&entry.884907221=2025-11-23&entry.321892841=Traditional"
-    },
     {
      "date": "2026-03-22",
      "event": "NHRA Nationals",
@@ -247,7 +238,7 @@
    "averages": {
     "withMissing": {
      "key": 1654,
-     "trad": 1193
+     "trad": 1237
     },
     "allIn": {
      "key": 2895,
@@ -256,7 +247,7 @@
    },
    "shifts": {
     "key": 14,
-    "trad": 28
+    "trad": 27
    },
    "submitted": [
     {
@@ -2690,27 +2681,18 @@
    "averages": {
     "withMissing": {
      "key": 1505,
-     "trad": 1038
+     "trad": 1046
     },
     "allIn": {
      "key": 1505,
-     "trad": 1111
+     "trad": 1121
     }
    },
    "shifts": {
     "key": 17,
-    "trad": 76
+    "trad": 75
    },
    "submitted": [
-    {
-     "date": "2025-11-23",
-     "event": "Gilbert Days Rodeo",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 437,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-27",
      "event": "AZ International Auto Show",
@@ -4094,27 +4076,18 @@
    "averages": {
     "withMissing": {
      "key": null,
-     "trad": 460
+     "trad": 469
     },
     "allIn": {
      "key": null,
-     "trad": 483
+     "trad": 494
     }
    },
    "shifts": {
     "key": 0,
-    "trad": 21
+    "trad": 20
    },
    "submitted": [
-    {
-     "date": "2025-11-23",
-     "event": "Mesa Marketplace",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 290,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2026-01-09",
      "event": "Mesa Marketplace",
@@ -7179,11 +7152,11 @@
    "averages": {
     "withMissing": {
      "key": 1484,
-     "trad": 660
+     "trad": 647
     },
     "allIn": {
      "key": 1484,
-     "trad": 660
+     "trad": 647
     }
    },
    "shifts": {
@@ -7191,15 +7164,6 @@
     "trad": 49
    },
    "submitted": [
-    {
-     "date": "2025-11-23",
-     "event": "Lake Havasu Christmas Gift and Craft Show",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 1329,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-11-28",
      "event": "Feztival of Trees Winterfest 2025",
@@ -7242,8 +7206,8 @@
      "eventType": "Traditional",
      "shiftLabel": null,
      "cpo": 690,
-     "counts": false,
-     "note": "mall shift, not counted (only counts when it helps the average)"
+     "counts": true,
+     "note": "mall shift, counted because it helps the average"
     },
     {
      "date": "2025-12-10",
@@ -8275,27 +8239,18 @@
    "averages": {
     "withMissing": {
      "key": 871,
-     "trad": 375
+     "trad": 396
     },
     "allIn": {
      "key": 871,
-     "trad": 375
+     "trad": 396
     }
    },
    "shifts": {
     "key": 11,
-    "trad": 19
+    "trad": 18
    },
    "submitted": [
-    {
-     "date": "2025-11-23",
-     "event": "Crossroads of the West Gun Show - Tucson",
-     "eventType": "Traditional",
-     "shiftLabel": null,
-     "cpo": 0,
-     "counts": true,
-     "note": ""
-    },
     {
      "date": "2025-12-05",
      "event": "Tempe Festival of the Arts - Booth #1 1126",
