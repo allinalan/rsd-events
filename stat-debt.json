@@ -1,10 +1,10 @@
 {
  "v": 1,
- "generatedAt": "2026-11-26T06:07:34.663Z",
- "feedPulledAt": "2026-11-26T03:04:56.033Z",
+ "generatedAt": "2026-11-27T03:02:01.258Z",
+ "feedPulledAt": "2026-11-27T03:00:43.113Z",
  "window": {
-  "from": "2025-11-25",
-  "to": "2026-11-25"
+  "from": "2025-11-26",
+  "to": "2026-11-26"
  },
  "tierLines": {
   "ELITE": {
@@ -2809,161 +2809,6 @@
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-adam-conroy"
   },
   {
-   "id": "luke-mills",
-   "name": "Luke Mills",
-   "aliases": [
-    "Luke"
-   ],
-   "tier": "LEADER",
-   "formName": "Luke Mills",
-   "missingCount": 3,
-   "owed": [
-    {
-     "date": "2026-01-09",
-     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": "Shift 2",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-09&entry.321892841=Key"
-    },
-    {
-     "date": "2026-01-10",
-     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": "Shift 2",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-10&entry.321892841=Key"
-    },
-    {
-     "date": "2026-01-11",
-     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
-     "eventType": "Key",
-     "shiftLabel": "Shift 2",
-     "counts": true,
-     "unverified": false,
-     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-11&entry.321892841=Key"
-    }
-   ],
-   "averages": {
-    "withMissing": {
-     "key": 4825,
-     "trad": null
-    },
-    "allIn": {
-     "key": 6141,
-     "trad": null
-    }
-   },
-   "shifts": {
-    "key": 14,
-    "trad": 0
-   },
-   "submitted": [
-    {
-     "date": "2026-03-06",
-     "event": "Maricopa County Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 5004,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-07",
-     "event": "Maricopa County Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 3466,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-03-08",
-     "event": "Maricopa County Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 9611,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-01",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 1959,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-02",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4705,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-05-03",
-     "event": "Maricopa County Home & Flower Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 4070,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-07-18",
-     "event": "Maricopa County Summer Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 13557,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-07-19",
-     "event": "Maricopa County Summer Home & Landscape Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 8643,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-02",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 2967,
-     "counts": true,
-     "note": "the stat form had it dated 2026-10-04"
-    },
-    {
-     "date": "2026-10-03",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 5096,
-     "counts": true,
-     "note": ""
-    },
-    {
-     "date": "2026-10-04",
-     "event": "Maricopa County Home & Garden Show",
-     "eventType": "Key",
-     "shiftLabel": null,
-     "cpo": 8473,
-     "counts": true,
-     "note": ""
-    }
-   ],
-   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-luke-mills"
-  },
-  {
    "id": "johnathan-parker",
    "name": "Johnathan Parker",
    "aliases": [
@@ -2977,7 +2822,7 @@
    ],
    "tier": "VARSITY",
    "formName": "Johnathan Parker",
-   "missingCount": 2,
+   "missingCount": 3,
    "owed": [
     {
      "date": "2026-11-06",
@@ -2996,6 +2841,15 @@
      "counts": true,
      "unverified": false,
      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Page-Lake%20Powell%20Balloon%20Festival&entry.884907221=2026-11-07&entry.321892841=Traditional"
+    },
+    {
+     "date": "2026-11-26",
+     "event": "Arizona International Auto Show",
+     "eventType": "Traditional",
+     "shiftLabel": "Shift 1",
+     "counts": true,
+     "unverified": true,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Johnathan%20Parker&entry.984069513=Arizona%20International%20Auto%20Show&entry.884907221=2026-11-26&entry.321892841=Traditional"
     },
     {
      "date": "2026-02-04",
@@ -3046,7 +2900,7 @@
    "averages": {
     "withMissing": {
      "key": 1505,
-     "trad": 1035
+     "trad": 1022
     },
     "allIn": {
      "key": 1505,
@@ -3055,7 +2909,7 @@
    },
    "shifts": {
     "key": 17,
-    "trad": 76
+    "trad": 77
    },
    "submitted": [
     {
@@ -3978,6 +3832,161 @@
     }
    ],
    "pageUrl": "https://allinalan.github.io/rsd-events/#rep-johnathan-parker"
+  },
+  {
+   "id": "luke-mills",
+   "name": "Luke Mills",
+   "aliases": [
+    "Luke"
+   ],
+   "tier": "LEADER",
+   "formName": "Luke Mills",
+   "missingCount": 3,
+   "owed": [
+    {
+     "date": "2026-01-09",
+     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-09&entry.321892841=Key"
+    },
+    {
+     "date": "2026-01-10",
+     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-10&entry.321892841=Key"
+    },
+    {
+     "date": "2026-01-11",
+     "event": "Maricopa Booth #3 (Exhibit Building) (#135/137) (10x20 Corner)",
+     "eventType": "Key",
+     "shiftLabel": "Shift 2",
+     "counts": true,
+     "unverified": false,
+     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdSS9TZv1UfqpA8cfAs_FWOBN24wP-fX_O_sRiPPjrsA1E5bw/viewform?usp=pp_url&entry.37139300=Luke%20Mills&entry.984069513=Maricopa%20Booth%20%233%20(Exhibit%20Building)%20(%23135%2F137)%20(10x20%20Corner)&entry.884907221=2026-01-11&entry.321892841=Key"
+    }
+   ],
+   "averages": {
+    "withMissing": {
+     "key": 4825,
+     "trad": null
+    },
+    "allIn": {
+     "key": 6141,
+     "trad": null
+    }
+   },
+   "shifts": {
+    "key": 14,
+    "trad": 0
+   },
+   "submitted": [
+    {
+     "date": "2026-03-06",
+     "event": "Maricopa County Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 5004,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-07",
+     "event": "Maricopa County Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 3466,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-03-08",
+     "event": "Maricopa County Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 9611,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-01",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 1959,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-02",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4705,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-05-03",
+     "event": "Maricopa County Home & Flower Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 4070,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-07-18",
+     "event": "Maricopa County Summer Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 13557,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-07-19",
+     "event": "Maricopa County Summer Home & Landscape Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 8643,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-02",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 2967,
+     "counts": true,
+     "note": "the stat form had it dated 2026-10-04"
+    },
+    {
+     "date": "2026-10-03",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 5096,
+     "counts": true,
+     "note": ""
+    },
+    {
+     "date": "2026-10-04",
+     "event": "Maricopa County Home & Garden Show",
+     "eventType": "Key",
+     "shiftLabel": null,
+     "cpo": 8473,
+     "counts": true,
+     "note": ""
+    }
+   ],
+   "pageUrl": "https://allinalan.github.io/rsd-events/#rep-luke-mills"
   },
   {
    "id": "alan-hernandez",
